@@ -6,7 +6,7 @@ from pprint import pprint
 
 # CONSTANTS
 
-BASE = "/storage2/vlad/PDB"
+BASE = "/home/vlad/Documents/Code/pdb-data-mining/PDB/"
 
 # FUNCTION DECLARATIONS
 

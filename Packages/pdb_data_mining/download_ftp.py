@@ -8,7 +8,7 @@ from pprint import pprint
 
 # CONSTANTS
 
-BASE = "/storage2/vlad/PDB"
+BASE = "/storage2/vlad/PDB/"
 
 # FUNCTION DECLARATIONS
 
@@ -42,11 +42,13 @@ def search(base, ftp):
         # Iterate through each file in the current subdirectory
         for file in [value for value in files if value is not None]:
             pprint ("Reading the " + file[0] + " file.")
+            #Store each file in the sub-directory created earlier
+            dest_subdirectory = os.path.join(base, folder)
+            dest_file = os.path.join(dest_subdirectory, file[0])
+            pprint("The file's destination directory: {0}".format(dest_file))
+            decompressed_file = dest_file[:-3]
+
             if file[0].endswith(".gz"):
-                #Store each file in the sub-directory created earlier
-                dest_subdirectory = os.path.join(base, folder)
-                dest_file = os.path.join(dest_subdirectory, file[0])
-                decompressed_file = dest_file[:-3]
                 # Check if the compressed file has already been decompressed into a XML file
                 if os.path.isfile(decompressed_file):
                     pprint ("The file " + file[0][:-3] + " has already been downloaded.")
@@ -62,8 +64,8 @@ def search(base, ftp):
                     src_subdirectory = os.path.join(base, folder)
 
                     for src_name in glob.glob(os.path.join(src_subdirectory, '*.gz')):
-                        base = os.path.basename(src_name)
-                        dest_name = os.path.join(dest_subdirectory, base[:-3])
+                        base_name = os.path.basename(src_name)
+                        dest_name = os.path.join(dest_subdirectory, base_name[:-3])
                         with gzip.open(src_name, 'rb') as compressed:
                             with open(dest_name, 'wb') as decompressed:
                                 for line in compressed:
