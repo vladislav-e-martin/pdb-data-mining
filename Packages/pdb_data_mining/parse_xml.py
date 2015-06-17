@@ -2,6 +2,7 @@
 
 import xml.etree.ElementTree as ET
 import os
+from pprint import pprint
 
 # CONSTANTS
 
@@ -36,7 +37,7 @@ def extract(files):
         # Check if the file can be parsed
         try:
             tree = ET.parse(file)
-        # If it cannot be parsed, it is corrupted and must be deleted and redownloaded
+        # If it cannot be parsed, it is corrupted and must be deleted and re-downloaded
         except:
             pprint("This XML file is corrupt (either a result of improper communication with the FTP site or an interrupted downloading process).")
             pprint("Deleting the corrupt XML file.")
@@ -48,7 +49,6 @@ def extract(files):
 
     # Number of protein atoms
     for element in root.findall("./PDBx:refine_histCategory/PDBx:refine_hist/PDBx:pdbx_number_atoms_protein", namespace):
-        full_count += 1
         count = int(element.text)
         data[index].append(count)
     
@@ -63,18 +63,16 @@ def extract(files):
         data[index].append(method)
     
     # Matthew's density and density percent for solution
-    for tag in root.findall("./PDBx:exptl_crystalCategory", namespace):
-        for element in tag:
-            pprint("Contents: " + element.text)
+    for element in root.findall("./PDBx:exptl_crystalCategory/PDBx:exptl_crystal", namespace):
+        pprint("Contents: " + element.text)
     # Methods for crystallization, pH of entire setup, temperature of entire setup, and details (everything from pH to end can be ignored in details section)
-    for tag in root.findall("./PDBx:exptl_crystal_growCategory", namespace):
-        for element in tag
-            pprint("Contents: " + element.text)
+    for element in root.findall("./PDBx:exptl_crystal_growCategory/PDBx:exptl_crystal_grow", namespace):
+        pprint("Contents: " + element.text)
 
     return data
 
 # Sort the structures that do not meet the criteria from the list
-def sort(unsorted)
+def sort(unsorted):
     # Number of rows contained in the refined list
     r_row = 0
     refined = []
@@ -107,16 +105,10 @@ def sort(unsorted)
     return refined    
 # VARIABLE DECLARATIONS
 
-# 1D list to store filepaths to all downloaded structures
-listing = []
-
 # 2D list to store only relevant information of each downloaded structure
-data = []
-data.append([])
-
+data = [[]]
 # 2D list to store only relevant information of acceptable structures
-sorted_data = []
-sorted_data.append([])
+sorted_data = [[]]
 
 # MAIN BODY
 

@@ -12,6 +12,17 @@ BASE = "/storage2/vlad/PDB"
 
 # FUNCTION DECLARATIONS
 
+# Connect to FTP site
+def connect(base):
+    ftp = FTP("ftp.wwpdb.org")
+    ftp.login()
+    pprint("Connected to the FTP site!")
+
+    # Navigate to appropriate directory
+    ftp.cwd("/pub/pdb/data/structures/divided/XML/")
+    return ftp
+
+# Search the FTP site
 def search(base, ftp):
     folders = ftp.nlst()
     # Iterate through each subdirectory containing all the protein structures
@@ -27,9 +38,7 @@ def search(base, ftp):
         except:
                 pass
 
-        
         files = ftp.mlsd()
-
         # Iterate through each file in the current subdirectory
         for file in [value for value in files if value is not None]:
             pprint ("Reading the " + file[0] + " file.")
@@ -61,13 +70,10 @@ def search(base, ftp):
                                     decompressed.write(line)
         ftp.cwd('../')
 
-# Connect to FTP site
-ftp = FTP("ftp.wwpdb.org")
-ftp.login()
+def disconnect(BASE, ftp):
+    pprint("Disconnecting from the FTP site...")
+    ftp.quit()
 
-# Navigate to appropriate directory
-ftp.cwd("/pub/pdb/data/structures/divided/XML/")
-
-search(BASE, ftp)
-
-ftp.quit()
+connection = connect(BASE)
+search(BASE, connection)
+disconnect(BASE, connection)
