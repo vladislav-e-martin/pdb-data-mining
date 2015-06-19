@@ -22,12 +22,36 @@ def connect(base):
     ftp.cwd("/pub/pdb/data/structures/divided/XML/")
     return ftp
 
-# Search the FTP site
-def search(base, ftp):
+def split_load(base, ftp):
+    file_count = 0
     folders = ftp.nlst()
     # Iterate through each subdirectory containing all the protein structures
     for folder in folders:
         pprint ("Searching the " + folder + " directory.")
+
+        # Open the directory
+        ftp.cwd(folder)
+
+        files = ftp.mlsd()
+        # Iterate through each file in the current subdirectory
+        for file in [value for value in files if value is not None]:
+            file_count += 1
+        ftp.cwd('../')
+    return file_count
+
+# Search the FTP site
+def search(base, ftp, start_shift, end_shift):
+    current_period = 0
+    folders = ftp.nlst()
+    # Iterate through each subdirectory containing all the protein structures
+    for folder in folders:
+        pprint ("Searching the " + folder + " directory.")
+
+        # Wait until it is time to start downloading from directories
+        if (current_period < start_shift):
+            continue
+        if (current_period >= end_shift):
+            continue
 
         # Open the directory
         ftp.cwd(folder)
@@ -75,7 +99,3 @@ def search(base, ftp):
 def disconnect(BASE, ftp):
     pprint("Disconnecting from the FTP site...")
     ftp.quit()
-
-connection = connect(BASE)
-search(BASE, connection)
-disconnect(BASE, connection)

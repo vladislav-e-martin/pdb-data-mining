@@ -55,20 +55,3 @@ def print_database(connection, table, column):
     sort_command = "SELECT * FROM {0} ORDER BY {1}".format(table, column)
     for row in cursor.execute(sort_command):
         print(row)
-
-# MAIN BODY
-
-listing = [("0A41", "0", "1.80", "X-RAY DIFFRACTION", "2.35", "46.79"),
-           ("4ATX", "306", "2.40", "X-RAY DIFFRACTION", "2.16", "35.45")]
-
-# Create a new database
-connection = connect_database(BASE)
-# Add a new table to the database
-add_table(connection, "information")
-# Insert a row of values
-add_row(connection, "information", listing)
-
-print_database(connection, "information", "resolution")
-
-# Commit changes and disconnect from the datbase
-commit_changes(connection)

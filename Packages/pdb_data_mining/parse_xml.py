@@ -60,11 +60,17 @@ def fill_raw(files, columns):
                 data[index][current_col] = method
                 current_col += 1
 
+            found_first = False
             # Details of the crystallization conditions for the structure
             for element in root.findall("./PDBx:exptl_crystal_growCategory/PDBx:exptl_crystal_grow/PDBx:pdbx_details",
                                         namespace):
-                data[index][current_col] = element.text
-                current_col += 1
+                if found_first == False:
+                    data[index][current_col] = element.text
+                    file = open("/storage2/vlad/Test/all_keywords.txt", 'a')
+                    file.write(element.text + "\n")
+                    found_first = True
+                else:
+                    pass
         except ET.ParseError:
             pprint("This file could not be parsed. Deleting the file so it may be downloaded again...")
             os.remove(file)
@@ -90,8 +96,10 @@ def filter_indices(unsorted, columns):
     # Check the rows against the specified criteria
     for index in range(len(unsorted)):
         try:
-            # Store the index of the rows that do meet the criteria
-            if unsorted[index][a_i] > 0 and unsorted[index][r_i] <= resolution and unsorted[index][m_i] == method:
+            # Store the index of the rows that do meet the criteria (The result of this is the overlap of those that
+            # have structures and those that meet the criteria)
+            pprint("The details are: {0}".format(unsorted[index][3]))
+            if unsorted[index][a_i] > 0 and unsorted[index][r_i] <= resolution and unsorted[index][m_i] == method and unsorted[index][3] != 0:
                 indices.append(index)
                 pprint("The index {0} is worth noting!".format(index))
             # Ignore the rows if they do not meet the criteria
@@ -134,36 +142,6 @@ def fill_sorted(files, indices, columns):
                     data[current_index][current_col] = resolution
                     pprint(data[current_index][current_col])
                     current_col += 1
-                current_index += 1
-            except ET.ParseError:
-                pprint("This file could not be parsed. Deleting the file so it may be downloaded again...")
-                os.remove(file)
-                pass
-        else:
-            pass
-
-    return data
-
-# Fill a list with only the crystallization information of each structure that will be stored in the database
-def fill_details(files, indices):
-    data = []
-
-    current_index = 0
-    for index, file in enumerate(files):
-        if index == indices[current_index]:
-            try:
-                pprint("Current index: {0}".format(current_index))
-                tree = ET.parse(file)
-
-                root = tree.getroot()
-                # Make XPATHs simpler
-                namespace = {'PDBx': 'http://pdbml.pdb.org/schema/pdbx-v40.xsd'}
-
-                # Resolution of the structure
-                for element in root.findall("./PDBx:exptl_crystal_growCategory/PDBx:exptl_crystal_grow/PDBx:pdbx_details",
-                                        namespace):
-                    data.append(element.text)
-                    pprint(len(data))
                 current_index += 1
             except ET.ParseError:
                 pprint("This file could not be parsed. Deleting the file so it may be downloaded again...")
