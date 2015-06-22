@@ -1,10 +1,9 @@
 # LIBRARIES AND PACKAGES
 
 import sqlite3 as SQL
+from pprint import pprint
 
 # CONSTANTS
-
-BASE = "E:/Code/Python Projects/pdb-data-mining/Database/information.db"
 
 # FUNCTION DECLARATIONS
 
@@ -21,25 +20,36 @@ def add_table(connection, table):
     create_command = "CREATE TABLE {0} (id text, atoms real, resolution real, method text, " \
                      "matthews real, percent_solvent real)".format(table)
     # Ensure that each row can be identified uniquely from every other row
-    unique_command = "CREATE UNIQUE INDEX unique_id ON {0}(id)".format(table)
+    unique_command = "CREATE UNIQUE INDEX entry_id ON {0}(id)".format(table)
     try:
         print("Creating table {0}.".format(table))
         cursor.execute(create_command)
-    except:
+    except SQL.IntegrityError:
         print("The table {0} already exists!".format(table))
     try:
         print("Creating a unique index.")
         cursor.execute(unique_command)
-    except:
+    except SQL.IntegrityError:
         print("This table already has a unique index.")
 
 
+# Add a value into either a new column if the specified header does not exist or the existing column
+# in the current row of the table
+def add_column(connection, name, value, header):
+    cursor = connection.cursor()
+    new_command = "ALTER TABLE {0} ADD COLUMN {1} text".format(name, header)
+    existing_command = "INSERT INTO {0}({1}) VALUES (?)".format(name, header)
+    try:
+        cursor.execute(new_command)
+    except SQL.IntegrityError:
+        cursor.execute(existing_command)
+
+
+# Add a row of new values to the table
 def add_row(connection, name, values):
     cursor = connection.cursor()
     command = "INSERT OR REPLACE INTO {0} VALUES (?,?,?,?,?,?)".format(name)
-    print(command)
     cursor.executemany(command, values)
-
 
 # Commit changes to existing database
 def commit_changes(connection):
@@ -49,7 +59,7 @@ def commit_changes(connection):
     connection.close()
 
 
-# Testing purposes
+# Print out the contents of a database, ordered by a specified column
 def print_database(connection, table, column):
     cursor = connection.cursor()
     sort_command = "SELECT * FROM {0} ORDER BY {1}".format(table, column)
