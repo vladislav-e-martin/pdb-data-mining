@@ -32,18 +32,18 @@ def count_archives(base, ftp):
 
 # Download files from the wwPDB
 def download(base, ftp, start_shift, end_shift):
-    current_period = 0
+    current_shift = 0
     folders = ftp.nlst()
     # Iterate through each subdirectory containing all the protein structures
     for folder in folders:
-        current_period += 1
+        current_shift += 1
         pprint("Searching the " + folder + " directory.")
 
         # Wait until it is time to start downloading from directories
-        if (current_period < start_shift):
+        if (current_shift < start_shift):
             pprint("Skipping this directory...")
             continue
-        if (current_period >= end_shift):
+        if (current_shift >= end_shift):
             break
 
         # Open the directory
@@ -51,7 +51,7 @@ def download(base, ftp, start_shift, end_shift):
 
         # Store each sub-directory in it's own folder locally
         try:
-            os.mkdir(base + folder)
+            os.mkdir(os.path.join(base, folder))
         except:
             pass
 
@@ -62,7 +62,6 @@ def download(base, ftp, start_shift, end_shift):
             # Store each file in the sub-directory created earlier
             dest_subdirectory = os.path.join(base, folder)
             dest_file = os.path.join(dest_subdirectory, file[0])
-            pprint("The file's destination directory: {0}".format(dest_file))
             decompressed_file = dest_file[:-3]
 
             if file[0].endswith(".gz"):
@@ -90,6 +89,6 @@ def download(base, ftp, start_shift, end_shift):
         ftp.cwd('../')
 
 
-def disconnect(base, ftp):
+def disconnect(ftp):
     pprint("Disconnecting from the FTP site...")
     ftp.quit()

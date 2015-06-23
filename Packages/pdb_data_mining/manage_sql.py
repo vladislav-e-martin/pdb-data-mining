@@ -17,19 +17,19 @@ def connect_database(folder):
 def add_table(connection, table):
     cursor = connection.cursor()
     # Create a table of the provided name
-    create_command = "CREATE TABLE {0} (id text, atoms real, resolution real, method text, " \
-                     "matthews real, percent_solvent real)".format(table)
+    create_command = "CREATE TABLE {0} (id text, resolution real, matthews real, percent_solvent real, pH real, " \
+                     "temp real, details text)".format(table)
     # Ensure that each row can be identified uniquely from every other row
     unique_command = "CREATE UNIQUE INDEX entry_id ON {0}(id)".format(table)
     try:
         print("Creating table {0}.".format(table))
         cursor.execute(create_command)
-    except SQL.IntegrityError:
+    except SQL.OperationalError:
         print("The table {0} already exists!".format(table))
     try:
         print("Creating a unique index.")
         cursor.execute(unique_command)
-    except SQL.IntegrityError:
+    except SQL.OperationalError:
         print("This table already has a unique index.")
 
 
@@ -48,7 +48,7 @@ def add_column(connection, name, value, header):
 # Add a row of new values to the table
 def add_row(connection, name, values):
     cursor = connection.cursor()
-    command = "INSERT OR REPLACE INTO {0} VALUES (?,?,?,?,?,?)".format(name)
+    command = "INSERT OR REPLACE INTO {0} VALUES (?,?,?,?,?,?,?)".format(name)
     cursor.executemany(command, values)
 
 # Commit changes to existing database
