@@ -42,61 +42,59 @@ def fill_raw(files, columns):
             # Number of protein atoms
             for element in root.findall("./PDBx:refine_histCategory/PDBx:refine_hist/PDBx:pdbx_number_atoms_protein",
                                         namespace):
-                if element is not None:
-                    count = int(element.text)
-                    data[index][current_col] = count
-                    current_col += 1
-                else:
-                    pass
+                count = int(element.text)
+                data[index][current_col] = count
+                current_col += 1
 
             # Resolution of structure
             for element in root.findall("./PDBx:reflnsCategory/PDBx:reflns/PDBx:d_resolution_high", namespace):
-                if element is not None:
-                    resolution = float(element.text)
-                    data[index][current_col] = resolution
-                    current_col += 1
-                else:
-                    pass
+                resolution = float(element.text)
+                data[index][current_col] = resolution
+                current_col += 1
 
             # Method used to analyze structure
             for element in root.findall("./PDBx:exptlCategory/PDBx:exptl", namespace):
-                if element is not None:
-                    method = element.get('method')
-                    data[index][current_col] = method
-                    current_col += 1
-                else:
-                    pass
+                method = element.get('method')
+                data[index][current_col] = method
+                current_col += 1
 
             # Matthew's density
             for element in root.findall("./PDBx:exptl_crystalCategory/PDBx:exptl_crystal/PDBx:density_Matthews",
                                         namespace):
-                if element is not None:
-                    matthew_density = float(element.text)
-                    data[index][current_col] = matthew_density
-                    current_col += 1
-                else:
-                    pass
+                matthew_density = float(element.text)
+                data[index][current_col] = matthew_density
+                current_col += 1
 
             # Percent solvent density
             for element in root.findall("./PDBx:exptl_crystalCategory/PDBx:exptl_crystal/PDBx:density_Matthews",
                                         namespace):
-                if element is not None:
-                    percent_density = float(element.text)
-                    data[index][current_col] = percent_density
-                    current_col += 1
+                percent_density = float(element.text)
+                data[index][current_col] = percent_density
+                current_col += 1
+
+            # pH of solution
+            for element in root.findall("./PDBx:exptl_crystal_growCategory/PDBx:exptl_crystal_grow/PDBx:pH"):
+                pH = float(element.text)
+                data[index][current_col] = pH
+                current_col += 1
+
+            # Temperature of solution
+            for element in root.findall("./PDBx:exptl_crystal_growCategory/PDBx:exptl_crystal_grow/PDBx:temp"):
+                temp = float(element.text)
+                data[index][current_col] = temp
+                current_col += 1
+
+            found = False
+            # Details of the crystallization conditions for the structure
+            for element in root.findall("./PDBx:exptl_crystal_growCategory/PDBx:exptl_crystal_grow/PDBx:pdbx_details",
+                                        namespace):
+                if not found:
+                    data[index][current_col] = element.text
+                    file = open("/storage2/vlad/Test/all_keywords.txt", 'a')
+                    file.write(element.text + "\n")
+                    found == True
                 else:
                     pass
-                    # found = False
-                    # # Details of the crystallization conditions for the structure
-                    # for element in root.findall("./PDBx:exptl_crystal_growCategory/PDBx:exptl_crystal_grow/PDBx:pdbx_details",
-                    #                             namespace):
-                    #     if not found:
-                    #         data[index][current_col] = element.text
-                    #         file = open("/storage2/vlad/Test/all_keywords.txt", 'a')
-                    #         file.write(element.text + "\n")
-                    #         found == True
-                    #     else:
-                    #         pass
         except ET.ParseError:
             pprint("This file could not be parsed. Deleting the file so it may be downloaded again...")
             os.remove(file)
@@ -149,6 +147,9 @@ def fill_sorted(raw, indices, columns):
             data[new_index][0] = raw[index][1]
             data[new_index][1] = raw[index][3]
             data[new_index][2] = raw[index][4]
+            data[new_index][3] = raw[index][5]
+            data[new_index][4] = raw[index][6]
+            data[new_index][5] = raw[index][7]
             new_index += 1
         else:
             pass

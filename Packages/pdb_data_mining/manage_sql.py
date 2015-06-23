@@ -42,7 +42,7 @@ def add_column(connection, name, value, header):
     try:
         cursor.execute(new_command)
     except SQL.IntegrityError:
-        cursor.execute(existing_command)
+        cursor.execute(existing_command, value)
 
 
 # Add a row of new values to the table

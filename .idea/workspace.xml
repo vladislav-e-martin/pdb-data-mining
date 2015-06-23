@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ebdf545b-6912-42f8-ab83-75fffc3743fc" name="Default" comment="June 19th, 2015&#10;- analyze_string.py added to the pdb_data_mining package&#10;- Several bugs remain in some of the code of the files in the pdb_data_mining package">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Packages/pdb_data_mining/download_ftp.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Packages/pdb_data_mining/download_text.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Packages/pdb_data_mining/download_xml.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Packages/pdb_data_mining/database_sql.py" afterPath="$PROJECT_DIR$/Packages/pdb_data_mining/manage_sql.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packages/pdb_data_mining/analyze_string.py" afterPath="$PROJECT_DIR$/Packages/pdb_data_mining/analyze_string.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packages/pdb_data_mining/parse_text.py" afterPath="$PROJECT_DIR$/Packages/pdb_data_mining/parse_text.py" />
+    <list default="true" id="ebdf545b-6912-42f8-ab83-75fffc3743fc" name="Default" comment="June 22nd, 2015&#10;- Finished download_ftp.py, parse_xml.py, manage_sql.py... all are in working order&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packages/pdb_data_mining/manage_sql.py" afterPath="$PROJECT_DIR$/Packages/pdb_data_mining/manage_sql.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packages/pdb_data_mining/parse_xml.py" afterPath="$PROJECT_DIR$/Packages/pdb_data_mining/parse_xml.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/pdb-data-mining.iml" afterPath="$PROJECT_DIR$/.idea/pdb-data-mining.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pdb-data-mining.iws" />
@@ -33,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="parse_xml.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="parse_xml.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Packages/pdb_data_mining/parse_xml.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="147" column="46" selection-start-line="147" selection-start-column="46" selection-end-line="147" selection-end-column="46" />
+            <state vertical-scroll-proportion="1.7894737">
+              <caret line="118" column="51" selection-start-line="118" selection-start-column="51" selection-end-line="118" selection-end-column="51" />
               <folding>
                 <element signature="e#26#60#0" expanded="true" />
               </folding>
@@ -61,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/Packages/pdb_data_mining/download_ftp.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="57" column="67" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="67" />
+              <caret line="59" column="67" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="67" />
               <folding>
                 <element signature="e#26#48#0" expanded="true" />
               </folding>
@@ -69,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manage_sql.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="manage_sql.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Packages/pdb_data_mining/manage_sql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6">
-              <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
               <folding>
                 <element signature="e#26#47#0" expanded="true" />
               </folding>
@@ -107,9 +99,9 @@
         <option value="$PROJECT_DIR$/Packages/pdb_data_mining/download_text.py" />
         <option value="$PROJECT_DIR$/Packages/pdb_data_mining/download_ftp.py" />
         <option value="$PROJECT_DIR$/Packages/pdb_data_mining/parse_text.py" />
+        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/Packages/pdb_data_mining/manage_sql.py" />
         <option value="$PROJECT_DIR$/Packages/pdb_data_mining/parse_xml.py" />
-        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -117,10 +109,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1678" />
-    <option name="y" value="-3" />
-    <option name="width" value="1684" />
-    <option name="height" value="1022" />
+    <option name="x" value="1680" />
+    <option name="width" value="1678" />
+    <option name="height" value="1015" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -161,6 +152,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -199,8 +192,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -389,19 +380,24 @@
       <option name="project" value="LOCAL" />
       <updated>1434736530250</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="June 22nd, 2015&#10;- Finished download_ftp.py, parse_xml.py, manage_sql.py... all are in working order&#10;">
+      <created>1434998596886</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1434998596886</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1678" y="-3" width="1684" height="1022" extended-state="6" />
+    <frame x="1680" y="0" width="1678" height="1015" extended-state="4" />
     <editor active="false" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24642856" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24611709" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32826087" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -410,11 +406,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -430,7 +427,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="June 19th, 2015&#10;- analyze_string.py added to the pdb_data_mining package&#10;- Several bugs remain in some of the code of the files in the pdb_data_mining package" />
-    <option name="LAST_COMMIT_MESSAGE" value="June 19th, 2015&#10;- analyze_string.py added to the pdb_data_mining package&#10;- Several bugs remain in some of the code of the files in the pdb_data_mining package" />
+    <MESSAGE value="June 22nd, 2015&#10;- Finished download_ftp.py, parse_xml.py, manage_sql.py... all are in working order&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="June 22nd, 2015&#10;- Finished download_ftp.py, parse_xml.py, manage_sql.py... all are in working order&#10;" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -442,8 +441,40 @@
     <entry file="file://$PROJECT_DIR$/Packages/pdb_data_mining/parse_xml.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#26#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="e#60#116#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Packages/pdb_data_mining/download_ftp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="67" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="67" />
+          <folding>
+            <element signature="e#26#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Packages/pdb_data_mining/parse_xml.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#26#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -461,7 +492,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#26#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -479,9 +512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#47#56#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -489,7 +519,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="69" column="27" selection-start-line="68" selection-start-column="20" selection-end-line="69" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="e#26#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -528,7 +560,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="69" column="51" selection-start-line="68" selection-start-column="20" selection-end-line="69" selection-end-column="51" />
-          <folding />
+          <folding>
+            <element signature="e#26#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -567,7 +601,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#26#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -599,7 +635,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#26#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -624,7 +662,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#26#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -649,7 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -657,9 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-          <folding>
-            <element signature="e#47#56#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -667,7 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -684,29 +719,29 @@
     <entry file="file://$PROJECT_DIR$/Packages/pdb_data_mining/download_ftp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="67" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="67" />
+          <caret line="59" column="67" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="67" />
           <folding>
             <element signature="e#26#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Packages/pdb_data_mining/parse_xml.py">
+    <entry file="file://$PROJECT_DIR$/Packages/pdb_data_mining/manage_sql.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="147" column="46" selection-start-line="147" selection-start-column="46" selection-end-line="147" selection-end-column="46" />
+          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
           <folding>
-            <element signature="e#26#60#0" expanded="true" />
+            <element signature="e#26#47#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Packages/pdb_data_mining/manage_sql.py">
+    <entry file="file://$PROJECT_DIR$/Packages/pdb_data_mining/parse_xml.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6">
-          <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+        <state vertical-scroll-proportion="1.7894737">
+          <caret line="118" column="51" selection-start-line="118" selection-start-column="51" selection-end-line="118" selection-end-column="51" />
           <folding>
-            <element signature="e#26#47#0" expanded="true" />
+            <element signature="e#26#60#0" expanded="true" />
           </folding>
         </state>
       </provider>
