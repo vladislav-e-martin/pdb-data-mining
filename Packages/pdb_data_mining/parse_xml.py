@@ -35,9 +35,9 @@ def extract_value(root, query: str, namespace: str, converter) -> str or float o
 def fill_raw(files, columns) -> object:
     rows = len(files)
     data = [[0 for x in range(columns)] for x in range(rows)]
-    for index, file in enumerate(files):
+    for source_index, file in enumerate(files):
         try:
-            pprint("Current index: {0}".format(index))
+            pprint("Current source_index: {0}".format(source_index))
             tree = ET.parse(file)
 
             root = tree.getroot()
@@ -60,51 +60,51 @@ def fill_raw(files, columns) -> object:
                 # Remove the last seven letters from this string (i.e., the "-noatom" part)
                 entry_id = element.get('datablockName')[:-7]
                 pprint("The entry ID of this structure: {0}".format(entry_id))
-                data[index][current_col] = entry_id
+                data[source_index][current_col] = entry_id
                 current_col += 1
 
 
             # Number of protein atoms
             count = extract_value(root, queries[1], namespace, int)
-            data[index][current_col] = count
+            data[source_index][current_col] = count
             current_col += 1
 
             # Resolution of structure
             resolution = extract_value(root, queries[2], namespace, float)
-            data[index][current_col] = resolution
+            data[source_index][current_col] = resolution
             current_col += 1
 
             # Method used to analyze structure
             for element in root.findall(queries[3], namespace):
                 method = element.get('method')
-                data[index][current_col] = method
+                data[source_index][current_col] = method
                 current_col += 1
 
             # Matthew's density
             matthews_density = extract_value(root, queries[4], namespace, float)
-            data[index][current_col] = matthews_density
+            data[source_index][current_col] = matthews_density
             current_col += 1
 
             # Percent solvent density
             percent_density = extract_value(root, queries[5], namespace, float)
-            data[index][current_col] = percent_density
+            data[source_index][current_col] = percent_density
             current_col += 1
 
             # pH of solution
             pH = extract_value(root, queries[6], namespace, float)
-            data[index][current_col] = pH
+            data[source_index][current_col] = pH
             current_col += 1
 
             # Temperature of solution
             temp = extract_value(root, queries[7], namespace, float)
-            data[index][current_col] = temp
+            data[source_index][current_col] = temp
             current_col += 1
 
             found = False
             # Details of the crystallization conditions for the structure
             details = extract_value(root, queries[8], namespace, str)
             if not found:
-                data[index][current_col] = details
+                data[source_index][current_col] = details
                 found = True
             else:
                 pass
@@ -116,52 +116,54 @@ def fill_raw(files, columns) -> object:
 
 # Sort the structures that do not meet the criteria from the list
 def filter_indices(raw) -> object:
-    indices = []
+    indices_to_keep = []
+
+    # Criteria for sorting purposes and their associated column numbers in raw[][]
     a_i = 1
     r_i = 2
     resolution = 2.50
     m_i = 3
     method = "X-RAY DIFFRACTION"
-    for index in range(len(raw)):
+
+    for source_index in range(len(raw)):
         try:
-            # Store the index of the rows that do meet the criteria (The result of this is the overlap of those that
+            # Store the source_index of the rows that do meet the criteria (The result of this is the overlap of those that
             # have structures and those that meet the criteria)
-            pprint("The details are: {0}".format(raw[index][8]))
-            if raw[index][a_i] > 0 and raw[index][r_i] <= resolution and raw[index][m_i] == method and \
-                            raw[index][4] != 0 and raw[index][5] != 0 and raw[index][8] != "0":
-                indices.append(index)
-                pprint("The index {0} is worth noting!".format(index))
+            if raw[source_index][a_i] > 0 and raw[source_index][r_i] <= resolution and raw[source_index][
+                m_i] == method and \
+                            raw[source_index][4] != 0 and raw[source_index][5] != 0 and raw[source_index][8] != "0":
+                indices_to_keep.append(source_index)
+                pprint("The source_index {0} is worth noting!".format(source_index))
             # Ignore the rows if they do not meet the criteria
             else:
                 pprint("This structure does not meet the criteria.")
         except TypeError:
             pprint("One of the criteria was not provided with the structure. This structure will be ignored.")
             pass
-    pprint("There were {0} indices worth noting!".format(len(indices)))
-    return indices
+    pprint("There were {0} indices worth noting!".format(len(indices_to_keep)))
+    return indices_to_keep
 
 # Fill a list with the important information stored in the structures that have will be stored in the database
 def fill_sorted(raw, indices, columns):
     rows = len(indices)
-    data = [[0 for x in range(columns)] for x in range(rows)]
+    refined_data = [[0 for x in range(columns)] for x in range(rows)]
 
-    current_index = 0
-    new_index = 0
-    for index in range(len(raw)):
+    # Current source_index of the new sorted data[][]
+    target_index = 0
+    for source_index in range(len(raw)):
         try:
-            if index == indices[current_index]:
-                data[new_index][0] = raw[index][0]
-                data[new_index][1] = raw[index][2]
-                data[new_index][2] = raw[index][4]
-                data[new_index][3] = raw[index][5]
-                data[new_index][4] = raw[index][6]
-                data[new_index][5] = raw[index][7]
-                data[new_index][6] = raw[index][8]
-                new_index += 1
+            if source_index == indices[target_index]:
+                refined_data[target_index][0] = raw[source_index][0]
+                refined_data[target_index][1] = raw[source_index][2]
+                refined_data[target_index][2] = raw[source_index][4]
+                refined_data[target_index][3] = raw[source_index][5]
+                refined_data[target_index][4] = raw[source_index][6]
+                refined_data[target_index][5] = raw[source_index][7]
+                refined_data[target_index][6] = raw[source_index][8]
+                target_index += 1
             else:
                 pass
-            current_index += 1
         except IndexError:
             pprint("We have reached the end of the indices[] list. All the extracted information has been stored!")
             break
-    return data
+    return refined_data
