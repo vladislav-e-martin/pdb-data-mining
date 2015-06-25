@@ -16,8 +16,8 @@ def connect_database(folder):
 def add_table(connection, table):
     cursor = connection.cursor()
     # Create a table of the provided name
-    create_command = "CREATE TABLE {0} " \
-                     "(" \
+    create_parent_command = "CREATE TABLE {0} " \
+                            "(" \
                      "id text primary key, " \
                      "resolution real, " \
                      "matthews real, " \
@@ -26,13 +26,24 @@ def add_table(connection, table):
                      "temp real, " \
                      "details text" \
                      ")".format(table)
+    create_child_command = "CREATE TABLE {0} " \
+                           "(id int, " \
+                           "entry_id text, " \
+                           "concentration real, " \
+                           "chemical text" \
+                           ")".format(table)
     # Ensure that each row can be identified uniquely from every other row
     unique_command = "CREATE UNIQUE INDEX entry_id ON {0}(id)".format(table)
     try:
-        pprint("Creating table {0}.".format(table))
-        cursor.execute(create_command)
+        pprint("Creating parent table {0}.".format(table))
+        cursor.execute(create_parent_command)
     except SQL.OperationalError:
-        pprint("The table {0} already exists!".format(table))
+        pprint("The parent table {0} already exists!".format(table))
+    try:
+        pprint("Creating child table {0}.".format(table))
+        cursor.execute(create_child_command)
+    except SQL.OperationalError:
+        pprint("The child table {0} already exists!".format(table))
     try:
         pprint("Creating a unique index.")
         cursor.execute(unique_command)

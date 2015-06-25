@@ -21,7 +21,7 @@ def connect(base):
     return ftp
 
 
-def count_archives(base, ftp):
+def count_archives(ftp):
     folder_count = 0
     folders = ftp.nlst()
     # Iterate through each subdirectory containing all the protein structures

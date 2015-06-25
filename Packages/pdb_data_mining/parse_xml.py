@@ -6,11 +6,11 @@ from pprint import pprint
 
 # FUNCTION DECLARATIONS
 
-# Fill a list with the filepaths to all downloaded structures
+# Fill a list with the file-paths to all downloaded structures
 def fill_list(base):
     xml_files = []
     for root, directories, files in os.walk(base):
-        pprint("Root: {0} Directories: {1} Files: {2}".format(root, len(directories), len(files)))
+        # pprint("Root: {0} Directories: {1} Files: {2}".format(root, len(directories), len(files)))
         for name in files:
             filepath = os.path.join(root, name)
             # Check if the compressed file still exists
@@ -26,9 +26,14 @@ def fill_list(base):
 
 def extract_value(root, query: str, namespace: str, converter) -> str or float or int:
     value = 0
+    found = False
     for element in root.findall(query, namespace):
-        if element is not None:
-            value = converter(element.text)
+        if not found:
+            if element.text is not None:
+                value = converter(element.text)
+                found = True
+        else:
+            pass
     return value
 
 # Fill a list with the criteria each structure must meet to be considered for storage in the database
@@ -37,7 +42,7 @@ def fill_raw(files, columns) -> object:
     data = [[0 for x in range(columns)] for x in range(rows)]
     for source_index, file in enumerate(files):
         try:
-            pprint("Current source_index: {0}".format(source_index))
+            pprint("The current index: {0}".format(source_index))
             tree = ET.parse(file)
 
             root = tree.getroot()
@@ -63,7 +68,6 @@ def fill_raw(files, columns) -> object:
                 data[source_index][current_col] = entry_id
                 current_col += 1
 
-
             # Number of protein atoms
             count = extract_value(root, queries[1], namespace, int)
             data[source_index][current_col] = count
@@ -74,11 +78,16 @@ def fill_raw(files, columns) -> object:
             data[source_index][current_col] = resolution
             current_col += 1
 
+            found = False
             # Method used to analyze structure
             for element in root.findall(queries[3], namespace):
-                method = element.get('method')
-                data[source_index][current_col] = method
-                current_col += 1
+                if not found:
+                    method = element.get('method')
+                    data[source_index][current_col] = method
+                    current_col += 1
+                    found = True
+                else:
+                    pass
 
             # Matthew's density
             matthews_density = extract_value(root, queries[4], namespace, float)
@@ -129,9 +138,9 @@ def filter_indices(raw) -> object:
         try:
             # Store the source_index of the rows that do meet the criteria (The result of this is the overlap of those that
             # have structures and those that meet the criteria)
-            if raw[source_index][a_i] > 0 and raw[source_index][r_i] <= resolution and raw[source_index][
-                m_i] == method and \
-                            raw[source_index][4] != 0 and raw[source_index][5] != 0 and raw[source_index][8] != "0":
+            if raw[source_index][a_i] > 0 and raw[source_index][r_i] <= resolution and raw[source_index][m_i] == method \
+                    and raw[source_index][4] != 0 and raw[source_index][5] != 0 and raw[source_index][6] != 0 and \
+                            raw[source_index][7] != 0 and raw[source_index][8] != "0":
                 indices_to_keep.append(source_index)
                 pprint("The source_index {0} is worth noting!".format(source_index))
             # Ignore the rows if they do not meet the criteria
