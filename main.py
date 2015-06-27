@@ -29,20 +29,20 @@ COLUMNS = 9
 DB_COLUMNS = 7
 
 # For managing SQL database
-BASE_DB = "/home/Documents/Code/pdb-data-mining/Database/information.db"
+BASE_DB = "/home/vlad/Documents/Code/pdb-data-mining/Database/information.db"
 
 # MAIN BODY
 
-ftp_conn = FTP.connect(XML_NO_ATOM)
-archive_count = FTP.count_archives(ftp_conn)
-pprint("There are a total of {0} directories in the FTP site!".format(archive_count))
-pprint("To divide this into 4 separate processes: {0}".format(archive_count / 4))
-start = input("Where would you like to start downloading: ")
-start_point = int(start)
-end = input("Where would you like to end downloading: ")
-end_point = int(end)
-FTP.download(BASE_XML_NO_ATOM, ftp_conn, start_point, end_point)
-FTP.disconnect(ftp_conn)
+# ftp_conn = FTP.connect(XML_NO_ATOM)
+# archive_count = FTP.count_archives(ftp_conn)
+# pprint("There are a total of {0} directories in the FTP site!".format(archive_count))
+# pprint("To divide this into 4 separate processes: {0}".format(archive_count / 4))
+# start = input("Where would you like to start downloading: ")
+# start_point = int(start)
+# end = input("Where would you like to end downloading: ")
+# end_point = int(end)
+# FTP.download(BASE_XML_NO_ATOM, ftp_conn, start_point, end_point)
+# FTP.disconnect(ftp_conn)
 
 files = XML.fill_list(BASE_XML_NO_ATOM)
 raw_data = XML.fill_raw(files, COLUMNS)
@@ -61,4 +61,9 @@ SQL.print_database(connection, "information", "id")
 SQL.commit_changes(connection)
 
 new_connection = ANALYZE.connect_database(BASE_DB)
-ANALYZE.find_common_chemicals(new_connection, "information", "id")
+matches = ANALYZE.find_common_chemicals(new_connection, "information", "id")
+
+pprint("Hyphen-separated (no space): {0}, Hyphen-separated (space): {1}, No space: {2}, Space: {3}".format(matches[0],
+                                                                                                           matches[1],
+                                                                                                           matches[2],
+                                                                                                           matches[3]))
