@@ -38,28 +38,32 @@ def find_common_chemicals(connection, table, column):
         no_space_search = re.findall('[\d+.\d+]m*[ ]/([^,]+)/*', lowered_row)
         space_search = re.findall('[\d+.\d+][ ]m*[ ]/([^,]+)/', lowered_row)
 
-        peg_search = re.findall('(peg)', lowered_row)
+        peg_search = re.search('(peg)', lowered_row)
         found = False
         # Find all of the entries that contain chemical names containing a hyphen where the concentration
         # is not separated from it's unit by a space
-        if hyphen_no_space_search is not None:
-            hyphen_separated_no_space_matches.append(hyphen_no_space_search)
-            found = True
+        for match in hyphen_no_space_search:
+            if match is not None:
+                hyphen_separated_no_space_matches.append(match)
+                found = True
         # Find all of the entries that contain chemical names containing a hyphen where the concentration
         # is separated from it's unit by a space
-        if hyphen_space_search is not None:
-            hyphen_separated_space_matches.append(hyphen_space_search)
-            found = True
+        for match in hyphen_space_search:
+            if match is not None:
+                hyphen_separated_space_matches.append(match)
+                found = True
         # Find all of the entries that contain chemical names where the concentration is not separated
         # from it's unit by a space
-        if no_space_search is not None:
-            no_space_matches.append(hyphen_space_search)
-            found = True
+        for match in no_space_search:
+            if match is not None:
+                no_space_matches.append(match)
+                found = True
         # Find all of the entries that contain chemical names where the concentration is separated
         # from it's unit by a space
-        if space_search is not None:
-            space_matches.append(hyphen_space_search)
-            found = True
+        for match in space_search:
+            if match is not None:
+                space_matches.append(hyphen_space_search)
+                found = True
         if peg_search is not None and found == False:
             peg_matches.append(peg_search)
             text_file = open("E:/Code/Python Projects/pdb-data-mining/containing_peg.txt", "a")
