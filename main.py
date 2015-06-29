@@ -52,7 +52,6 @@ def ftp_download(ftp_base, local_base):
     # Once all of the files have been downloaded from the specified section of the data bank, disconnect from the site
     FTP.disconnect(ftp_conn)
 
-
 # Parse through all of the newly downloaded structures
 def parse_raw_data(local_base, raw_columns, sorted_columns) -> object:
     files = XML.fill_list(local_base)
@@ -62,24 +61,22 @@ def parse_raw_data(local_base, raw_columns, sorted_columns) -> object:
 
     return sorted_data
 
-
 # Store the important structures in the database for further analysis
 def store_in_database(local_base, sorted_data):
     connection = SQL.connect_database(local_base)
     # Add a new table to the database
     SQL.add_table(connection, "information")
     # Insert each row of values from sorted_data
-    SQL.add_row(connection, "information", sorted_data)
+    SQL.add_parent_row(connection, "information", sorted_data)
     # Print the contents of the database as confirmation
     SQL.print_database(connection, "information", "id")
     # Commit changes and disconnect from the database
     SQL.commit_changes(connection)
 
-
 connection = SQL.connect_database(BASE_DB)
 matches = ANALYZE.find_chemical_matches(connection, "information", "id")
+split_matches = ANALYZE.split_results(matches)
+ANALYZE.store_results(connection, "test_chemicals", split_matches)
+ANALYZE.calculate_frequency_of_chemical_names(connection, "test_chemicals", "name")
 
-pprint("Space separated: {0}, Not space separated: {1}, No match case: {2}".format(len(matches[0]),
-                                                                                   len(matches[1]),
-                                                                                   len(matches[2])))
-pprint("Space values: {0}".format(matches[0]))
+# pprint("All matches: {0}".format(matches))

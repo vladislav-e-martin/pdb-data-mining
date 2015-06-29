@@ -26,11 +26,12 @@ def add_table(connection, table):
                      "temp real, " \
                      "details text" \
                      ")".format(table)
+    # "(row_id int, " \
+    # "parent_entry_id text, " \
     create_child_command = "CREATE TABLE {0} " \
-                           "(id int, " \
-                           "entry_id text, " \
-                           "concentration real, " \
-                           "chemical text" \
+                           "(concentration real, " \
+                           "unit real, " \
+                           "chemical_name text" \
                            ")".format(table)
     # Ensure that each row can be identified uniquely from every other row
     unique_command = "CREATE UNIQUE INDEX entry_id ON {0}(id)".format(table)
@@ -51,9 +52,17 @@ def add_table(connection, table):
         pprint("This table already has a unique index.")
 
 # Add a row of new values to the table
-def add_row(connection, name, values):
+def add_parent_row(connection, name, values):
     cursor = connection.cursor()
     command = "INSERT OR REPLACE INTO {0} VALUES (?,?,?,?,?,?,?)".format(name)
+    cursor.executemany(command, values)
+
+
+# Add a row of new values to the table
+def add_child_row(connection, name, values):
+    cursor = connection.cursor()
+    # SHOULD BE 5 WHEN CODE IS CLEANED UP
+    command = "INSERT OR REPLACE INTO {0} VALUES (?,?,?)".format(name)
     cursor.executemany(command, values)
 
 # Commit changes to existing database
