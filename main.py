@@ -44,21 +44,21 @@ BASE_DB = "/home/vlad/Documents/Code/pdb-data-mining/Database/information.db"
 # FTP.download(BASE_XML_NO_ATOM, ftp_conn, start_point, end_point)
 # FTP.disconnect(ftp_conn)
 
-files = XML.fill_list(BASE_XML_NO_ATOM)
-raw_data = XML.fill_raw(files, COLUMNS)
-sorted_indices = XML.filter_indices(raw_data)
-sorted_data = XML.fill_sorted(raw_data, sorted_indices, DB_COLUMNS)
-
-# Create a new database
-connection = SQL.connect_database(BASE_DB)
-# Add a new table to the database
-SQL.add_table(connection, "information")
-# Insert each row of values from sorted_data
-SQL.add_row(connection, "information", sorted_data)
-# Print the contents of the database as confirmation
-SQL.print_database(connection, "information", "id")
-# Commit changes and disconnect from the database
-SQL.commit_changes(connection)
+# files = XML.fill_list(BASE_XML_NO_ATOM)
+# raw_data = XML.fill_raw(files, COLUMNS)
+# sorted_indices = XML.filter_indices(raw_data)
+# sorted_data = XML.fill_sorted(raw_data, sorted_indices, DB_COLUMNS)
+#
+# # Create a new database
+# connection = SQL.connect_database(BASE_DB)
+# # Add a new table to the database
+# SQL.add_table(connection, "information")
+# # Insert each row of values from sorted_data
+# SQL.add_row(connection, "information", sorted_data)
+# # Print the contents of the database as confirmation
+# SQL.print_database(connection, "information", "id")
+# # Commit changes and disconnect from the database
+# SQL.commit_changes(connection)
 
 new_connection = ANALYZE.connect_database(BASE_DB)
 matches = ANALYZE.find_common_chemicals(new_connection, "information", "id")

@@ -66,7 +66,7 @@ def find_common_chemicals(connection, table, column):
                 found = True
         if peg_search is not None and found == False:
             peg_matches.append(peg_search)
-            text_file = open("E:/Code/Python Projects/pdb-data-mining/containing_peg.txt", "a")
+            text_file = open("/home/vlad/Documents/Code/pdb-data-mining/containing-peg.txt", "a")
             text_file.write("The row's contents are displayed below: \n {0}".format(row[6]))
             text_file.write("\n\n\n\n")
             text_file.close()
