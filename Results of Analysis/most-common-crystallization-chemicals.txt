@@ -1,0 +1,602 @@
+0. 
+hepes occurred 4663 times 
+
+1. 
+ammonium sulfate occurred 4590 times 
+
+2. 
+tris occurred 3299 times 
+
+3. 
+mes occurred 3050 times 
+
+4. 
+nacl occurred 3030 times 
+
+5. 
+sodium acetate occurred 2865 times 
+
+6. 
+tris-hcl occurred 2708 times 
+
+7.
+sodium citrate occurred 2008 times 
+
+8. 
+mgcl2 occurred 1945 times 
+
+9. 
+bis-tris occurred 1823 times 
+
+10. 
+dtt occurred 1485 times 
+
+11. 
+ammonium acetate occurred 1327 times 
+
+12. 
+sodium chloride occurred 1188 times 
+
+13. 
+magnesium chloride occurred 1103 times 
+
+14. 
+ occurred 1069 times 
+
+15. 
+sodium cacodylate occurred 1057 times 
+
+16. 
+lithium sulfate occurred 985 times 
+
+17. 
+cacl2 occurred 906 times 
+
+18. 
+ammonium sulphate occurred 811 times 
+
+19. 
+imidazole occurred 663 times 
+
+20. 
+sodium formate occurred 514 times 
+
+21. 
+calcium acetate occurred 498 times 
+
+22. 
+calcium chloride occurred 492 times 
+
+23. 
+potassium phosphate occurred 483 times 
+
+24. 
+li2so4 occurred 464 times 
+
+25. 
+kcl occurred 420 times 
+
+26. 
+sodium phosphate occurred 416 times 
+
+27. 
+citrate occurred 398 times 
+
+28. 
+cacodylate occurred 394 times 
+
+29. 
+sodium malonate occurred 363 times 
+
+30. 
+magnesium acetate occurred 358 times 
+
+31. 
+edta occurred 354 times 
+
+32. 
+bis-tris propane occurred 346 times 
+
+33. 
+bicine occurred 329 times 
+
+34. 
+na acetate occurred 322 times 
+
+35. 
+na citrate occurred 320 times 
+
+36. 
+tris hcl occurred 311 times 
+
+37. 
+citric acid occurred 309 times 
+
+38. 
+sodium acetate trihydrate occurred 292 times 
+
+39. 
+tris/hcl occurred 280 times 
+
+40. 
+tcep occurred 279 times 
+
+41. 
+licl occurred 275 times 
+
+42. 
+zinc acetate occurred 234 times 
+
+43. 
+liso4 occurred 225 times 
+
+44. 
+acetate occurred 223 times 
+
+45. 
+ches occurred 220 times 
+
+46. 
+na/k phosphate occurred 217 times 
+
+47. 
+tri-sodium citrate occurred 199 times 
+
+48. 
+ammonium citrate occurred 184 times 
+
+49. 
+na cacodylate occurred 183 times 
+
+50. 
+mncl2 occurred 179 times 
+
+51. 
+mgso4 occurred 176 times 
+
+52. 
+tris-cl occurred 174 times 
+
+53. 
+bistris occurred 168 times 
+
+54. 
+mes buffer occurred 154 times 
+
+55. 
+potassium chloride occurred 153 times 
+
+56. 
+ammonium phosphate occurred 150 times 
+
+57. 
+na-acetate occurred 147 times 
+
+58. 
+na-citrate occurred 147 times 
+
+59. 
+hepes-naoh occurred 146 times 
+
+60. 
+naoac occurred 146 times 
+
+61. 
+phosphate buffer occurred 146 times 
+
+62. 
+lithium chloride occurred 144 times 
+
+63. 
+hepes/naoh occurred 143 times 
+
+64. 
+hepes buffer occurred 141 times 
+
+65. 
+nacitrate occurred 139 times 
+
+66. 
+phosphate-citrate occurred 139 times 
+
+67. 
+mops occurred 134 times 
+
+68. 
+trishcl occurred 134 times 
+
+69. 
+bme occurred 129 times 
+
+70. 
+dithiothreitol occurred 126 times 
+
+71. 
+nan3 occurred 125 times 
+
+72. 
+k2hpo4 occurred 124 times 
+
+73. 
+magnesium sulfate occurred 122 times 
+
+74. 
+glycine occurred 119 times 
+
+75. 
+atp occurred 117 times 
+
+76. 
+inhibitor occurred 116 times 
+
+77. 
+magnesium formate occurred 116 times 
+
+78. 
+tris buffer occurred 115 times 
+
+79. 
+pipes occurred 114 times 
+
+80. 
+zncl2 occurred 114 times 
+
+81. 
+hepes-na occurred 111 times 
+
+82. 
+na-hepes occurred 110 times 
+
+83. 
+kh2po4 occurred 108 times 
+
+84. 
+ca occurred 107 times 
+
+85. 
+naacetate occurred 107 times 
+
+86. 
+sodium acetate buffer occurred 107 times 
+
+87. 
+sodium/potassium phosphate occurred 107 times 
+
+88. 
+ammonium chloride occurred 106 times 
+
+89. 
+naac occurred 104 times 
+
+90. 
+znso4 occurred 103 times 
+
+91. 
+manganese chloride occurred 102 times 
+
+92. 
+nah2po4 occurred 102 times 
+
+93. 
+mes-naoh occurred 100 times 
+
+94. 
+beta-mercaptoethanol occurred 99 times 
+
+95. <PDBx:auth_asym_id>A</PDBx:auth_asym_id>
+<PDBx:auth_atom_id>OD1</PDBx:auth_atom_id>
+<PDBx:auth_comp_id>ASN</PDBx:auth_comp_id>
+magnesium chloride hexahydrate occurred 98 times 
+
+96. 
+na hepes occurred 98 times 
+
+97. 
+ammonium formate occurred 97 times 
+
+98. 
+potassium thiocyanate occurred 96 times 
+
+99. 
+sodium hepes occurred 95 times 
+
+100. 
+succinic327 acid occurred 95 times 
+
+101. 
+acetate buffer occurred 93 times 
+
+102. 
+lithium sulphate occurred 93 times 
+
+103. 
+tri-sodium citrate dihydrate occurred 93 times 
+
+104. 
+na formate occurred 92 times 
+
+105. 
+dl-malic acid occurred 88 times 
+
+106. 
+kscn occurred 88 times 
+
+107. 
+potassium sodium tartrate occurred 88 times 
+
+108. 
+1 occurred 87 times 
+
+109. 
+btp occurred 87 times 
+
+110. 
+hepes sodium occurred 87 times 
+
+111. 
+2-mercaptoethanol occurred 84 times 
+
+112. 
+trisodium citrate occurred 84 times 
+
+113. 
+lithium sulfate monohydrate occurred 81 times 
+
+114. 
+tris hydrochloride occurred 80 times 
+
+115. 
+nh4cl occurred 78 times 
+
+116. 
+sodium citrate tribasic dihydrate occurred 78 times 
+
+117. 
+ada occurred 77 times 
+
+118. 
+phosphate occurred 77 times 
+
+119. 
+nicl2 occurred 75 times 
+
+120. 
+tris-hcl buffer occurred 75 times 
+
+121. 
+bis-tris-propane occurred 74 times 
+
+122. 
+mg occurred 74 times 
+
+123. 
+gsh occurred 73 times 
+
+124. 
+amso4 occurred 72 times 
+
+125. 
+k/na tartrate occurred 72 times 
+
+126. 
+ammonium dihydrogen phosphate occurred 71 times 
+
+127. 
+sodium nitrate occurred 71 times 
+
+128. 
+cdcl2 occurred 70 times 
+
+129. 
+naf occurred 70 times 
+
+130. 
+nai occurred 70 times 
+
+131. 
+bis-tris buffer occurred 69 times 
+
+132. 
+caps occurred 67 times 
+
+133. 
+citrate buffer occurred 66 times 
+
+134. 
+zinc chloride occurred 65 times 
+
+135. 
+nh4so4 occurred 64 times 
+
+136. 
+ammonium nitrate occurred 63 times 
+
+137. 
+bis tris propane occurred 63 times 
+
+138. 
+hepes 7 occurred 63 times 
+
+139. 
+sodium sulfate occurred 62 times 
+
+140. 
+mgcl occurred 61 times 
+
+141. 
+sodium azide occurred 61 times 
+
+142. 
+sodium cacodylate trihydrate occurred 61 times 
+
+143. 
+adp occurred 60 times 
+
+144. 
+na-cacodylate occurred 60 times 
+
+145. 
+potassium acetate occurred 60 times 
+
+146. 
+spermine occurred 60 times 
+
+147. 
+na2so4 occurred 59 times 
+
+148. 
+nano3 occurred 59 times 
+
+149. 
+sodium fluoride occurred 59 times 
+
+150. 
+na occurred 58 times 
+
+151. 
+nh4oac occurred 58 times 
+
+152. 
+sodium dithionite occurred 58 times 
+
+153. 
+sodium iodide occurred 58 times 
+
+154. 
+mg acetate occurred 57 times 
+
+155. 
+bis tris occurred 55 times 
+
+156. 
+cadmium chloride occurred 54 times 
+
+157. 
+sodium thiocyanate occurred 54 times 
+
+158. 
+sodium bromide occurred 53 times 
+
+159. 
+cacodylic acid occurred 52 times 
+
+160. 
+na/k tartrate occurred 52 times 
+
+161. 
+sodium citrate buffer occurred 52 times 
+
+162. 
+zinc sulfate occurred 52 times 
+
+163. 
+mes monohydrate occurred 51 times 
+
+164. 
+ammonium iodide occurred 50 times 
+
+165. 
+ca acetate occurred 50 times 
+
+166. 
+potassium nitrate occurred 50 times 
+
+167. 
+ddt occurred 49 times 
+
+168. 
+potassium sodium tartrate tetrahydrate occurred 49 times 
+
+169. 
+nabr occurred 48 times 
+
+170. 
+bes occurred 47 times 
+
+171. 
+cscl occurred 47 times 
+
+172. 
+nad+ occurred 47 times 
+
+173. 
+hexaamminecobalt occurred 46 times 
+
+174. 
+nh4h2po4 occurred 46 times 
+
+175. 
+oxonate occurred 46 times 
+
+176. 
+sodium potassium tartrate occurred 46 times 
+
+177. 
+nacacodylate occurred 45 times 
+
+178. 
+potassium formate occurred 45 times 
+
+179. 
+sodium dihydrogen phosphate occurred 45 times 
+
+180. 
+bes buffer occurred 44 times 
+
+181. 
+cocl2 occurred 44 times 
+
+182. 
+tris 8 occurred 44 times 
+
+183. 
+ammonium phosphate monobasic occurred 43 times 
+
+184. 
+caps 0 occurred 43 times 
+
+185. 
+ammonium tartrate occurred 42 times 
+
+186. 
+cacodylate buffer occurred 42 times 
+
+187. 
+nh4ac occurred 42 times 
+
+188. 
+napi occurred 41 times 
+
+189. 
+phosphate citrate occurred 41 times 
+
+190. 
+sodium tartrate occurred 41 times 
+
+191. 
+ammonium fluoride occurred 40 times 
+
+192. 
+nh4 acetate occurred 40 times 
+
+193. 
+calcium chloride dihydrate occurred 39 times 
+
+194. 
+cobalt chloride occurred 39 times 
+
+195. 
+magnesium nitrate occurred 39 times 
+
+196. 
+sodium phosphate buffer occurred 39 times 
+
+197. 
+sodium-potassium phosphate occurred 39 times 
+
+198. 
+2- occurred 38 times 
+
+199. 
+ammonium sulfate and 0 occurred 38 times 
+

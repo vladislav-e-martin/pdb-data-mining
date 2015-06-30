@@ -14,7 +14,6 @@ from pprint import pprint
 # For Laptop Tests
 L_BASE_DB = "E:/Code/Python Projects/pdb-data-mining/Database/information.db"
 L_BASE_XML = "E:/Code/Python Projects/Storage/PDB/XML-no-atom/"
-L_XML_NO_ATOM = "/pub/pdb/data/structures/divided/XML-noatom/"
 
 # For FTP connection
 BASE_TEXT = "/storage2/vlad/PDB/text/"
@@ -29,8 +28,7 @@ RAW_COLUMNS = 9
 SORTED_COLUMNS = 7
 
 # For managing SQL database
-PARENT_BASE_DB = "/home/vlad/Documents/Code/pdb-data-mining/Database/information.db"
-CHILD_BASE_DB = "/home/vlad/Documents/Code/pdb-data-mining/Database/crystallization_chemicals.db"
+BASE_DB = "/home/vlad/Documents/Code/pdb-data-mining/Database/information.db"
 
 # MAIN BODY
 
@@ -68,7 +66,7 @@ def parse_raw_data(local_base, raw_columns, sorted_columns) -> object:
 def store_in_information_table(local_base, sorted_data):
 	connection = SQL.connect_database(local_base)
 	# Add a new table to the database
-	SQL.add_table(connection, "information")
+    SQL.add_table(connection, "information", True, False)
 	# Insert each row of values from sorted_data
 	SQL.add_parent_row(connection, "information", sorted_data)
 	# Print the contents of the database as confirmation
@@ -77,18 +75,23 @@ def store_in_information_table(local_base, sorted_data):
 	SQL.commit_changes(connection)
 
 
-def store_in_chemicals_table(local_parent_base, local_child_base):
-	parent_connection = SQL.connect_database(local_parent_base)
-	child_connection = SQL.connect_database(local_child_base)
+def store_in_chemicals_table(local_base):
+    connection = SQL.connect_database(local_base)
 	# Find all of the chemicals stored in the crystallization information of the structures
-	matches = ANALYZE.find_chemical_matches(parent_connection, "information", "id")
+    matches = ANALYZE.find_chemical_matches(connection, "information", "id")
 	# Split the chemicals into their concentrations, the units used to measure concentration,
 	# and the name of the chemical itself
-	split_matches = ANALYZE.split_results(matches)
+    split_matches = ANALYZE.split_results(matches[0], matches[1])
 	# Store the results of the split_matches() function into a child table in the database
-	ANALYZE.store_results(child_connection, "test_chemicals", split_matches)
+    ANALYZE.store_results(connection, "crystallization_chemicals", split_matches)
 	# Display the frequency of each chemical name stored in the child table
-	ANALYZE.calculate_frequency_of_chemical_names(child_connection, "test_chemicals", "name")
+    ANALYZE.calculate_frequency_of_chemical_names(connection, "crystallization_chemicals", "chemical_name")
 
 
-store_in_chemicals_table(PARENT_BASE_DB, CHILD_BASE_DB)
+def special_search(local_base):
+    connection = SQL.connect_database(local_base)
+    # Find all of the chemicals stored in the crystallization information of the structures
+    matches = ANALYZE.find_high_low(connection, "information", "id")
+
+# store_in_chemicals_table(BASE_DB)
+special_search(BASE_DB)
