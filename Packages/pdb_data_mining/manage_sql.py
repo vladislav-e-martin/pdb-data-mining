@@ -68,6 +68,11 @@ def add_child_row(connection, name, values):
     cursor.executemany(command, values)
 
 
+def delete_all_rows(connection, name):
+	cursor = connection.cursor()
+	command = "DELETE FROM {0}".format(name)
+	cursor.execute(command)
+
 # Commit changes to existing database
 def commit_changes(connection):
     pprint("Committing changes...")
