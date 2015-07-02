@@ -27,33 +27,35 @@ def find_chemical_matches(connection, table, column):
         entry_id = row[0]
         details = row[6].lower()
 
-        space_separated = re.findall('[\d+][ ]m{1,2}[ ][^,.;:\t]*', details)
-        not_space_separated = re.findall('[\d+]m{1,2}[ ][^,.;:\t]*', details)
+        space_separated = re.findall('[\d+][ ]m{1,2}[ ][^,.;:\t\n]*', details)
+        not_space_separated = re.findall('[\d+]m{1,2}[ ][^,.;:\t\n]*', details)
 
         found_match = False
         for match in space_separated:
             # [\d+][ ](ph)
             if match is not None:
                 # Remove the English language delimiters and pH values from this matched string
-                trim_english_match = re.sub('[ ](and)[ ] | [ ](at)[ ] | [ ](in)[ ] | (buffer)', '', match)
+                trim_english_match = re.sub('\s(and)\s | \s(at)\s | \s(in)\s | (buffer) | (inhibitor)', '', match)
                 trimmed_match = re.sub('(ph)[ ][\d+]', '', trim_english_match)
                 alt_trimmed_match = re.sub('(ph\d+)', '', trimmed_match)
                 # Remove leading and trailing whitespace from this matched string
                 chemical = alt_trimmed_match.strip()
                 space_separated_results.append(chemical)
                 space_separated_id.append(entry_id)
+                pprint("Entry ID: {0}".format(entry_id))
                 found_match = True
         for match in not_space_separated:
             # [\d+][ ](ph)
             if match is not None:
                 # Remove the English language delimiters and pH values from this matched string
-                trim_english_match = re.sub('[ ](and)[ ] | [ ](at)[ ] | [ ](in)[ ] | (buffer)', '', match)
+                trim_english_match = re.sub('\s(and)\s | \s(at)\s | \s(in)\s | (buffer) | (inhibitor)', '', match)
                 trimmed_match = re.sub('(ph)[ ][\d+]', '', trim_english_match)
                 alt_trimmed_match = re.sub('(ph\d+)', '', trimmed_match)
                 # Remove leading and trailing whitespace from this matched string
                 chemical = alt_trimmed_match.strip()
                 not_space_separated_results.append(chemical)
                 not_space_separated_id.append(entry_id)
+                pprint("Entry ID: {0}".format(entry_id))
                 found_match = True
 
     merged_results = space_separated_results + not_space_separated_results
