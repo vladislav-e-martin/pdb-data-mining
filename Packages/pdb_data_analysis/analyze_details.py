@@ -13,54 +13,34 @@ from pprint import pprint
 # FUNCTION DECLARATIONS
 
 # Need to keep track of the associated entry_id as well
-def find_chemical_matches(connection, table, column):
+def chemical_name_golden_reference_list(connection, table, column):
     cursor = connection.cursor()
 
     sort_command = "SELECT * FROM {0} ORDER BY {1}".format(table, column)
 
-    space_separated_results = []
-    space_separated_id = []
-    not_space_separated_results = []
-    not_space_separated_id = []
+    chemical_results = []
+    structure_id = []
 
     for index, row in enumerate(cursor.execute(sort_command)):
         entry_id = row[0]
         details = row[6].lower()
 
-        space_separated = re.findall('[\d+][ ]m{1,2}[ ][^,.;:\t\n]*', details)
-        not_space_separated = re.findall('[\d+]m{1,2}[ ][^,.;:\t\n]*', details)
+        chemical_search = re.findall('(\d+\s*m{1,2}\s+[^,.;:\t\n]*|\d+[.]\d+\s*m{1,2}\s+[^,.;:\t\n]*)', details)
 
         found_match = False
-        for match in space_separated:
-            # [\d+][ ](ph)
+        for match in chemical_search:
             if match is not None:
                 # Remove the English language delimiters and pH values from this matched string
-                trim_english_match = re.sub('\s(and)\s | \s(at)\s | \s(in)\s | (buffer) | (inhibitor)', '', match)
-                trimmed_match = re.sub('(ph)[ ][\d+]', '', trim_english_match)
-                alt_trimmed_match = re.sub('(ph\d+)', '', trimmed_match)
+                trim_english_match = re.sub('\s+(and|in|with|or|at|buffer|inhibitor).*', '', match)
+                trim_ph_match = re.sub('((ph|ph=)\s*\d+.*|\s+\d+\s+.*|\s+\d*$)', '', trim_english_match)
+                trim_paren_match = re.sub('(\s*[(]$)', '', trim_ph_match)
                 # Remove leading and trailing whitespace from this matched string
-                chemical = alt_trimmed_match.strip()
-                space_separated_results.append(chemical)
-                space_separated_id.append(entry_id)
-                pprint("Entry ID: {0}".format(entry_id))
-                found_match = True
-        for match in not_space_separated:
-            # [\d+][ ](ph)
-            if match is not None:
-                # Remove the English language delimiters and pH values from this matched string
-                trim_english_match = re.sub('\s(and)\s | \s(at)\s | \s(in)\s | (buffer) | (inhibitor)', '', match)
-                trimmed_match = re.sub('(ph)[ ][\d+]', '', trim_english_match)
-                alt_trimmed_match = re.sub('(ph\d+)', '', trimmed_match)
-                # Remove leading and trailing whitespace from this matched string
-                chemical = alt_trimmed_match.strip()
-                not_space_separated_results.append(chemical)
-                not_space_separated_id.append(entry_id)
-                pprint("Entry ID: {0}".format(entry_id))
-                found_match = True
-
-    merged_results = space_separated_results + not_space_separated_results
-    merged_ids = space_separated_id + not_space_separated_id
-    return merged_results, merged_ids
+                chemical = trim_paren_match.strip()
+                if len(chemical) > 5:
+                    chemical_results.append(chemical)
+                    structure_id.append(entry_id)
+                    found_match = True
+    return chemical_results, structure_id
 
 
 def find_custom_crystallization_conditions(connection, table, column, include_chemicals, exclude_chemicals):
@@ -74,36 +54,33 @@ def find_custom_crystallization_conditions(connection, table, column, include_ch
         entry_id = row[0]
         details = row[6].lower()
 
-        # ammonium_sulfate_search = re.findall('(ammonium sulfate)', details)
-        # ammonium_sulphate_search = re.findall('(ammonium sulphate)', details)
-        # nh4_so4_search = re.findall('(nh4so4)', details)
-        # peg_search = re.findall('(peg)', details)
-
         for chemical_name in include_chemicals:
             if chemical_name in row:
                 found_chemicals.append(row[6])
-
-    for chemical_name in exclude_chemicals:
-        if chemical_name in found_chemicals:
-            pass
-            # found_chemicals.remove(current_item)
 
 
 def split_results(results, result_ids):
     rows = len(results)
     result_components = [[0 for x in range(5)] for x in range(rows)]
+    result_index = 0
     for index, chemical in enumerate(results):
-        result_components[index][0] = str(uuid.uuid4())
-        result_components[index][1] = result_ids[index]
-        concentration_search = re.compile('(\d+)\s*(\w+)')
+        concentration_search = re.compile('(\d+|\d+[.]\d+)\s*(m{1,2})\s*')
+        pprint(chemical)
         concentration = concentration_search.match(chemical).group(1)
+        pprint(concentration_search.match(chemical).group(0))
+        pprint(concentration)
         unit = concentration_search.match(chemical).group(2)
-        result_components[index][2] = concentration
-        result_components[index][3] = unit
+        pprint(unit)
         original_string = re.sub(concentration, '', chemical, 1)
         no_concentration_string = re.sub(unit, '', original_string, 1)
         name = no_concentration_string.strip()
-        result_components[index][4] = name
+        if len(name) > 1:
+            result_components[result_index][0] = str(uuid.uuid4())
+            result_components[result_index][1] = result_ids[index]
+            result_components[result_index][2] = concentration
+            result_components[result_index][3] = unit
+            result_components[result_index][4] = name
+            result_index += 1
     return result_components
 
 
@@ -117,7 +94,7 @@ def store_results(connection, table, results):
 def create_common_chemical_names_list(connection, table, column):
     cursor = connection.cursor()
 
-    frequency_command = "SELECT COUNT(*), {1} FROM {0} GROUP BY {1} ORDER BY 1 DESC LIMIT 250".format(table, column)
+    frequency_command = "SELECT COUNT(*), {1} FROM {0} GROUP BY {1} ORDER BY 1 DESC".format(table, column)
     file = open("/home/vlad/Documents/Code/pdb-data-mining/"
                 "Results of Analysis/most-common-crystallization-chemicals.txt", 'w')
     for index, row in enumerate(cursor.execute(frequency_command)):

@@ -82,7 +82,7 @@ def store_in_information_table(local_base, sorted_data):
 def store_in_chemicals_table(local_base):
 	connection = SQL.connect_database(local_base)
 	# Find all of the chemicals stored in the crystallization information of the structures
-	matches = ANALYZE.find_chemical_matches(connection, "information", "id")
+	matches = ANALYZE.chemical_name_golden_reference_list(connection, "information", "id")
 	# Split the chemicals into their concentrations, the units used to measure concentration,
 	# and the name of the chemical itself
 	split_matches = ANALYZE.split_results(matches[0], matches[1])
@@ -93,11 +93,4 @@ def store_in_chemicals_table(local_base):
 	ANALYZE.create_common_chemical_names_list(connection, "crystallization_chemicals", "chemical_name")
 
 
-def custom_search(local_base):
-	connection = SQL.connect_database(local_base)
-	# Find all of the chemicals stored in the crystallization information of the structures
-# matches = ANALYZE.find_custom_crystallization_conditions(connection, "information", "id", non_ionic, ionic)
-
-
 store_in_chemicals_table(BASE_DB)
-# custom_search(BASE_DB)
