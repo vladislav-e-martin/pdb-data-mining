@@ -16,6 +16,7 @@ def connect_database(folder):
 # Manage existing database
 def add_table(connection, table, parent, child):
     cursor = connection.cursor()
+
     # Create a table of the provided name
     create_parent_command = "CREATE TABLE {0} " \
                             "(id text primary key, " \
@@ -31,6 +32,13 @@ def add_table(connection, table, parent, child):
             cursor.execute(create_parent_command)
         except SQL.OperationalError:
             pprint("The parent table {0} already exists!".format(table))
+        # Ensure that each row can be identified uniquely from every other row
+        unique_command = "CREATE UNIQUE INDEX entry_id ON {0}(id)".format(table)
+        try:
+            pprint("Creating a unique index.")
+            cursor.execute(unique_command)
+        except SQL.OperationalError:
+            pprint("This table already has a unique index.")
 
     create_child_command = "CREATE TABLE {0} " \
                            "(row_id int, " \
@@ -44,14 +52,6 @@ def add_table(connection, table, parent, child):
             cursor.execute(create_child_command)
         except SQL.OperationalError:
             pprint("The child table {0} already exists!".format(table))
-
-    # Ensure that each row can be identified uniquely from every other row
-    unique_command = "CREATE UNIQUE INDEX entry_id ON {0}(id)".format(table)
-    try:
-        pprint("Creating a unique index.")
-        cursor.execute(unique_command)
-    except SQL.OperationalError:
-        pprint("This table already has a unique index.")
 
 
 # Add a row of new values to the table

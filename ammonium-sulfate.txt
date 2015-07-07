@@ -1,0 +1,771 @@
+Ammonium Sulfate Matches 
+
+A match was found in 1A1B. The details are shown below. 
+PROTEIN WAS CRYSTALLIZED FROM 2M AMMONIUM SULFATE AT 4 DEGREES C., pH 8.0, temperature 277K 
+
+A match was found in 1A1E. The details are shown below. 
+PROTEIN WAS CRYSTALLIZED FROM 2M AMMONIUM SULFATE AT 22 DEGREES C., pH 8.0, temperature 295K 
+
+A match was found in 1AB6. The details are shown below. 
+THE PROTEIN WAS CRYSTALLIZED WITH 3.0M AMMONIUM SULFATE, PH7.2 AT 20C., temperature 293K 
+
+A match was found in 1AFQ. The details are shown below. 
+GAMMA-CHYMOTRYPSIN CRYSTALS WERE SOAKED INTO A SOLUTION CONTAINING SATURATED INHIBITOR, 65% SATURATED AMMONIUM SULFATE AND 100 MM HEPES BUFFER (PH7.5) AT 293K FOR A MONTH. 
+
+A match was found in 1AME. The details are shown below. 
+53% AMMONIUM SULFATE 100 MM SODIUM ACETATE PH 4.5 CRYSTALLIZED AT 4 DEGREES C, temperature 277K 
+
+A match was found in 1C0L. The details are shown below. 
+100MM HEPES 16% POLYETHYLENE GLYCOL PEG 200MM AMMONIUM SULFATE, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 289K 
+
+A match was found in 1CY0. The details are shown below. 
+2.14M ammonium sulfate, pH 5.0, MICRODIALYSIS, temperature 287K 
+
+A match was found in 1CY1. The details are shown below. 
+2.3M ammonium sulfate, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 287K 
+
+A match was found in 1CY2. The details are shown below. 
+2.3M ammonium sulfate, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 287K 
+
+A match was found in 1CY6. The details are shown below. 
+2.2M AMMONIUM SULFATE, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 287K 
+
+A match was found in 1CY7. The details are shown below. 
+2.3M AMMONIUM SULFATE, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 1CY8. The details are shown below. 
+2.2M AMMONIUM SULFATE, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 287K 
+
+A match was found in 1DJO. The details are shown below. 
+2.0 M Ammonium Sulfate, pH 6.4, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+A match was found in 1DJP. The details are shown below. 
+2.0 M Ammonium Sulfate, pH 6.4, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+A match was found in 1DUR. The details are shown below. 
+3.3-3.5M ammonium sulfate, 
+tris-chloride buffer, pH 7.5, EVAPORATION, temperature 277.0K 
+
+A match was found in 1EOG. The details are shown below. 
+25% ammonium sulfate, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 20K 
+
+A match was found in 1EOO. The details are shown below. 
+1.5 M ammonium sulfate, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 297K 
+
+A match was found in 1EOV. The details are shown below. 
+15 MG/ML PROTEIN, 1.9 M AMMONIUM SULFATE, pH 5.60, VAPOR DIFFUSION, SITTING DROP, temperature 278.0K 
+
+A match was found in 1EW6. The details are shown below. 
+PEG 8000, 200 MM AMMONIUM SULFATE, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 1EW8. The details are shown below. 
+enzyme: 30 mg/mL; buffer:  40% saturating ammonium sulfate/100 mM Tris/10 mM MgSO4, pH 9.5, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 1EWA. The details are shown below. 
+PEG 8000, 0.20 M ammonium sulfate, pH 7, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 1F7U. The details are shown below. 
+2.0 M (NH4)2SO4, hexanediol, pH 7.5, VAPOR DIFFUSION, HANGING DROP at 277K 
+
+A match was found in 1FJX. The details are shown below. 
+2.7 M ammonium sulfate 20% (w/v) glucose 50 mM sodium citrate, pH 5.6, VAPOR DIFFUSION, HANGING DROP, temperature 16K 
+
+A match was found in 1G62. The details are shown below. 
+2M Ammonium Sulfate, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 24.0K 
+
+A match was found in 1I1O. The details are shown below. 
+3.2 M Ammonium Sulfate, Tris.buffer, pH 7.3, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 1I1X. The details are shown below. 
+CRYSTALS WERE GROWN BY SITTING DROP AGAINST 12% AMMONIUM SULPHATE SOLUTION AT THE SAME BUFFER CONDITION IN THE RESERVOIR., pH 7.2, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+A match was found in 1IG8. The details are shown below. 
+2.3-3.2M Ammonium sulphate, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 298.0K 
+
+A match was found in 1IUQ. The details are shown below. 
+1.6-1.8M AMMONIUM SULFATE, pH 5.6, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 1J1M. The details are shown below. 
+0.9M Ammomium Sulfate, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 1J1Q. The details are shown below. 
+66% Saturated Ammomium Sulfate, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 1J1R. The details are shown below. 
+66% Saturated Ammomium Sulfate, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 1J1S. The details are shown below. 
+66% Saturated Ammomium Sulfate, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 1K9S. The details are shown below. 
+28-35% ammonium sulphate, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 295K 
+
+A match was found in 1KNC. The details are shown below. 
+1.5-2.5M AmSO4, pH 7, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+A match was found in 1KRH. The details are shown below. 
+2M Ammonium sulphate, MPD, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 281K 
+
+A match was found in 1KWA. The details are shown below. 
+PROTEIN WAS CRYSTALLIZED IN 1.8M AMMONIUM SULFATE AND 100MM MES PH 6.5 AT 21 DEGREES C., temperature 294K 
+
+A match was found in 1L1Y. The details are shown below. 
+22% Ammonium sulphate, pH 7.4, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+A match was found in 1L2A. The details are shown below. 
+22% Ammonium sulphate, pH 7.4, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+A match was found in 1MVT. The details are shown below. 
+61% ammonium sulfate, phosphate buffer, pH 6.8, VAPOR DIFFUSION, HANGING DROP, temperature 223K 
+
+A match was found in 1NWZ. The details are shown below. 
+~2.5 M NH4SO4 20 mM Sodium Phosphate, pH 7, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 1OTV. The details are shown below. 
+1.4M ammonium sulphate, cacodylate , pH 6.8, VAPOR DIFFUSION, SITTING DROP, temperature 25K 
+
+A match was found in 1OTW. The details are shown below. 
+1.4M ammonium sulphate, cacodylate , pH 6.8, VAPOR DIFFUSION, SITTING DROP, temperature 25K 
+
+A match was found in 1P7O. The details are shown below. 
+2.1M ammonium sulphate, pH 8.5, VAPOR DIFFUSION, SITTING DROP, temperature 297K 
+
+A match was found in 1Q99. The details are shown below. 
+1.5 M (NH4)2SO4, pH 4.5, VAPOR DIFFUSION, HANGING DROP, temperature 298.0K 
+
+A match was found in 1QWI. The details are shown below. 
+PEG 5000 MME, 0.2M Ammonium sulfate, pH 6.0, VAPOR DIFFUSION, HANGING DROP, temperature 297K 
+
+A match was found in 1S3L. The details are shown below. 
+0.7M AMMONIUM SULFATE, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 1S5M. The details are shown below. 
+2.1M (NH4)2SO4, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 398K 
+
+A match was found in 1S5N. The details are shown below. 
+2.1M (NH4)2SO4, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 398K 
+
+A match was found in 1SMT. The details are shown below. 
+PROTEIN WAS CRYSTALLIZED FROM 40% SATURATED AMMONIUM SULFATE WITH 100 MM MES BUFFER, PH 6.1, AT 296 K. 
+
+A match was found in 1SXV. The details are shown below. 
+1.7 M ammonium sulphate, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 1T3R. The details are shown below. 
+1 MG/ML PROTEIN; 5:1 LIGAND:PROTEIN; 30% AMSOR; SODIUM CITRATE AND SODIUM PHOSPHATE, pH 6.2, VAPOR DIFFUSION, HANGING DROP, temperature 300K 
+
+A match was found in 1T4Q. The details are shown below. 
+29% AMMONIUM SULFATE W/V, 100 MM, pH 7.4, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 1TG0. The details are shown below. 
+3.2M ammonium sulfate, pH 7, VAPOR DIFFUSION, SITTING DROP, temperature 295K 
+
+A match was found in 1U6Z. The details are shown below. 
+unbuffered 1.6 M ammonium sulfate, pH 5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 1UCR. The details are shown below. 
+73-75% saturated ammonium sulfate, pH 5.3, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+A match was found in 1UHB. The details are shown below. 
+1.5M ammonium sulphate, pH 6.70, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 1V6D. The details are shown below. 
+2M ammonium sulphate, pH 6.4, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+A match was found in 1X9E. The details are shown below. 
+2.4 M ammonium sulfate and 100 mM MES, pH 6.8, VAPOR DIFFUSION, SITTING DROP, temperature 298.0K 
+
+A match was found in 1XT6. The details are shown below. 
+3.2M ammonium sulfate, pH 7, sitting drop, vapor diffusion, temperature 298K 
+
+A match was found in 1Y4Y. The details are shown below. 
+2M ammonium sulfate, pH 6.3, VAPOR DIFFUSION, HANGING DROP, temperature 291.0K 
+
+A match was found in 1Y50. The details are shown below. 
+68-74 % ammonium sulfate, pH 6.3, VAPOR DIFFUSION, HANGING DROP, temperature 291.0K 
+
+A match was found in 1Y9K. The details are shown below. 
+2.0 M Ammonium sulfate, CAPS pH 10.5 0.1 Lithium Sulfate, pH 9.0, VAPOR DIFFUSION, SITTING DROP, temperature 289K 
+
+A match was found in 1Z7J. The details are shown below. 
+48% ammonium sulfate, 0.l M phosphate buffer, pH 5.50, VAPOR DIFFUSION, HANGING DROP, temperature 4.0K 
+
+A match was found in 1ZN6. The details are shown below. 
+2.4M Ammonium sulfate, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 1ZWP. The details are shown below. 
+0.2M Ammonium sulphate, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 2A08. The details are shown below. 
+2.4 M ammonium sulfate, pH 7, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 2BC5. The details are shown below. 
+70% ammonium sulfate, pH 5, VAPOR DIFFUSION, SITTING DROP, temperature 298K 
+
+A match was found in 2CWI. The details are shown below. 
+Na HEPES 2%, PEG400, 2M AmSO4, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 100K 
+
+A match was found in 2DJI. The details are shown below. 
+2M ammonium sulfate in 20mM sodium phosphate buffer, pH 7.0., VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 2E39. The details are shown below. 
+37% saturated ammonium sulfate, Tris-HCl, pH 7.5, MICRODIALYSIS, temperature 297K 
+
+A match was found in 2E3A. The details are shown below. 
+37% saturated ammonium sulfate, Tris-HCl, pH 7.5, MICRODIALYSIS, temperature 297K 
+
+A match was found in 2E3B. The details are shown below. 
+37% saturated ammonium sulfate, Tris-HCl, pH 7.5, MICRODIALYSIS, temperature 297K 
+
+A match was found in 2EID. The details are shown below. 
+1-2M ammonium sulphate, 0.1 sodium acetate pH 4-5, pH 4.5, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 2EZ7. The details are shown below. 
+2.4 M ammonium sulphate, tris, HCl 50 mM, pH 7.7, VAPOR DIFFUSION, HANGING DROP, temperature 275K 
+
+A match was found in 2F0C. The details are shown below. 
+1 M ammonium sulfate, pH 7.0, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+A match was found in 2F3F. The details are shown below. 
+1.0M ammonium sulfate, pH 5.5, VAPOR DIFFUSION, HANGING DROP, temperature 292K 
+
+A match was found in 2FFZ. The details are shown below. 
+45% saturated ammonium sulfate, pH 5.4, VAPOR DIFFUSION, HANGING DROP, temperature 295K 
+
+A match was found in 2FGN. The details are shown below. 
+45% saturated ammonium sulfate, pH 5.4, VAPOR DIFFUSION, HANGING DROP, temperature 295K 
+
+A match was found in 2FHZ. The details are shown below. 
+50 % saturated ammonium sulfate, pH 8.5, VAPOR DIFFUSION, HANGING DROP, temperature 278K 
+
+A match was found in 2FJ1. The details are shown below. 
+1.58 M Ammonium sulphate, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 293.0K 
+
+A match was found in 2FOI. The details are shown below. 
+2.35 M (NH4)2SO4, 100 sodium acetate buffer, pH 5.6, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 2FOU. The details are shown below. 
+2.5 M (NH4)2SO4, Tris-SO4, methylmercuric acetate, pH 7.7, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 2FOV. The details are shown below. 
+2.5 M (NH4)2SO4, Tris-SO4, methylmercuric acetate, pH 7.7, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 2FY6. The details are shown below. 
+3.5M Ammonium Sulfate, Tris-HCl 50mM pH 8.0, 6mg/mL protein, pH 7.5, microbatch, temperature 293K 
+
+A match was found in 2G1K. The details are shown below. 
+2.0 M ammonium sulfate, pH 4.5, VAPOR DIFFUSION, temperature 292K 
+
+A match was found in 2GQ1. The details are shown below. 
+2.0 M Amonium Sulfate, pH 5.1, VAPOR DIFFUSION, HANGING DROP, temperature 295K 
+
+A match was found in 2GTQ. The details are shown below. 
+2 M ammonium sulfate, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+A match was found in 2H6B. The details are shown below. 
+1.8 M Ammonium sulphate, 1mM orthochlorophenol, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+A match was found in 2HDB. The details are shown below. 
+2.2M ammonium sulfate, pH 6.2, VAPOR DIFFUSION, SITTING DROP, temperature 290K 
+
+A match was found in 2HG2. The details are shown below. 
+bis-tris pH 6.5, 2.0 M Ammonium Sulfate, VAPOR DIFFUSION, SITTING DROP, temperature 294K 
+
+A match was found in 2HP6. The details are shown below. 
+2M Ammonium sulfate, HEPES, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 2HP9. The details are shown below. 
+2M Ammonium sulfate, Bicine pH9; the crystal was soaked at pH6 (MES) for 6 days., pH 6.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 2HPB. The details are shown below. 
+2M ammonium sulfate, Bicine, pH 9, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 2HUC. The details are shown below. 
+45% Ammonium Sulfate, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 2ID4. The details are shown below. 
+2.4 M Ammonium Sulfate, pH 7.4, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 2NNQ. The details are shown below. 
+~70% saturated ammonium sulfate, pH 5.6, vapor diffusion, hanging drop, temperature 293K, pH 5.60 
+
+A match was found in 2NPO. The details are shown below. 
+2.6M (NH4)2SO4, pH 7, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 2NRU. The details are shown below. 
+2.6 - 2.9 M ammonium sulfate, PH 6.4-7.9, EVAPORATION, temperature 293K 
+
+A match was found in 2NRY. The details are shown below. 
+2.6 - 2.9 M ammonium sulfate, PH 6.4-7.9 , EVAPORATION, temperature 293K 
+
+A match was found in 2NUZ. The details are shown below. 
+200mM ammonium sulfate, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 2NVG. The details are shown below. 
+1.5 M ammonium sulfate, pH 4.6, VAPOR DIFFUSION, HANGING DROP, temperature 276K 
+
+A match was found in 2O7O. The details are shown below. 
+1.1M AMMONIUM SULPHATE, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 2P1F. The details are shown below. 
+2.28M Ammonium sulfate, pH 8.4, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 2P8N. The details are shown below. 
+20% AMMONIUM SULFATE, 50 MIMILLIMOLAR SODIUM ACETATE, PH 4.2, VAPOR DIFFUSION, HANGING DROP, TEMPERATURE 295K, pH 4.20 
+
+A match was found in 2QWS. The details are shown below. 
+2.6 M ammonium sulfate in 50 mM sodium phosphate, VAPOR DIFFUSION, HANGING DROP, temperature 293K, pH 7.00 
+
+A match was found in 2R5E. The details are shown below. 
+2 M Ammonium sulfate, pH 8.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 2R9P. The details are shown below. 
+1.6M ammonium sulfate, pH 5.3, VAPOR DIFFUSION, HANGING DROP, temperature 298.0K 
+
+A match was found in 2Z0R. The details are shown below. 
+1.45M Ammonium sulfate, HEPES, pH 7.0, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+A match was found in 2ZGR. The details are shown below. 
+2M Ammonium Sulfate, pH 5.8, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 3A2G. The details are shown below. 
+2.6M ammonium sulfate in 20mM Tris-HCl, pH9.0, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+A match was found in 3B94. The details are shown below. 
+2M ammonium sulfate, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+A match was found in 3BMV. The details are shown below. 
+20% Ammonium sulfate, pH 7.8, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 3BMW. The details are shown below. 
+20% Ammonium sulfate, pH 7.8, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 3BQZ. The details are shown below. 
+1:1 10mg/mL protein with 2.3M Ammonium sulfate with 100mM Sodium Acetate pH 4.6, VAPOR DIFFUSION, HANGING DROP, temperature 273K 
+
+A match was found in 3BR0. The details are shown below. 
+1:1 10mg/mL protein with 2.3M Ammonium sulfate with 100mM Sodium Acetate pH 4.6, VAPOR DIFFUSION, HANGING DROP, temperature 273K 
+
+A match was found in 3BS2. The details are shown below. 
+2M Ammonium Sulfate, Tris HCl, pH 7.4, VAPOR DIFFUSION, HANGING DROP, temperature 298.0K 
+
+A match was found in 3C5J. The details are shown below. 
+1.6 M ammonium sulfate, pH 7.5, vapor diffusion, hanging drop, temperature 298K 
+
+A match was found in 3CXV. The details are shown below. 
+2.0 M ammonium sulphate, pH 7, VAPOR DIFFUSION, SITTING DROP, temperature 278K 
+
+A match was found in 3CXX. The details are shown below. 
+2 M ammonium sulphate, pH 7, VAPOR DIFFUSION, SITTING DROP, temperature 278K 
+
+A match was found in 3CXY. The details are shown below. 
+2 M ammonium sulphate, pH 7, VAPOR DIFFUSION, SITTING DROP, temperature 297K 
+
+A match was found in 3CXZ. The details are shown below. 
+2 M ammonium sulphate, pH 7, VAPOR DIFFUSION, SITTING DROP, temperature 278K 
+
+A match was found in 3CY0. The details are shown below. 
+2M ammonium sulphate, pH 7, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+A match was found in 3CY1. The details are shown below. 
+2 M ammonium sulphate, pH 7, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+A match was found in 3CYX. The details are shown below. 
+PHOSPHATE BUFFEr, 30-35% SATURATED AMMONIUM SULPHATE, pH 6.0, VAPOR DIFFUSION, HANGING DROP, temperature 295K 
+
+A match was found in 3D1P. The details are shown below. 
+2.4 M Ammonium sulfate, pH 8.3, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+A match was found in 3D5G. The details are shown below. 
+30% ammonium sulphate, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 298.0K 
+
+A match was found in 3DDY. The details are shown below. 
+0.1 Tris hydrochloride pH 8.5, 2.0M ammonium sulfate, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+A match was found in 3DH2. The details are shown below. 
+2.2 M ammonium sulfate, phosphate buffer pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 3DOX. The details are shown below. 
+1-5% saturated ammonium sulfate, pH 6.2, Soaking, temperature 300.0K 
+
+A match was found in 3DXT. The details are shown below. 
+hepes, 2.0M ammonium sulfate, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 3ERN. The details are shown below. 
+0.1M ammonium sulfate, sodium acetate, PEG 2000 MME, pH 4.4, vapor diffusion, hanging drop, temperature 298K 
+
+A match was found in 3ERX. The details are shown below. 
+3.0 M ammonium sulphate and 50 mM potassium phosphate at pH 7.0,, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 3F3S. The details are shown below. 
+2M (NH4)2SO4, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+A match was found in 3F6P. The details are shown below. 
+1.5M Ammonium sulfate and 10% glycerol, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 298 K 
+
+A match was found in 3FS7. The details are shown below. 
+The reservoir contained 70% saturated ammonium sulfate, 100 micromolar calcium ion, 10 millimolar MES buffer.  The volume of the hanging drop was 80 microliters. , pH 6.0, VAPOR DIFFUSION, HANGING DROP, temperature 295K 
+
+A match was found in 3GPK. The details are shown below. 
+pH 7.5 HEPES BUFFER AND 2M AMMONIUM SULPHATE, VAPOR DIFFUSION, SITTING DROP, temperature 294K 
+
+A match was found in 3GX8. The details are shown below. 
+1.6M NH4SO4, Tris-HCl, pH8.0, VAPOR DIFFUSION, temperature 289K 
+
+A match was found in 3H4T. The details are shown below. 
+Tris HCl pH 8.5, 1.2-2M ammonium sulphate, VAPOR DIFFUSION, HANGING DROP, temperature 300K 
+
+A match was found in 3HKN. The details are shown below. 
+2.6 M (NH4)2SO4, pH 9.5, VAPOR DIFFUSION, HANGING DROP, temperature 289K 
+
+A match was found in 3HKQ. The details are shown below. 
+2.6M (NH4)2SO4, pH 9.5, VAPOR DIFFUSION, HANGING DROP, temperature 289K 
+
+A match was found in 3HKT. The details are shown below. 
+2.6M (NH4)2SO4, pH 9.5, VAPOR DIFFUSION, HANGING DROP, temperature 289K 
+
+A match was found in 3HKU. The details are shown below. 
+2.6M (NH4)2SO4, pH 9.5, VAPOR DIFFUSION, HANGING DROP, temperature 289K 
+
+A match was found in 3HMH. The details are shown below. 
+15w/v PEG_3350, 0.17M ammonium_sulfate, 15w/v glycerol, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+A match was found in 3HR5. The details are shown below. 
+PEG 3350, 0.2 M Ammonium sulfate, pH 5.7, VAPOR DIFFUSION, SITTING DROP, temperature 300K 
+
+A match was found in 3I3J. The details are shown below. 
+30w/v PEG 3350, 0.2M ammonium_sulfate, 5.5pH Bis-Tris, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+A match was found in 3IBA. The details are shown below. 
+PEG 4000, 200MM ammonium sulfate, pH 4.6, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 3ICK. The details are shown below. 
+PEG 4000, 200mM Ammonium Sulfate, pH 4.6, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 3ICM. The details are shown below. 
+PEG 4000, 200mM Ammonium Sulfate, pH 4.6, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 3ICN. The details are shown below. 
+PEG 4000, 200mM Ammonium Sulfate, pH 4.6, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 3ICZ. The details are shown below. 
+PEG 4000, 200mM Ammonium Sulfate, pH 4.6, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 3IHC. The details are shown below. 
+1.6M Ammonium sulphate, Tri-Na citrate (pH 5.0), VAPOR DIFFUSION, HANGING DROP, temperature 295K 
+
+A match was found in 3IHD. The details are shown below. 
+1.4M Ammonium Sulphate, Tri-Na citrate, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 295K 
+
+A match was found in 3IHF. The details are shown below. 
+1.45M Ammonium sulphate, Tri-Na citrate, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 295K 
+
+A match was found in 3ILC. The details are shown below. 
+1.6M Ammonium sulphate, MES, pH 6.0, VAPOR DIFFUSION, HANGING DROP, temperature 295K 
+
+A match was found in 3JTE. The details are shown below. 
+1.26M ammonium sulfate, 0.1MHepes, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 293.0K 
+
+A match was found in 3JZK. The details are shown below. 
+2.4 M (NH4)2SO4, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 3KBJ. The details are shown below. 
+40mg/ml protein,  30%(v/v) ammonium sulfate (sat.), pH 7.7, temperature 290K 
+
+A match was found in 3KQI. The details are shown below. 
+2.0 M ammonium sulfate, pH 6.0, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 3KZA. The details are shown below. 
+2.0M ammonium sulfate, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 3L4E. The details are shown below. 
+2.5M NH4 Sulfate, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 3LFU. The details are shown below. 
+1.0 M (NH4)2SO4, pH 9.1, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 3LO0. The details are shown below. 
+HR CRYSTAL SCREEN HT C8: 2.0M AMMONIUM SULPHATE, EHCHA.01623.A AT 27MG/ML, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 290K 
+
+A match was found in 3LRR. The details are shown below. 
+PEG 3,350 (15%) plus ammonium sulfate, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 3M24. The details are shown below. 
+2.0 M ammonium sulfate, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 298K 
+
+A match was found in 3MB2. The details are shown below. 
+0.25 M (NH4)2SO4 and 4% PEG 4000, pH 7.4, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 3MVG. The details are shown below. 
+1.9M ammonium sulfate in 20% w/v glycerol, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 3MVN. The details are shown below. 
+2 M Ammonium Sulfate, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 294K 
+
+A match was found in 3NPL. The details are shown below. 
+2M (NH4)2SO4, pH 8.4, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+A match was found in 3NR3. The details are shown below. 
+2.5M ammonium_sulfate, Citrate, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+A match was found in 3NV9. The details are shown below. 
+1.5M Ammonium Sulfate, sodium acetate pH 5.5, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 3NXO. The details are shown below. 
+K2PO4 with 30% saturated ammonium sulfate with 3% v/v ethanol, pH 6.9, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 3O4S. The details are shown below. 
+1.7-1.9M ammonium sulfate, pH 5.0, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+A match was found in 3O4U. The details are shown below. 
+1.7-1.9M ammonium sulfate, pH 5.0, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+A match was found in 3OP8. The details are shown below. 
+0.1 M (NH4)2SO4, bis-Tris 0.1M, PEG 1500 40 %, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 3PI5. The details are shown below. 
+1.0M Ammonium Sulfate in water, pH 5.5, VAPOR DIFFUSION, HANGING DROP, temperature 292K 
+
+A match was found in 3PJB. The details are shown below. 
+2.4 M ammonium sulfate, pH 4.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 3PJJ. The details are shown below. 
+1.4 M ammonium sulfate, pH 8.0, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 3PWT. The details are shown below. 
+2M ammonium sulfate, pH 7.4, VAPOR DIFFUSION, temperature 288K 
+
+A match was found in 3PXU. The details are shown below. 
+Hampton Crystal Screen condition c8, 2.0 M ammonium sulfate, 5.5 mg/mL protein with expression tag removed, crystal tracking ID 203611c8, pH 7.0, VAPOR DIFFUSION, SITTING DROP, temperature 289K, temperature 298K 
+
+A match was found in 3QC4. The details are shown below. 
+2 M ammonium sulfate, pH 7, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+A match was found in 3QWD. The details are shown below. 
+1.8 M ammonium sulfate and 100 mM sodium acetate pH 4.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 3S4E. The details are shown below. 
+2.0M ammonium sulfate, pH 7.4, VAPOR DIFFUSION, SITTING DROP, temperature 291K 
+
+A match was found in 3S52. The details are shown below. 
+2.5M Ammonium sulfate, pH 8.5, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+A match was found in 3SEL. The details are shown below. 
+4.0 M AMMONIUM SULFATE, pH 6.0, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 3U0N. The details are shown below. 
+2.0 M Ammonium sulfate, pH 8.0, VAPOR DIFFUSION, SITTING DROP, temperature 298K 
+
+A match was found in 3UAV. The details are shown below. 
+1.3-1.5 M ammonium sulfate, pH 5.5, vapor diffusion, hanging drop, temperature 291K 
+
+A match was found in 3UAW. The details are shown below. 
+1.3-1.5 M ammonium sulfate, pH 5.5, vapor diffusion, hanging drop, temperature 291K 
+
+A match was found in 3UAX. The details are shown below. 
+1.3-1.5 M ammonium sulfate, pH 5.5, vapor diffusion, hanging drop, temperature 291K 
+
+A match was found in 3UGJ. The details are shown below. 
+2M Ammonium Sulphate, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 298.0K 
+
+A match was found in 3VHJ. The details are shown below. 
+2.0M Ammonium sulfate, pH 5.5, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 3VYJ. The details are shown below. 
+2.0M ammonium sulfate, pH 8.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 3WCQ. The details are shown below. 
+1.5M ammonium sulfate, pH 7, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+A match was found in 4D83. The details are shown below. 
+1.0M ammonium sulfate in water, pH 5.5, vapor diffusion, hanging drop, temperature 292K 
+
+A match was found in 4D8C. The details are shown below. 
+1.0M ammonium sulfate in water, pH 5.5, vapor diffusion, hanging drop, temperature 292K 
+
+A match was found in 4DH2. The details are shown below. 
+2 M ammonium sulfate, pH 4.6, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 4DRH. The details are shown below. 
+0.1M citric acid  2M (NH4)2SO4, pH 3.5, vapor diffusion, temperature 293K 
+
+A match was found in 4E3D. The details are shown below. 
+3M Ammonium Sulfate, pH 8, VAPOR DIFFUSION, SITTING DROP, temperature 291K 
+
+A match was found in 4E3F. The details are shown below. 
+3M ammonium sulfate, pH 8, VAPOR DIFFUSION, SITTING DROP, temperature 291K 
+
+A match was found in 4E3G. The details are shown below. 
+3M ammonium sulfate, pH 8, VAPOR DIFFUSION, SITTING DROP, temperature 291K 
+
+A match was found in 4E3H. The details are shown below. 
+3M ammonium sulfate, pH 8, VAPOR DIFFUSION, SITTING DROP, temperature 291K 
+
+A match was found in 4E49. The details are shown below. 
+3M ammonium sulfate, pH 8, VAPOR DIFFUSION, SITTING DROP, temperature 291K 
+
+A match was found in 4E4A. The details are shown below. 
+3M ammonium sulfate, pH 8, VAPOR DIFFUSION, SITTING DROP, temperature 291K 
+
+A match was found in 4E94. The details are shown below. 
+2.0 M Ammonium sulfate, pH 8.5, VAPOR DIFFUSION, SITTING DROP, temperature 289K 
+
+A match was found in 4ER9. The details are shown below. 
+3.5M Ammonium sulfate, pH 7.0, VAPOR DIFFUSION, SITTING DROP, temperature 296K 
+
+A match was found in 4F0C. The details are shown below. 
+3.5M Ammonium Sulfate, pH 7.7, MICROBATCH, temperature 277K 
+
+A match was found in 4FOZ. The details are shown below. 
+2.0 M (NH4)2SO4 (Structure Screen 1/#44), pH 6.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 4FX8. The details are shown below. 
+2.0M Ammonium sulfate, pH 6.0, VAPOR DIFFUSION, HANGING DROP, temperature 293.0K 
+
+A match was found in 4G45. The details are shown below. 
+2M ammonium sulphate, pH 6, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 4G46. The details are shown below. 
+2M ammonium sulphate, pH 6, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 4G47. The details are shown below. 
+2M ammonium sulphate, pH 6, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 4G48. The details are shown below. 
+2M ammonium sulphate, pH 6, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+A match was found in 4GFO. The details are shown below. 
+2 M ammonium sulfate, pH 5, VAPOR DIFFUSION, SITTING DROP, temperature 300K 
+
+A match was found in 4GHO. The details are shown below. 
+0.7M ammonium sulfate, phosphate buffer, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 298, temperature 298.0K 
+
+A match was found in 4GNZ. The details are shown below. 
+1.5 M Ammonium Sulfate, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 4GO2. The details are shown below. 
+1.6 M Ammonium Sulfate, pH 6.4, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 4GRP. The details are shown below. 
+1.6M ammonium sulfate, pH 5.6, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 4GRQ. The details are shown below. 
+1.6M ammonium sulfate, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 310K 
+
+A match was found in 4GRU. The details are shown below. 
+2.0M ammonium sulfate, pH6.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 4GUN. The details are shown below. 
+2 M ammonium sulfate, pH 7.0, vapor diffusion, hanging drop, temperature 277K 
+
+A match was found in 4H14. The details are shown below. 
+2.0M (NH4)2SO4, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+A match was found in 4H1H. The details are shown below. 
+1.3 M Ammonium Sulfate, 0.2 Sodium Chloride, Acetate pH 4.5 , VAPOR DIFFUSION, HANGING DROP, temperature 289K 
+
+A match was found in 4H60. The details are shown below. 
+1.6 M ammonium sulfate, pH 4.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 4HCP. The details are shown below. 
+1.5 M ammonium sulfate and 100 mM citrate, pH 5.5, EVAPORATION, temperature 293K 
+
+A match was found in 4HIB. The details are shown below. 
+1.6M-1.7M Ammonium sulphate, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 4HKP. The details are shown below. 
+1.6M-1.7M Ammonium sulphate, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 4HNR. The details are shown below. 
+1.6% AMS, pH 9.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+A match was found in 4HW5. The details are shown below. 
+2-2.2 M ammonium sulfate with the pH ranging from 6 to 9 , VAPOR DIFFUSION, SITTING DROP, temperature 292K 
+
+A match was found in 4I30. The details are shown below. 
+2.0 M Ammonium sulphate, pH 8.5 , VAPOR DIFFUSION, HANGING DROP, temperature 293.0K 
+
+A match was found in 4IOD. The details are shown below. 
+2.2M AMMONIUM SULFATE, pH 5.5, VAPOR DIFFUSION, HANGING DROP, temperature 273K 
+
+A match was found in 4JAC. The details are shown below. 
+Crystals obtained after seeding from crystals grown in 0.2 M ammonium sulfate and 28% PEG 4000, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 4JNX. The details are shown below. 
+1.6 M ammonium sulfate, pH 8, potassium chloride, MES/NaOH, trace magnesium, HANGING DROP, temperature 291K 
+
+A match was found in 4JP6. The details are shown below. 
+2M ammonium sulfate, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 298.0K 
+
+A match was found in 4JP7. The details are shown below. 
+2M ammonium sulfate, pH 5.0, VAPOR DIFFUSION, HANGING DROP, temperature 298.0K 
+
+A match was found in 4JZK. The details are shown below. 
+2.3 M ammonium sulfate and 100 mM imidazole at pH 7.9, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+A match was found in 4KV4. The details are shown below. 
+2.5 M (NH4)2SO4, pH 8.5, VAPOR DIFFUSION, HANGING DROP, temperature 278K 
+
+A match was found in 4KVZ. The details are shown below. 
+2.0 M ammonium sulfate, pH 4.6, VAPOR DIFFUSION, HANGING DROP, temperature 273K 
+
+A match was found in 4L78. The details are shown below. 
+2M Ammonium Sulphate, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+A match was found in 4LLW. The details are shown below. 
+15% PEG 8K + 200mM Ammonium Sulfate , pH 7.2, VAPOR DIFFUSION, SITTING DROP, temperature 294K 
+
+A match was found in 4LNU. The details are shown below. 
+PEG, MES BUFFER, 0.2M AMMONIUM SULFATE, pH 6.50, VAPOR DIFFUSION, temperature 293K 
+
+A match was found in 4LXK. The details are shown below. 
+1.0M ammonium sulfate in water, pH 5.5, VAPOR DIFFUSION, HANGING DROP, temperature 292K 
+
+A match was found in 4LXM. The details are shown below. 
+1.0M ammonium sulfate in water, pH 5.5, VAPOR DIFFUSION, HANGING DROP, temperature 292K 
+
+A match was found in 4M1L. The details are shown below. 
+1.6M ammonium sulfate, 1xM lithium sulfate, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+A match was found in 4MYY. The details are shown below. 
+3M Ammonium Sulfate and 8% Glycerol, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+A match was found in 4NIA. The details are shown below. 
+9 crystals were grown in microgravity aboard IML-I mission of the U.S. Space Shuttle over 12 days using 20% ammonium sulfate as precipitant, pH 6.50, LIQUID DIFFUSION, temperature 296K 
+
+A match was found in 4OQ8. The details are shown below. 
+crystals grown from 15% ammonium sulfate on earth with a reservoir of 15% ammonium sulfate over 14 days., pH 6.50, VAPOR DIFFUSION, SITTING DROP, temperature 296K 
+
+A match was found in 4OQ9. The details are shown below. 
+crystals grown from 15% ammonium sulfate on earth with a reservoir of 15% ammonium sulfate over 14 days., pH 6.50, VAPOR DIFFUSION, SITTING DROP, temperature 296K 
+
+A match was found in 4PU2. The details are shown below. 
+2 M AMMONIUM SULFATE, pH 6.5, VAPOR DIFFUSION, SITTING DROP, temperature 289K 
+
+A match was found in 4PVB. The details are shown below. 
+2 M AMMONIUM SULFATE, pH 6.5, VAPOR DIFFUSION, SITTING DROP, temperature 289K 
+
+A match was found in 4PW4. The details are shown below. 
+2.0 M Ammonium Sulfate, pH 7.0, VAPOR DIFFUSION, SITTING DROP, temperature 289K 
+
+A match was found in 4QB4. The details are shown below. 
+0.6 M Ammonium sulfate, MPD 50-60%, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 277K, temperature 277.0K 
+
+A match was found in 4QIR. The details are shown below. 
+2 M ammonium sulfate, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+A match was found in 4QME. The details are shown below. 
+2.0 M ammonium sulfate, pH 7.0, VAPOR DIFFUSION, SITTING DROP, temperature 289K 
+
+A match was found in 4QPE. The details are shown below. 
+2.0 M ammonium sulfate, pH 7.0, VAPOR DIFFUSION, SITTING DROP, temperature 289K 
+
+A match was found in 4QUO. The details are shown below. 
+2.0 M ammonium sulfate, pH 7.0, VAPOR DIFFUSION, SITTING DROP, temperature 291K 
+
+A match was found in 4RMH. The details are shown below. 
+2.8 M ammonium sulfate, pH 9.0, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+A match was found in 6MHT. The details are shown below. 
+1.4-1.8 M AMMONIUM SULFATE 50 MM CITRATE PH 5.6, temperature 293.0K 
+
