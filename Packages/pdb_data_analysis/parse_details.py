@@ -12,12 +12,16 @@ from pprint import pprint
 # FUNCTION DECLARATIONS
 
 # Need to keep track of the associated entry_id as well
-def chemical_name_golden_reference_list(connection, table, column):
+def create_chemical_golden_reference_list(connection, table, column):
     cursor = connection.cursor()
 
     sort_command = "SELECT * FROM {0} ORDER BY {1}".format(table, column)
 
+    # Store the chemical concentrations of the relevant entries
+    concentration_index = 0
+    chemical_concentrations = []
     # Store the chemical names of the relevant entries
+    name_index = 0
     chemical_names = []
     # Store the entry ids of the relevant entries
     chemical_ids = []
@@ -31,14 +35,12 @@ def chemical_name_golden_reference_list(connection, table, column):
         entry_id = row[0]
         # Store the details section of the current structure's entry
         details = row[6]
-        # Find only details sections that contain one of these common delimiters (not usually found in chemical formulae or names)
-        find_delimiters = re.findall('[,;:\t]*', details)
+        # Find only details sections that contain one of these common delimiters
+        # (not usually found in chemical formulae or names)
+        find_delimiters = re.findall('[,;:]*', details)
         confirmed = False
         for delimiter in find_delimiters:
             if delimiter is not None and confirmed is not True:
-                # Show the details section to confirm that there are in fact delimiters
-                # print("This entry should be delimited by one of the accepted delimiters.")
-                # pprint("DETAILS:{0}".format(details))
                 delimited_entries.append(entry_id)
                 confirmed = True
 
@@ -49,106 +51,148 @@ def chemical_name_golden_reference_list(connection, table, column):
         details = row[6].lower()
 
         # All of these sections will be delimited properly. Now we can trust that each delimiter DOES mark the end of a chemical's description
-        find_chemical_names = re.findall('(\d+\s*m{1,2}\s+[^,;:\t]*|\d+[.]\d+\s*m{1,2}\s+[^,;:\t]*|'
-                                         '\d+\s*[%]\s*[^,;:\t]*|\d+[.]\d+\s*[%]\s*[^,;:\t]*|'
-                                         '(peg)\s*\d+[^,;:\t]*|\d+\s*(peg)[^,;:\t]*|(peg)[-]\d+[^,;:\t]*)', details)
+        comma_delimited_remarks = re.split('(?:[,]|[;])', details)
 
         # Check if this structure's entry is delimited properly
         if entry_id == delimited_entries[entry_index]:
             # Find each chemical name used in the structure's crystallization
-            for matches in find_chemical_names:
-                for name in matches:
-                    # Ensure that a chemical name follows the concentration, percentage, or PEG variation
-                    if name is not None and len(name) > 1:
-                        raw_chemical_name = name
+            for name in comma_delimited_remarks:
+                if name is not None and len(name) > 1:
+                    raw_chemical_name = name
 
-                        find_open_parentheses = re.search('([(])', raw_chemical_name)
-                        find_closed_parentheses = re.search('([)])', raw_chemical_name)
-                        # Check if only one parentheses is contained in the chemical's name
-                        if find_open_parentheses is not None and find_closed_parentheses is None or \
-                                                find_open_parentheses is None and find_closed_parentheses is not None:
-                            # If this is the case, it is most surely an errant parentheses and it can be removed safely
-                            pprint("Removing the errant parentheses!")
-                            chemical_name = re.sub('([(].*$|[)].*$)', '', raw_chemical_name)
-                            english_delimited_names = re.split('(?:and)', chemical_name)
-                        # No changes need to be made to the chemical name as of yet
-                        else:
-                            no_parentheses_name = raw_chemical_name
-                            english_delimited_names = re.split('(?:and)', no_parentheses_name)
+                    english_delimited_names = re.split('(?:and)', raw_chemical_name)
+                    # Check if the chemical name is delimited by an english word
+                    for english_delimited_name in english_delimited_names:
+                        period_delimited_names = re.split('(?:[.][^0-9]+)', english_delimited_name)
+                        # Check if the chemical name is delimited with a period
+                        for period_delimited_name in period_delimited_names:
 
-                        # Check if the chemical name is delimited by an english word
-                        if len(english_delimited_names) > 1:
-                            for english_delimited_name in english_delimited_names:
-                                period_delimited_names = re.split('(?:\D+\s*[.]\s*\D+)', english_delimited_name)
-                                # If it is delimited with a period, split the phrase both by english and period delimiters
-                                if len(period_delimited_names) > 1:
-                                    for period_delimited_name in period_delimited_names:
-                                        chemical_names.append(period_delimited_name)
-                                        chemical_ids.append(entry_id)
-                                        pprint("The Entry ID of the below chemical: {0}".format(entry_id))
-                                        pprint("ENG/PER, Contents related to a single chemical: {0}".format(
-                                            period_delimited_name))
-                                # If it is not delimited with a period, check if it is delimited with an english word
-                                else:
-                                    chemical_names.append(english_delimited_name)
+                            # Check if some sort of concentration is provided
+                            molarity = re.search('((\d+|\d+[.]\d+)\s*m{1,2}\s+)', period_delimited_name)
+                            percent = re.search('((\d+|\d+[.]\d+)\s*[%])', period_delimited_name)
+                            peg = re.search('(peg)', period_delimited_name)
+
+                            # If no form of concentration is provided, the phrase is useless
+                            if molarity is None and percent is None and peg is None:
+                                # Skip this iteration of the loop so that this name is not stored in the list
+                                continue
+
+                            concentration_delimited_names = re.split('(\d+\s*m{1,2}\s+|\d+[.]\d+\s*m{1,2}\s+|'
+                                                                     '\d+\s*[%]|\d+[.]\d+\s*[%])',
+                                                                     period_delimited_name)
+                            # pprint("Concentration Names: {0}".format(concentration_delimited_names))
+                            for concentration_delimited_name in concentration_delimited_names:
+                                # Now that the strings have been split into their most basic phrases,
+                                # it is time to apply substring filters
+
+                                new_name = concentration_delimited_name
+                                while True:
+                                    ph_filtered = False
+                                    while True:
+                                        ph = re.search('(ph\s*(\d+|\d+[.]\d+)|ph\s*[=]\s*(\d+|\d+[.]\d+)|'
+                                                       'ph\s*[(]\s*(\d+|\d+[.]\d+))', new_name)
+                                        if ph is not None:
+                                            ph_filter = re.sub('(ph).*', '', new_name)
+                                            # pprint("New sans-pH name: {0}".format(ph_filter))
+                                            new_name = ph_filter
+                                            ph_filtered = True
+                                        else:
+                                            ph_filter = new_name
+                                            break
+
+                                    paren_filtered = False
+                                    while True:
+                                        open_parentheses = re.search('([(])', ph_filter)
+                                        close_parentheses = re.search('([)])', ph_filter)
+                                        # Check if only one parentheses is contained in the chemical's name
+                                        if open_parentheses is not None and close_parentheses is None or \
+                                                                close_parentheses is not None and open_parentheses is None:
+                                            # If this is the case, it is surely an errant parentheses and it can be removed safely
+                                            paren_filter = re.sub('([(].*|[)].*)', '', ph_filter)
+                                            ph_filter = paren_filter
+                                            paren_filtered = True
+                                        else:
+                                            # If this is not the case, make sure the name remains consistent regardless
+                                            paren_filter = ph_filter
+                                            break
+
+                                    grammar_filtered = False
+                                    while True:
+                                        grammar = re.search('\s+(with|at|in|of|was|were|for|against|buffer)\s+',
+                                                            paren_filter)
+                                        if grammar is not None:
+                                            grammar_filter = re.sub('\s+(with.*|at.*|in.*|of.*|was.*|were.*|for.*|'
+                                                                    'against.*|buffer.*)\s+', '', paren_filter)
+                                            paren_filter = grammar_filter
+                                            grammar_filtered = True
+                                        else:
+                                            grammar_filter = paren_filter
+                                            break
+                                    new_name = grammar_filter
+
+                                    # Filters have been applied completely by this point, break the loop
+                                    if not ph_filtered and not paren_filtered and not grammar_filtered:
+                                        break
+
+                                # pprint("Current name being analyzed: {0}".format(grammar_filter))
+                                # The final chemical name is equivalent to the results of the last filter applied
+                                concentration_check = re.search('((\d+|\d+[.]\d+)\s*m{1,2}\s+)', grammar_filter)
+                                percent_check = re.search('((\d+|\d+[.]\d+)\s*[%])', grammar_filter)
+                                if concentration_check is not None or percent_check is not None:
+                                    chemical_concentration = grammar_filter.strip()
+                                    # pprint("{0} is a concentration! Storing the string.".format(chemical_concentration))
+                                    chemical_concentrations.append(chemical_concentration)
+                                    concentration_index += 1
+                                    continue
+                                if concentration_index == (name_index + 1):
+                                    chemical_name = grammar_filter.strip()
+                                    # pprint("The Entry ID of the below chemical: {0}".format(entry_id))
+                                    # pprint("{0} is a name! Storing the string and it's ID.".format(chemical_name))
+                                    chemical_names.append(chemical_name)
                                     chemical_ids.append(entry_id)
-                                    pprint("The Entry ID of the below chemical: {0}".format(entry_id))
-                                    pprint("ENG, Contents related to a single chemical: {0}".format(
-                                        english_delimited_name))
-                        # If it is not delimited with a period, try something else
-                        else:
-                            period_delimited_names = re.split('(?:\D+\s*[.]\s*\D+)', no_parentheses_name)
-                            # If it is not delimited with an english word, check if it is delimited with a period
-                            if len(period_delimited_names) > 1:
-                                for period_delimited_name in period_delimited_names:
-                                    chemical_names.append(period_delimited_name)
-                                    chemical_ids.append(entry_id)
-                                    pprint("The Entry ID of the below chemical: {0}".format(entry_id))
-                                    pprint(
-                                        "PER, Contents related to a single chemical: {0}".format(period_delimited_name))
-                            # It is delimited by neither an english or a period delimiter. Leave it as it is
-                            else:
-                                chemical_names.append(no_parentheses_name)
-                                chemical_ids.append(entry_id)
-                                pprint("The Entry ID of the below chemical: {0}".format(entry_id))
-                                pprint("REG, Contents related to a single chemical: {0}".format(no_parentheses_name))
-
-                                # no_ph_name = re.sub('((ph|ph=)\s*\d+.*|\s+\d+\s+.*|\s+\d*$)', '', no_numeric_name)
-                                # Remove leading and trailing whitespace from this matched string
-                                # chemical = trim_paren_match.strip()
+                                    name_index += 1
             entry_index += 1
     file = open("/home/vlad/Documents/Code/pdb-data-mining/chemical-names-test.txt", 'w')
-    for name in chemical_names:
+    for index, name in enumerate(chemical_names):
         file.write("{0}. \n".format(index))
-        file.write("{0} \n\n".format(name))
-    return chemical_names, chemical_ids
+        file.write("{0} \n".format(chemical_ids[index]))
+        file.write("Concentration: ${0}$    Name: ${1}$ \n\n".format(chemical_concentrations[index], name))
+    return chemical_concentrations, chemical_names, chemical_ids
 
 
-def split_results(results, result_ids):
-    rows = len(results)
-    result_components = [[0 for x in range(5)] for x in range(rows)]
-    result_index = 0
-    for index, chemical in enumerate(results):
-        concentration_search = re.compile('(\d+|\d+[.]\d+)\s*(m{1,2}|[%])\s*')
+def finalize_chemical_golden_reference_list(chemical_concentrations, chemical_names, chemical_ids):
+    pprint("Original length of golden list of chemical names: {0}".format(len(chemical_concentrations)))
+    for index, chemical_name in enumerate(chemical_names):
+        only_numeric = re.search('(^\d*$)', chemical_name)
+        if chemical_name == "" or "=" in chemical_name or only_numeric is not None:
+            if only_numeric is not None:
+                pprint("Only Numeric search returned... {0}".format(only_numeric.group(0)))
+            pprint("Removing {0} from the golden list of valid chemical names.".format(chemical_name))
+            # Remove all information related to that chemical entry
+            del chemical_names[index]
+            del chemical_concentrations[index]
+            del chemical_ids[index]
+    pprint("Refined length of golden list of chemical names: {0}".format(len(chemical_concentrations)))
+    rows = len(chemical_concentrations)
+    chemical_data_components = [[0 for x in range(5)] for x in range(rows)]
+    data_index = 0
+    for index, chemical_concentration in enumerate(chemical_concentrations):
+        concentration_search = re.findall('(\d+|\d+[.]\d+)\s*(m{1,2}|[%])\s*', chemical_concentration)
         try:
-            clean_chemical = chemical.strip()
-            concentration = concentration_search.match(clean_chemical).group(1)
-            unit = concentration_search.match(clean_chemical).group(2)
-            unit_and_name = re.sub(concentration, '', clean_chemical, 1)
-            only_name = re.sub(unit, '', unit_and_name, 1)
-            name = only_name.strip()
-            pprint("Concentration: {0}, Unit: {1}, Name: {2}".format(concentration, unit, name))
-            if len(name) > 1:
-                result_components[result_index][0] = str(uuid.uuid4())
-                result_components[result_index][1] = result_ids[index]
-                result_components[result_index][2] = concentration
-                result_components[result_index][3] = unit
-                result_components[result_index][4] = name
-                result_index += 1
+            for concentration in concentration_search:
+                value = concentration[0]
+                unit = concentration[1]
+                # pprint("Concentration: {0}, Unit: {1}".format(value, unit))
+                chemical_data_components[data_index][0] = str(uuid.uuid4())
+                chemical_data_components[data_index][1] = chemical_ids[index]
+                chemical_data_components[data_index][2] = value
+                chemical_data_components[data_index][3] = unit
+                chemical_data_components[data_index][4] = chemical_names[index]
+                data_index += 1
         except AttributeError:
-            pprint("Chemical: {0}".format(chemical))
+            pprint("Chemical: {0}".format(chemical_names[index]))
             pprint("The above is not a useful chemical. No concentration is provided.")
-    return result_components
+    return chemical_data_components
 
 
 def crystallized_with_single_chemical(connection, table, column, chemicals_list):
@@ -178,11 +222,8 @@ def crystallized_with_single_chemical(connection, table, column, chemicals_list)
             regex_command = '(?:{0})'.format(joined_string)
             chemical_search = re.search(regex_command, chemical_name)
             if chemical_search is not None:
-                # pprint("A match was made!")
-                # pprint("{0} as compared to {1}".format(chemicals_list[0], row[4]))
                 found_match.append(entry_id)
                 match_count += 1
-            # pprint("The for loop has ended!")
             current_index += 1
     pprint("There were a total of {0} matches to {1}.".format(match_count, chemicals_list[0]))
 
@@ -200,17 +241,21 @@ def crystallized_with_single_chemical(connection, table, column, chemicals_list)
             break
 
 
-def store_results(connection, table, results):
+def store_results(connection, table, chemical_data):
+    SQL.delete_all_rows(connection, table)
     SQL.add_table(connection, table, False, True)
-    SQL.add_child_row(connection, table, results)
+    SQL.add_child_row(connection, table, chemical_data)
 
 
-def create_common_chemical_names_list(connection, table, column):
+def display_column_frequency(connection, table, column):
+    pprint("Entered this function!")
     cursor = connection.cursor()
 
-    frequency_command = "SELECT COUNT(*), {1} FROM {0} GROUP BY {1} ORDER BY 1 DESC".format(table, column)
+    frequency_command = "SELECT COUNT(*), {1} FROM {0} GROUP BY {1} HAVING COUNT(*) > 9 ORDER BY 1 DESC".format(table,
+                                                                                                                column)
     file = open("/home/vlad/Documents/Code/pdb-data-mining/"
                 "most-common-crystallization-chemicals.txt", 'w')
+    pprint("Writing things into the text file!")
     for index, row in enumerate(cursor.execute(frequency_command)):
         file.write("{0}. \n".format(index))
         file.write("{1} occurred {0} times \n\n".format(row[0], row[1]))

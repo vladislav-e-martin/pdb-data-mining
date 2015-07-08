@@ -1,0 +1,2232 @@
+0. 
+ammonium sulfate occurred 4996 times 
+
+1. 
+hepes occurred 4783 times 
+
+2. 
+peg 3350 occurred 3741 times 
+
+3. 
+tris occurred 3360 times 
+
+4. 
+nacl occurred 3237 times 
+
+5. 
+mes occurred 3158 times 
+
+6. 
+sodium acetate occurred 3005 times 
+
+7. 
+tris-hcl occurred 2772 times 
+
+8. 
+glycerol occurred 2515 times 
+
+9. 
+peg 4000 occurred 2403 times 
+
+10. 
+peg3350 occurred 2278 times 
+
+11. 
+sodium citrate occurred 2081 times 
+
+12. 
+mgcl2 occurred 2010 times 
+
+13. 
+bis-tris occurred 1854 times 
+
+14. 
+peg 8000 occurred 1713 times 
+
+15. 
+dtt occurred 1591 times 
+
+16. 
+ammonium acetate occurred 1394 times 
+
+17. 
+mpd occurred 1274 times 
+
+18. 
+sodium chloride occurred 1237 times 
+
+19. 
+magnesium chloride occurred 1122 times 
+
+20. 
+sodium cacodylate occurred 1088 times 
+
+21. 
+lithium sulfate occurred 1010 times 
+
+22. 
+cacl2 occurred 953 times 
+
+23. 
+peg 6000 occurred 931 times 
+
+24. 
+ammonium sulphate occurred 901 times 
+
+25. 
+peg4000 occurred 898 times 
+
+26. 
+(nh4)2so4 occurred 792 times 
+
+27. 
+ethylene glycol occurred 771 times 
+
+28. 
+peg 400 occurred 750 times 
+
+29. 
+imidazole occurred 700 times 
+
+30. 
+peg8000 occurred 670 times 
+
+31. 
+isopropanol occurred 617 times 
+
+32. 
+calcium acetate occurred 526 times 
+
+33. 
+sodium formate occurred 522 times 
+
+34. 
+calcium chloride occurred 506 times 
+
+35. 
+(w/v) peg 3350 occurred 502 times 
+
+36. 
+peg400 occurred 500 times 
+
+37. 
+li2so4 occurred 491 times 
+
+38. 
+potassium phosphate occurred 464 times 
+
+39. 
+kcl occurred 456 times 
+
+40. 
+citrate occurred 432 times 
+
+41. 
+cacodylate occurred 428 times 
+
+42. 
+edta occurred 387 times 
+
+43. 
+sodium malonate occurred 381 times 
+
+44. 
+sodium phosphate occurred 380 times 
+
+45. 
+magnesium acetate occurred 369 times 
+
+46. 
+bis-tris propane occurred 353 times 
+
+47. 
+tris hcl occurred 352 times 
+
+48. 
+(w/v) peg 4000 occurred 346 times 
+
+49. 
+bicine occurred 334 times 
+
+50. 
+dmso occurred 332 times 
+
+51. 
+na acetate occurred 329 times 
+
+52. 
+na citrate occurred 323 times 
+
+53. 
+citric acid occurred 313 times 
+
+54. 
+sodium acetate trihydrate occurred 299 times 
+
+55. 
+peg6000 occurred 294 times 
+
+56. 
+tcep occurred 293 times 
+
+57. 
+tris/hcl occurred 287 times 
+
+58. 
+licl occurred 286 times 
+
+59. 
+nan3 occurred 282 times 
+
+60. 
+peg 4k occurred 279 times 
+
+61. 
+acetate occurred 253 times 
+
+62. 
+zinc acetate occurred 251 times 
+
+63. 
+(v/v) glycerol occurred 247 times 
+
+64. 
+peg 3000 occurred 243 times 
+
+65. 
+ethanol occurred 241 times 
+
+66. 
+peg-3350 occurred 241 times 
+
+67. 
+(w/v) peg 8000 occurred 238 times 
+
+68. 
+liso4 occurred 236 times 
+
+69. 
+2-propanol occurred 227 times 
+
+70. 
+ches occurred 224 times 
+
+71. 
+peg 1000 occurred 223 times 
+
+72. 
+tri-sodium citrate occurred 219 times 
+
+73. 
+w/v peg 3350 occurred 208 times 
+
+74. 
+dioxane occurred 205 times 
+
+75. 
+mncl2 occurred 198 times 
+
+76. 
+na cacodylate occurred 192 times 
+
+77. 
+peg 1500 occurred 192 times 
+
+78. 
+tris-cl occurred 190 times 
+
+79. 
+na/k phosphate occurred 187 times 
+
+80. 
+ammonium citrate occurred 186 times 
+
+81. 
+(w/v) peg3350 occurred 185 times 
+
+82. 
+v/v glycerol occurred 185 times 
+
+83. 
+mgso4 occurred 182 times 
+
+84. 
+2-methyl-2 occurred 173 times 
+
+85. 
+polyethylene glycol 4000 occurred 172 times 
+
+86. 
+peg 8k occurred 171 times 
+
+87. 
+bistris occurred 170 times 
+
+88. 
+bme occurred 162 times 
+
+89. 
+ammonium phosphate occurred 159 times 
+
+90. 
+tacsimate occurred 157 times 
+
+91. 
+potassium chloride occurred 156 times 
+
+92. 
+w/v peg3350 occurred 154 times 
+
+93. 
+na-acetate occurred 153 times 
+
+94. 
+polyethylene glycol 3350 occurred 153 times 
+
+95. 
+na-citrate occurred 152 times 
+
+96. 
+lithium chloride occurred 150 times 
+
+97. 
+peg 10000 occurred 150 times 
+
+98. 
+peg 20000 occurred 150 times 
+
+99. 
+hepes-naoh occurred 149 times 
+
+100. 
+naoac occurred 149 times 
+
+101. 
+peg mme 2000 occurred 146 times 
+
+102. 
+hepes/naoh occurred 143 times 
+
+103. 
+nacitrate occurred 142 times 
+
+104. 
+mops occurred 139 times 
+
+105. 
+sodium azide occurred 138 times 
+
+106. 
+trishcl occurred 137 times 
+
+107. 
+peg1500 occurred 136 times 
+
+108. 
+saturated ammonium sulfate occurred 132 times 
+
+109. 
+peg 2000 mme occurred 131 times 
+
+110. 
+k2hpo4 occurred 128 times 
+
+111. 
+glycine occurred 127 times 
+
+112. 
+- occurred 126 times 
+
+113. 
+atp occurred 125 times 
+
+114. 
+magnesium sulfate occurred 125 times 
+
+115. 
+dithiothreitol occurred 124 times 
+
+116. 
+inhibitor occurred 124 times 
+
+117. 
+zncl2 occurred 124 times 
+
+118. 
+iso-propanol occurred 122 times 
+
+119. 
+magnesium formate occurred 121 times 
+
+120. 
+nah2po4 occurred 118 times 
+
+121. 
+peg-4000 occurred 118 times 
+
+122. 
+peg-8000 occurred 118 times 
+
+123. 
+pipes occurred 118 times 
+
+124. 
+hepes buffer occurred 117 times 
+
+125. 
+peg 2000 occurred 117 times 
+
+126. 
+caps occurred 115 times 
+
+127. 
+hepes-na occurred 113 times 
+
+128. 
+peg 200 occurred 113 times 
+
+129. 
+kh2po4 occurred 112 times 
+
+130. 
+(v/v) mpd occurred 111 times 
+
+131. 
+na-hepes occurred 111 times 
+
+132. 
+naacetate occurred 109 times 
+
+133. 
+phosphate buffer occurred 109 times 
+
+134. 
+mes-naoh occurred 107 times 
+
+135. 
+naac occurred 107 times 
+
+136. 
+2-mercaptoethanol occurred 106 times 
+
+137. 
+ammonium chloride occurred 106 times 
+
+138. 
+beta-mercaptoethanol occurred 106 times 
+
+139. 
+manganese chloride occurred 106 times 
+
+140. 
+mes buffer occurred 104 times 
+
+141. 
+peg3000 occurred 104 times 
+
+142. 
+znso4 occurred 104 times 
+
+143. 
+peg mme 5000 occurred 102 times 
+
+144. 
+polyethylene glycol 8000 occurred 102 times 
+
+145. 
+magnesium chloride hexahydrate occurred 101 times 
+
+146. 
+na hepes occurred 101 times 
+
+147. 
+peg occurred 101 times 
+
+148. 
+potassium thiocyanate occurred 101 times 
+
+149. 
+ammonium formate occurred 100 times 
+
+150. 
+w/v peg 4000 occurred 100 times 
+
+151. 
+kscn occurred 99 times 
+
+152. 
+sodium/potassium phosphate occurred 99 times 
+
+153. 
+ occurred 96 times 
+
+154. 
+peg4k occurred 96 times 
+
+155. 
+sodium hepes occurred 96 times 
+
+156. 
+succinic acid occurred 96 times 
+
+157. 
+(w/v) peg 6000 occurred 94 times 
+
+158. 
+lithium sulphate occurred 94 times 
+
+159. 
+na formate occurred 92 times 
+
+160. 
+tri-sodium citrate dihydrate occurred 92 times 
+
+161. 
+peg-6000 occurred 91 times 
+
+162. 
+potassium sodium tartrate occurred 91 times 
+
+163. 
+(w/v) peg4000 occurred 90 times 
+
+164. 
+peg 5000 mme occurred 90 times 
+
+165. 
+(v/v) isopropanol occurred 89 times 
+
+166. 
+btp occurred 89 times 
+
+167. 
+dl-malic acid occurred 89 times 
+
+168. 
+gsh occurred 87 times 
+
+169. 
+trisodium citrate occurred 87 times 
+
+170. 
+ca(oac)2 occurred 86 times 
+
+171. 
+peg 300 occurred 86 times 
+
+172. 
+tris buffer occurred 86 times 
+
+173. 
+w/v peg 8000 occurred 86 times 
+
+174. 
+hepes sodium occurred 85 times 
+
+175. 
+phosphate-citrate occurred 85 times 
+
+176. 
+tris hydrochloride occurred 82 times 
+
+177. 
+v/v peg3350 occurred 82 times 
+
+178. 
+sodium acetate buffer occurred 81 times 
+
+179. 
+amso4 occurred 80 times 
+
+180. 
+lithium sulfate monohydrate occurred 80 times 
+
+181. 
+nh4cl occurred 79 times 
+
+182. 
+sodium citrate tribasic dihydrate occurred 79 times 
+
+183. 
+ada occurred 78 times 
+
+184. 
+(w/v) polyethylene glycol 3350 occurred 77 times 
+
+185. 
+nicl2 occurred 76 times 
+
+186. 
+naf occurred 75 times 
+
+187. 
+peg8k occurred 75 times 
+
+188. 
+cdcl2 occurred 74 times 
+
+189. 
+k/na tartrate occurred 74 times 
+
+190. 
+ammonium dihydrogen phosphate occurred 73 times 
+
+191. 
+bis-tris-propane occurred 73 times 
+
+192. 
+sodium nitrate occurred 73 times 
+
+193. 
+sucrose occurred 73 times 
+
+194. 
+nai occurred 72 times 
+
+195. 
+peg 3 occurred 71 times 
+
+196. 
+peg200 occurred 71 times 
+
+197. 
+phosphate occurred 71 times 
+
+198. 
+(w/v) peg8000 occurred 70 times 
+
+199. 
+nh4so4 occurred 70 times 
+
+200. 
+(v/v) ethylene glycol occurred 69 times 
+
+201. 
+na/k tartrate occurred 68 times 
+
+202. 
+na2so4 occurred 68 times 
+
+203. 
+peg1000 occurred 68 times 
+
+204. 
+zinc chloride occurred 68 times 
+
+205. 
+polyethylene glycol 400 occurred 67 times 
+
+206. 
+(v/v) peg 400 occurred 66 times 
+
+207. 
+ammonium nitrate occurred 66 times 
+
+208. 
+na-cacodylate occurred 66 times 
+
+209. 
+nano3 occurred 66 times 
+
+210. 
+peg mme 550 occurred 66 times 
+
+211. 
+polyethylene glycol 6000 occurred 66 times 
+
+212. 
+(v/v) peg400 occurred 64 times 
+
+213. 
+acetate buffer occurred 64 times 
+
+214. 
+peg 6k occurred 64 times 
+
+215. 
+bis tris propane occurred 63 times 
+
+216. 
+mgcl occurred 63 times 
+
+217. 
+peg 600 occurred 63 times 
+
+218. 
+potassium acetate occurred 62 times 
+
+219. 
+sodium cacodylate trihydrate occurred 62 times 
+
+220. 
+sodium sulfate occurred 62 times 
+
+221. 
+adp occurred 61 times 
+
+222. 
+spermine occurred 61 times 
+
+223. 
+(v/v) 2-propanol occurred 60 times 
+
+224. 
+sodium occurred 60 times 
+
+225. 
+sodium iodide occurred 60 times 
+
+226. 
+v/v mpd occurred 60 times 
+
+227. 
+w/v peg4000 occurred 60 times 
+
+228. 
+bis-tris buffer occurred 59 times 
+
+229. 
+cadmium chloride occurred 59 times 
+
+230. 
+peg2000 mme occurred 59 times 
+
+231. 
+cacodylic acid occurred 58 times 
+
+232. 
+mg acetate occurred 58 times 
+
+233. 
+nh4oac occurred 58 times 
+
+234. 
+sodium fluoride occurred 58 times 
+
+235. 
+sodium dithionite occurred 57 times 
+
+236. 
+bis tris occurred 56 times 
+
+237. 
+peg-400 occurred 56 times 
+
+238. 
+zinc sulfate occurred 56 times 
+
+239. 
+(w/v) peg 1500 occurred 55 times 
+
+240. 
+(w/v) polyethylene glycol 4000 occurred 55 times 
+
+241. 
+sodium thiocyanate occurred 55 times 
+
+242. 
+w/v polyethylene glycol 3350 occurred 55 times 
+
+243. 
+sodium bromide occurred 54 times 
+
+244. 
+tris-hcl buffer occurred 53 times 
+
+245. 
+(w/v) peg 350 monomethyl ether (mme) occurred 52 times 
+
+246. 
+ammonium iodide occurred 52 times 
+
+247. 
+ca acetate occurred 52 times 
+
+248. 
+mes monohydrate occurred 52 times 
+
+249. 
+peg 5000 occurred 52 times 
+
+250. 
+peg2000 occurred 52 times 
+
+251. 
+potassium nitrate occurred 52 times 
+
+252. 
+peg5000 mme occurred 51 times 
+
+253. 
+potassium sodium tartrate tetrahydrate occurred 51 times 
+
+254. 
+cscl occurred 50 times 
+
+255. 
+nabr occurred 50 times 
+
+256. 
+peg 550 mme occurred 50 times 
+
+257. 
+benzamidine occurred 49 times 
+
+258. 
+ddt occurred 49 times 
+
+259. 
+ethylene glycol as cryo-protectant occurred 49 times 
+
+260. 
+nad+ occurred 49 times 
+
+261. 
+(v/v) 2-methyl-2 occurred 48 times 
+
+262. 
+bes occurred 48 times 
+
+263. 
+cocl2 occurred 48 times 
+
+264. 
+etgly occurred 48 times 
+
+265. 
+sodium potassium tartrate occurred 48 times 
+
+266. 
+nh4h2po4 occurred 47 times 
+
+267. 
+potassium formate occurred 47 times 
+
+268. 
+w/v polyethylene glycol 4000 occurred 47 times 
+
+269. 
+hexaamminecobalt (iii) chloride occurred 46 times 
+
+270. 
+nacacodylate occurred 46 times 
+
+271. 
+oxonate occurred 46 times 
+
+272. 
+sodium dihydrogen phosphate occurred 46 times 
+
+273. 
+(v/v) 1 occurred 45 times 
+
+274. 
+hepes 7.5 occurred 45 times 
+
+275. 
+peg20000 occurred 45 times 
+
+276. 
+(w/v) glycerol occurred 44 times 
+
+277. 
+ammonium phosphate monobasic occurred 44 times 
+
+278. 
+bes buffer occurred 44 times 
+
+279. 
+nh4ac occurred 44 times 
+
+280. 
+v/v peg 400 occurred 44 times 
+
+281. 
+mmt occurred 43 times 
+
+282. 
+v/v ethanol occurred 43 times 
+
+283. 
+ammonium fluoride occurred 42 times 
+
+284. 
+citrate buffer occurred 42 times 
+
+285. 
+w/v peg8000 occurred 42 times 
+
+286. 
+acetone occurred 41 times 
+
+287. 
+ammonium tartrate occurred 41 times 
+
+288. 
+na malonate occurred 41 times 
+
+289. 
+napi occurred 41 times 
+
+290. 
+sodium citrate buffer occurred 41 times 
+
+291. 
+sodium tartrate occurred 41 times 
+
+292. 
+w/v peg 6000 occurred 41 times 
+
+293. 
+cobalt chloride occurred 40 times 
+
+294. 
+imidazole malate occurred 40 times 
+
+295. 
+magnesium nitrate occurred 40 times 
+
+296. 
+nh4 acetate occurred 40 times 
+
+297. 
+peg 10k occurred 40 times 
+
+298. 
+peg300 occurred 40 times 
+
+299. 
+potassium phosphate monobasic occurred 40 times 
+
+300. 
+(w/v) peg 3000 occurred 39 times 
+
+301. 
+calcium chloride dihydrate occurred 39 times 
+
+302. 
+na/k occurred 39 times 
+
+303. 
+peg10000 occurred 39 times 
+
+304. 
+jeffamine m-600 occurred 38 times 
+
+305. 
+(nh4)2hpo4 occurred 37 times 
+
+306. 
+(w/v) polyethylene glycol 8000 occurred 37 times 
+
+307. 
+magnesium acetate tetrahydrate occurred 37 times 
+
+308. 
+nahepes occurred 37 times 
+
+309. 
+peg 20k occurred 37 times 
+
+310. 
+sodium phosphate buffer occurred 37 times 
+
+311. 
+tri-ammonium citrate occurred 37 times 
+
+312. 
+w/v polyethylene glycol 3 occurred 37 times 
+
+313. 
+kbr occurred 36 times 
+
+314. 
+l-cysteine occurred 36 times 
+
+315. 
+na3citrate occurred 36 times 
+
+316. 
+peg600 occurred 36 times 
+
+317. 
+sodium-potassium phosphate occurred 36 times 
+
+318. 
+trimethylamine n-oxide occurred 36 times 
+
+319. 
+tris 8.5 occurred 36 times 
+
+320. 
+(w/v) occurred 35 times 
+
+321. 
+jeffamine ed-2001 occurred 35 times 
+
+322. 
+malic acid occurred 35 times 
+
+323. 
+malonate occurred 35 times 
+
+324. 
+methanol occurred 35 times 
+
+325. 
+na-malonate occurred 35 times 
+
+326. 
+nascn occurred 35 times 
+
+327. 
+peg550 mme occurred 35 times 
+
+328. 
+sodium bicine occurred 35 times 
+
+329. 
+sodium citrate tribasic occurred 35 times 
+
+330. 
+w/v occurred 35 times 
+
+331. 
+zn acetate occurred 35 times 
+
+332. 
+l-proline occurred 34 times 
+
+333. 
+n occurred 34 times 
+
+334. 
+potassium phosphate dibasic occurred 34 times 
+
+335. 
+v/v isopropanol occurred 34 times 
+
+336. 
+(w/v) peg 2000 mme occurred 33 times 
+
+337. 
+(w/v) peg 400 occurred 33 times 
+
+338. 
+amppnp occurred 33 times 
+
+339. 
+glucose occurred 33 times 
+
+340. 
+na2hpo4 occurred 33 times 
+
+341. 
+nah2po4/ occurred 33 times 
+
+342. 
+peg 20 occurred 33 times 
+
+343. 
+peg 8 occurred 33 times 
+
+344. 
+peg-1000 occurred 33 times 
+
+345. 
+plp occurred 33 times 
+
+346. 
+potassium occurred 33 times 
+
+347. 
+(v/v) peg 3350 occurred 32 times 
+
+348. 
+cesium chloride occurred 32 times 
+
+349. 
+hepes:naoh occurred 32 times 
+
+350. 
+kpi occurred 32 times 
+
+351. 
+lithium nitrate occurred 32 times 
+
+352. 
+mib occurred 32 times 
+
+353. 
+nickel chloride occurred 32 times 
+
+354. 
+spermidine occurred 32 times 
+
+355. 
+spg occurred 32 times 
+
+356. 
+tris:hcl occurred 32 times 
+
+357. 
+ammonium citrate tribasic occurred 31 times 
+
+358. 
+gdp occurred 31 times 
+
+359. 
+hepps occurred 31 times 
+
+360. 
+nadp occurred 31 times 
+
+361. 
+peg-mme 2000 occurred 31 times 
+
+362. 
+ybcl3 occurred 31 times 
+
+363. 
+ch3coona occurred 30 times 
+
+364. 
+mnso4 occurred 30 times 
+
+365. 
+na-formate occurred 30 times 
+
+366. 
+peg-3000 occurred 30 times 
+
+367. 
+potassium bromide occurred 30 times 
+
+368. 
+sodium citrate tribasic dehydrate occurred 30 times 
+
+369. 
+(v/v) pentaerythritol propoxylate po/oh 5/4 occurred 29 times 
+
+370. 
+(w/v) peg 1000 occurred 29 times 
+
+371. 
+as occurred 29 times 
+
+372. 
+bis-tris-hcl occurred 29 times 
+
+373. 
+cadmium sulfate occurred 29 times 
+
+374. 
+compound occurred 29 times 
+
+375. 
+ki occurred 29 times 
+
+376. 
+mes/imidazole occurred 29 times 
+
+377. 
+mg formate occurred 29 times 
+
+378. 
+protein occurred 29 times 
+
+379. 
+v/v peg400 occurred 29 times 
+
+380. 
+bog occurred 28 times 
+
+381. 
+hepes-koh occurred 28 times 
+
+382. 
+mg(oac)2 occurred 28 times 
+
+383. 
+mgacetate occurred 28 times 
+
+384. 
+nad occurred 28 times 
+
+385. 
+naformate occurred 28 times 
+
+386. 
+peg 4 occurred 28 times 
+
+387. 
+sodium sulphate occurred 28 times 
+
+388. 
+to occurred 28 times 
+
+389. 
+w/v peg3000 occurred 28 times 
+
+390. 
+(v/v) dmso occurred 27 times 
+
+391. 
+2-hydroxyethyldisulfide occurred 27 times 
+
+392. 
+ammonium citrate dibasic occurred 27 times 
+
+393. 
+calcium acetate hydrate occurred 27 times 
+
+394. 
+co chloride occurred 27 times 
+
+395. 
+li sulfate occurred 27 times 
+
+396. 
+mes/naoh occurred 27 times 
+
+397. 
+sodium potassium phosphate occurred 27 times 
+
+398. 
+sodium/potassium tartrate occurred 27 times 
+
+399. 
+w/v peg 1000 occurred 27 times 
+
+400. 
+(v/v) peg3350 occurred 26 times 
+
+401. 
+cacodylate buffer occurred 26 times 
+
+402. 
+di-ammonium hydrogen citrate occurred 26 times 
+
+403. 
+kf occurred 26 times 
+
+404. 
+mpeg 5000 occurred 26 times 
+
+405. 
+na occurred 26 times 
+
+406. 
+peg 10 occurred 26 times 
+
+407. 
+phenol occurred 26 times 
+
+408. 
+potassium citrate occurred 26 times 
+
+409. 
+v/v tacsimate occurred 26 times 
+
+410. 
+(v/v) ethanol occurred 25 times 
+
+411. 
+ammonium tartrate dibasic occurred 25 times 
+
+412. 
+ammoniumsulfate occurred 25 times 
+
+413. 
+bistris propane occurred 25 times 
+
+414. 
+nh4no3 occurred 25 times 
+
+415. 
+succinate occurred 25 times 
+
+416. 
+xylitol occurred 25 times 
+
+417. 
+(v/v) dioxane occurred 24 times 
+
+418. 
+acetic acid occurred 24 times 
+
+419. 
+ammonia sulfate occurred 24 times 
+
+420. 
+ams occurred 24 times 
+
+421. 
+bis-tris:hcl occurred 24 times 
+
+422. 
+btprop occurred 24 times 
+
+423. 
+peg 3400 occurred 24 times 
+
+424. 
+peg 550mme occurred 24 times 
+
+425. 
+peg 6000 (w/v) occurred 24 times 
+
+426. 
+pegmme 5000 occurred 24 times 
+
+427. 
+proline occurred 24 times 
+
+428. 
+(v/v) peg 8000 occurred 23 times 
+
+429. 
+2-hydroxyethyl disulfide occurred 23 times 
+
+430. 
+bistrispropane occurred 23 times 
+
+431. 
+capso occurred 23 times 
+
+432. 
+coa occurred 23 times 
+
+433. 
+lig occurred 23 times 
+
+434. 
+magnesium sulphate occurred 23 times 
+
+435. 
+n-bog occurred 23 times 
+
+436. 
+peg 2k occurred 23 times 
+
+437. 
+polyethylene glycol 600 occurred 23 times 
+
+438. 
+sodium phosphate monobasic monohydrate occurred 23 times 
+
+439. 
+taurine occurred 23 times 
+
+440. 
+(w/v) peg 2k-mme occurred 22 times 
+
+441. 
+ammonium phosphate dibasic occurred 22 times 
+
+442. 
+amp occurred 22 times 
+
+443. 
+eg occurred 22 times 
+
+444. 
+na2so3 occurred 22 times 
+
+445. 
+nadph occurred 22 times 
+
+446. 
+peg3k occurred 22 times 
+
+447. 
+pegmme2000 occurred 22 times 
+
+448. 
+potassium/sodium tartrate occurred 22 times 
+
+449. 
+sodium cloride occurred 22 times 
+
+450. 
+sodium phosphate monobasic occurred 22 times 
+
+451. 
+triscl occurred 22 times 
+
+452. 
+v/v 2-propanol occurred 22 times 
+
+453. 
+w/v peg 3 occurred 22 times 
+
+454. 
+gtp occurred 21 times 
+
+455. 
+hepes na occurred 21 times 
+
+456. 
+hexanediol occurred 21 times 
+
+457. 
+lithium citrate occurred 21 times 
+
+458. 
+malonic acid occurred 21 times 
+
+459. 
+mg chloride occurred 21 times 
+
+460. 
+nadh occurred 21 times 
+
+461. 
+peg 2000mme occurred 21 times 
+
+462. 
+peg 5k mme occurred 21 times 
+
+463. 
+peg10k occurred 21 times 
+
+464. 
+peg3400 occurred 21 times 
+
+465. 
+peg5000 occurred 21 times 
+
+466. 
+phosphate citrate occurred 21 times 
+
+467. 
+polyethylene glycol 3000 occurred 21 times 
+
+468. 
+potassium fluoride occurred 21 times 
+
+469. 
+sodium succinate occurred 21 times 
+
+470. 
+taps occurred 21 times 
+
+471. 
+v/v 1 occurred 21 times 
+
+472. 
+w/v glycerol occurred 21 times 
+
+473. 
+w/v peg6000 + 2 ul 100 u/ml human insulin occurred 21 times 
+
+474. 
+(nh4)so4 occurred 20 times 
+
+475. 
+(w/v) peg-6000 occurred 20 times 
+
+476. 
+(w/v) peg6000 occurred 20 times 
+
+477. 
+b-mercaptoethanol occurred 20 times 
+
+478. 
+cdso4 occurred 20 times 
+
+479. 
+dte occurred 20 times 
+
+480. 
+lithium acetate occurred 20 times 
+
+481. 
+mopso occurred 20 times 
+
+482. 
+n-octyl-beta-d-glucoside occurred 20 times 
+
+483. 
+nh4i occurred 20 times 
+
+484. 
+peg 1k occurred 20 times 
+
+485. 
+peg 5000mme occurred 20 times 
+
+486. 
+pentaerythritol ethoxylate occurred 20 times 
+
+487. 
+potassium dihydrogen phosphate occurred 20 times 
+
+488. 
+v/v ethylene glycol occurred 20 times 
+
+489. 
+(v/v) tacsimate occurred 19 times 
+
+490. 
+(w/v) ammonium sulfate occurred 19 times 
+
+491. 
+(w/v) peg 20000 occurred 19 times 
+
+492. 
+(w/v) peg1500 occurred 19 times 
+
+493. 
+guanidine hcl occurred 19 times 
+
+494. 
+mgac2 occurred 19 times 
+
+495. 
+na/kpo4 occurred 19 times 
+
+496. 
+tert-butanol occurred 19 times 
+
+497. 
+tmao occurred 19 times 
+
+498. 
+trisodium citrate dihydrate occurred 19 times 
+
+499. 
+urea occurred 19 times 
+
+500. 
+v/v jeffamine ed-2001 occurred 19 times 
+
+501. 
+(w/v) polyethylene glycol 20000 occurred 18 times 
+
+502. 
+glycerol (v/v) occurred 18 times 
+
+503. 
+imidazole-hcl occurred 18 times 
+
+504. 
+mg(no3)2 occurred 18 times 
+
+505. 
+peg2000mme occurred 18 times 
+
+506. 
+t-butanol occurred 18 times 
+
+507. 
+w/v polyethylene glycol 8000 occurred 18 times 
+
+508. 
+(nh4)h2po4 occurred 17 times 
+
+509. 
+azide occurred 17 times 
+
+510. 
+cymal-6 occurred 17 times 
+
+511. 
+d-camphor occurred 17 times 
+
+512. 
+di-ammonium hydrogen phosphate occurred 17 times 
+
+513. 
+di-ammonium tartrate occurred 17 times 
+
+514. 
+fad occurred 17 times 
+
+515. 
+glycerol. occurred 17 times 
+
+516. 
+imp occurred 17 times 
+
+517. 
+kpo4 occurred 17 times 
+
+518. 
+mpd as cryoprotectant occurred 17 times 
+
+519. 
+nh4f occurred 17 times 
+
+520. 
+peg5000mme occurred 17 times 
+
+521. 
+peg6k occurred 17 times 
+
+522. 
+polyacrylic acid 5100 occurred 17 times 
+
+523. 
+potassium sulfate occurred 17 times 
+
+524. 
+spg buffer occurred 17 times 
+
+525. 
+tri-na citrate occurred 17 times 
+
+526. 
+tris(hydroxymethyl)aminomethane (tris) occurred 17 times 
+
+527. 
+trisodium citrate dehydrate occurred 17 times 
+
+528. 
+w/v polyethylene glycol 400 occurred 17 times 
+
+529. 
+(v/v) polyethylene glycol 400 occurred 16 times 
+
+530. 
+(w/v) peg 8k occurred 16 times 
+
+531. 
+(w/v) peg mme 2000 occurred 16 times 
+
+532. 
+(w/v) tmao occurred 16 times 
+
+533. 
+bis/tris occurred 16 times 
+
+534. 
+bis:tris:hcl occurred 16 times 
+
+535. 
+ca-acetate occurred 16 times 
+
+536. 
+caacetate occurred 16 times 
+
+537. 
+cuso4 occurred 16 times 
+
+538. 
+ddm occurred 16 times 
+
+539. 
+diammonium hydrogen citrate occurred 16 times 
+
+540. 
+imidazole buffer occurred 16 times 
+
+541. 
+imidazole/malate occurred 16 times 
+
+542. 
+k/na phosphate occurred 16 times 
+
+543. 
+licl2 occurred 16 times 
+
+544. 
+mgac occurred 16 times 
+
+545. 
+mpeg 2k occurred 16 times 
+
+546. 
+na(oac) occurred 16 times 
+
+547. 
+peg 4450 occurred 16 times 
+
+548. 
+peg-1500 occurred 16 times 
+
+549. 
+peg-300 occurred 16 times 
+
+550. 
+potassium iodide occurred 16 times 
+
+551. 
+potassium tartrate occurred 16 times 
+
+552. 
+trehalose occurred 16 times 
+
+553. 
+tri-potassium citrate occurred 16 times 
+
+554. 
+v/v occurred 16 times 
+
+555. 
+v/v dioxane occurred 16 times 
+
+556. 
+w/v peg1000 occurred 16 times 
+
+557. 
+zn(oac)2 occurred 16 times 
+
+558. 
+(v/v) occurred 15 times 
+
+559. 
+(w/v) monomethylether peg 2000 occurred 15 times 
+
+560. 
+(w/v) peg 10000 occurred 15 times 
+
+561. 
+(w/v) peg 3350) occurred 15 times 
+
+562. 
+(w/v) peg 5000 mme occurred 15 times 
+
+563. 
+(w/v) peg1000 occurred 15 times 
+
+564. 
+(w/v) polyethylene glycol (peg) 3350 occurred 15 times 
+
+565. 
+(w/v) sodium azide occurred 15 times 
+
+566. 
+bicine buffer occurred 15 times 
+
+567. 
+cucl2 occurred 15 times 
+
+568. 
+dtt. occurred 15 times 
+
+569. 
+imidazol occurred 15 times 
+
+570. 
+lino3 occurred 15 times 
+
+571. 
+mercaptoethanol occurred 15 times 
+
+572. 
+nh4-acetate occurred 15 times 
+
+573. 
+peg 2k mme occurred 15 times 
+
+574. 
+peg 3500 occurred 15 times 
+
+575. 
+peg 550 occurred 15 times 
+
+576. 
+phosphate/citrate occurred 15 times 
+
+577. 
+s-adenosyl-l-homocysteine occurred 15 times 
+
+578. 
+srcl2 occurred 15 times 
+
+579. 
+tea occurred 15 times 
+
+580. 
+tri-sodium citrate dehydrate occurred 15 times 
+
+581. 
+v/v dmso occurred 15 times 
+
+582. 
+w/v peg1500 occurred 15 times 
+
+583. 
+w/v peg6000 occurred 15 times 
+
+584. 
+2- occurred 14 times 
+
+585. 
+di-potassium hydrogen phosphate occurred 14 times 
+
+586. 
+hepes na-salt occurred 14 times 
+
+587. 
+peg 1450 occurred 14 times 
+
+588. 
+polyethylene glycol monomethyl ether 2000 occurred 14 times 
+
+589. 
+polyethylene glycol monomethyl ether 550 occurred 14 times 
+
+590. 
+sam occurred 14 times 
+
+591. 
+sodium pyrophosphate occurred 14 times 
+
+592. 
+tcep-hcl occurred 14 times 
+
+593. 
+tris(2-carboxyethyl)phosphine (tcep) occurred 14 times 
+
+594. 
+w/v peg350 mme occurred 14 times 
+
+595. 
+zinc sulphate occurred 14 times 
+
+596. 
+(v/v) iso-propanol occurred 13 times 
+
+597. 
+(v/v) jeffamine ed-2001 occurred 13 times 
+
+598. 
+(v/v) peg 200 occurred 13 times 
+
+599. 
+(w/v) peg-3350 occurred 13 times 
+
+600. 
+(w/v) peg-8000 occurred 13 times 
+
+601. 
+(w/v) polyethylene glycol (peg) occurred 13 times 
+
+602. 
+2-ethoxyethanol occurred 13 times 
+
+603. 
+beta-octyl glucoside occurred 13 times 
+
+604. 
+c11dao occurred 13 times 
+
+605. 
+kno3 occurred 13 times 
+
+606. 
+li-sulfate occurred 13 times 
+
+607. 
+mib buffer occurred 13 times 
+
+608. 
+na-bicine occurred 13 times 
+
+609. 
+nakpo4 occurred 13 times 
+
+610. 
+ndsb-201 occurred 13 times 
+
+611. 
+peg mme550 occurred 13 times 
+
+612. 
+peg-600 occurred 13 times 
+
+613. 
+peg-mme 550 occurred 13 times 
+
+614. 
+peg2kmme occurred 13 times 
+
+615. 
+pegmme 2000 occurred 13 times 
+
+616. 
+pentaerythritol propoxylate occurred 13 times 
+
+617. 
+pmsf occurred 13 times 
+
+618. 
+polyacrylic acid occurred 13 times 
+
+619. 
+polyethylene glycol 300 occurred 13 times 
+
+620. 
+sah occurred 13 times 
+
+621. 
+sarcosine occurred 13 times 
+
+622. 
+sodium formiate occurred 13 times 
+
+623. 
+tri sodium citrate occurred 13 times 
+
+624. 
+tri-lithium citrate occurred 13 times 
+
+625. 
+triethanolamine occurred 13 times 
+
+626. 
+(v/v) peg 300 occurred 12 times 
+
+627. 
+(w/v) ethylene glycol occurred 12 times 
+
+628. 
+(w/v) peg 2000 occurred 12 times 
+
+629. 
+(w/v) peg 2000 monomethyl ether occurred 12 times 
+
+630. 
+(w/v) peg mme 5000 occurred 12 times 
+
+631. 
+(w/v) peg3000 occurred 12 times 
+
+632. 
+acetate-buffer occurred 12 times 
+
+633. 
+acetonitrile occurred 12 times 
+
+634. 
+ada disodium salt buffer occurred 12 times 
+
+635. 
+ammonium sulfate. occurred 12 times 
+
+636. 
+amonium sulfate occurred 12 times 
+
+637. 
+barium chloride occurred 12 times 
+
+638. 
+butanol occurred 12 times 
+
+639. 
+copper sulfate occurred 12 times 
+
+640. 
+d-glucose occurred 12 times 
+
+641. 
+dithionite occurred 12 times 
+
+642. 
+epps occurred 12 times 
+
+643. 
+etoh occurred 12 times 
+
+644. 
+fmn occurred 12 times 
+
+645. 
+guanidine hydrochloride occurred 12 times 
+
+646. 
+mes 6.0 occurred 12 times 
+
+647. 
+mmt buffer occurred 12 times 
+
+648. 
+na tartrate occurred 12 times 
+
+649. 
+na2hpo4/kh2po4 occurred 12 times 
+
+650. 
+nadp+ occurred 12 times 
+
+651. 
+nak tartrate occurred 12 times 
+
+652. 
+oxidized bme occurred 12 times 
+
+653. 
+peg 5000 monomethyl ether occurred 12 times 
+
+654. 
+peg mme2000 occurred 12 times 
+
+655. 
+pegmme 550 occurred 12 times 
+
+656. 
+polyethylene glycol occurred 12 times 
+
+657. 
+propanol occurred 12 times 
+
+658. 
+sodium cacodylate buffer occurred 12 times 
+
+659. 
+w/v peg monomethyl ether 2000 occurred 12 times 
+
+660. 
+w/v peg2000 mme occurred 12 times 
+
+661. 
+w/v polyethylene glycol monomethyl ether 2000 occurred 12 times 
+
+662. 
+(w/v) 1 occurred 11 times 
+
+663. 
+(w/v) peg20000 occurred 11 times 
+
+664. 
+bacl2 occurred 11 times 
+
+665. 
+bis-tris 6.5 occurred 11 times 
+
+666. 
+cobalt hexamine occurred 11 times 
+
+667. 
+dtmp occurred 11 times 
+
+668. 
+egta occurred 11 times 
+
+669. 
+ethyleneglycol occurred 11 times 
+
+670. 
+hcl occurred 11 times 
+
+671. 
+lactose occurred 11 times 
+
+672. 
+mmepeg 2000 occurred 11 times 
+
+673. 
+mpeg 5k occurred 11 times 
+
+674. 
+naoh-mes occurred 11 times 
+
+675. 
+nh4ch3coo occurred 11 times 
+
+676. 
+peg 3350 (w/v) occurred 11 times 
+
+677. 
+peg 3350. occurred 11 times 
+
+678. 
+peg-200 occurred 11 times 
+
+679. 
+peg800 occurred 11 times 
+
+680. 
+phosphate/citrate buffer occurred 11 times 
+
+681. 
+pyruvate occurred 11 times 
+
+682. 
+sodium citrate dihydrate occurred 11 times 
+
+683. 
+sodium-potassium tartrate occurred 11 times 
+
+684. 
+tartrate occurred 11 times 
+
+685. 
+tdp occurred 11 times 
+
+686. 
+tris(2-carboxyethyl)phosphine occurred 11 times 
+
+687. 
+tris(hydroxymethyl)aminomethane occurred 11 times 
+
+688. 
+v/v peg 4000 occurred 11 times 
+
+689. 
+w/v 1 occurred 11 times 
+
+690. 
+w/v peg 1500 occurred 11 times 
+
+691. 
+(v/v) methanol occurred 10 times 
+
+692. 
+(v/v) peg200 occurred 10 times 
+
+693. 
+(v/v) t-butanol occurred 10 times 
+
+694. 
+(w/v) isopropanol occurred 10 times 
+
+695. 
+(w/v) peg 4k occurred 10 times 
+
+696. 
+(w/v) peg-400 occurred 10 times 
+
+697. 
+(w/v) sucrose occurred 10 times 
+
+698. 
+(w/w) peg 8000 occurred 10 times 
+
+699. 
+(wt/vol) polyethylene glycol (peg) 8000 occurred 10 times 
+
+700. 
+-mercaptoethanol occurred 10 times 
+
+701. 
+2-methylpentane-2 occurred 10 times 
+
+702. 
+acetyl-coa occurred 10 times 
+
+703. 
+amino acids occurred 10 times 
+
+704. 
+arg-hcl occurred 10 times 
+
+705. 
+beta-octylglucoside occurred 10 times 
+
+706. 
+bistris-propane occurred 10 times 
+
+707. 
+butyrlactone occurred 10 times 
+
+708. 
+ca(ac)2 occurred 10 times 
+
+709. 
+cadmium sulfate hydrate occurred 10 times 
+
+710. 
+camp occurred 10 times 
+
+711. 
+chaps occurred 10 times 
+
+712. 
+ctp occurred 10 times 
+
+713. 
+diammonium hydrogen phosphate occurred 10 times 
+
+714. 
+dibasic ammonium citrate occurred 10 times 
+
+715. 
+dithioerythritol occurred 10 times 
+
+716. 
+glutamate occurred 10 times 
+
+717. 
+glycerol as cryo-protectant occurred 10 times 
+
+718. 
+hepes 7.0 occurred 10 times 
+
+719. 
+jeffamine occurred 10 times 
+
+720. 
+k2po4 occurred 10 times 
+
+721. 
+l-arginine occurred 10 times 
+
+722. 
+magnesium cloride occurred 10 times 
+
+723. 
+magnesium formate dihydrate occurred 10 times 
+
+724. 
+mepeg 2000 occurred 10 times 
+
+725. 
+mepeg 5000 occurred 10 times 
+
+726. 
+mes 6.5 occurred 10 times 
+
+727. 
+mes sodium salt occurred 10 times 
+
+728. 
+mes:naoh occurred 10 times 
+
+729. 
+mg-formate occurred 10 times 
+
+730. 
+mg2cl occurred 10 times 
+
+731. 
+mgno3 occurred 10 times 
+
+732. 
+nh4acetate occurred 10 times 
+
+733. 
+pcb occurred 10 times 
+
+734. 
+peg 1 occurred 10 times 
+
+735. 
+peg 2kmme occurred 10 times 
+
+736. 
+peg 3550 occurred 10 times 
+
+737. 
+peg 400 (v/v) occurred 10 times 
+
+738. 
+polyethylene glycol 200 occurred 10 times 
+
+739. 
+reservoir occurred 10 times 
+
+740. 
+sodium/potassium occurred 10 times 
+
+741. 
+strontium chloride occurred 10 times 
+
+742. 
+v/v polyethylene glycol 400 occurred 10 times 
+
+743. 
+w/v peg 3000 occurred 10 times 
+

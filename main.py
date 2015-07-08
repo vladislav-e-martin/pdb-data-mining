@@ -89,15 +89,15 @@ def store_in_information_table(local_base, sorted_data):
 def store_in_chemicals_table(local_base):
     connection = SQL.connect_database(local_base)
     # Find all of the chemicals stored in the crystallization information of the structures
-    matches = ANALYZE.chemical_name_golden_reference_list(connection, "information", "id")
+    raw_reference_list = ANALYZE.create_chemical_golden_reference_list(connection, "information", "id")
     # Split the chemicals into their concentrations, the units used to measure concentration,
     # and the name of the chemical itself
-    split_matches = ANALYZE.split_results(matches[0], matches[1])
-    # Store the results of the split_matches() function into a child table in the database
-    # SQL.delete_all_rows(connection, "crystallization_chemicals")
-    # ANALYZE.store_results(connection, "crystallization_chemicals", split_matches)
+    final_reference_list = ANALYZE.finalize_chemical_golden_reference_list(raw_reference_list[0], raw_reference_list[1],
+                                                                           raw_reference_list[2])
+    # Store the results of the finalize_chemical_golden_reference_list() function into a child table in the database
+    ANALYZE.store_results(connection, "crystallization_chemicals", final_reference_list)
     # Display the frequency of each chemical name stored in the child table
-    # ANALYZE.create_common_chemical_names_list(connection, "crystallization_chemicals", "chemical_name")
+    ANALYZE.display_column_frequency(connection, "crystallization_chemicals", "chemical_name")
     # ANALYZE.crystallized_with_single_chemical(connection, "crystallization_chemicals", "parent_entry_id",
     #                                           ammonium_sulfate)
     # ANALYZE.crystallized_with_single_chemical(connection, "crystallization_chemicals", "parent_entry_id", non_ionic)
