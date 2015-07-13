@@ -31,15 +31,22 @@ SORTED_COLUMNS = 7
 BASE_DB = "/home/vlad/Documents/Code/pdb-data-mining/Database/information.db"
 
 # For chemical name searches
-non_ionic = ["peg", "dtt", "edta", "tcep", "bme", "dithiothreitol", "nan3", "atp", "beta-mercaptoethanol", "kscn",
-             "2-mercaptoethanol", "gsh", "ada", "adp", "ddt", "nad+", "l-cysteine", "nascn", "mib", "l-proline", "nadp",
-             "mmt", "trimethylamine n-oxide"]
+non_ionic = ["2-ethoxyethanol", "2-hydroxyethyldisulfide", "2-mercaptoethanol", "2-methylpentane-2,4-diol", "acetone",
+             "atp", "beta-mercaptoethanol", "beta-octyl glucoside", "bme",
+             "butanol", "cymal", "d-camphor", "dioxane",
+             "dithiothreitol", "ddt", "dioxane", "dmso", "dte", "dtt", "edta", "ethanol", "etgly", "ethylene glycol",
+             "glucose", "glycerol", "gsh", "hexanediol",
+             "jeffamine", "l-cysteine", "l-proline", "mercaptoethanol", "methanol",
+             "mme", "mpd", "n-bog", "nad+",
+             "nadp", "nan3", "nascn", "peg", "pentaerythritol propoxylate", "phenol", "polyethylene glycol", "propanol",
+             "sucrose", "tmao", "trimethylamine n-oxide", "urea", "xylitol"]
 ammonium_sulfate = ["ammonium sulfate", "ammonium sulphate", "(nh4)2so4", "amso4", "nh4so4", "ammoniumsulfate", "ams",
-                    "(nh4)so4", "amonium sulfate", "nh4 sulfate", "ammomium sulfate", "ammonium-sulfate", "am2so4",
-                    "ammounium sulfate", "(nh4)2 so4", "ammonium_sulfate", "ammso4", "(nh4)2s04", "ammonium suflate",
-                    "ammonium sulf", "ammonuim sulfate", "amsulfate", "nh4 sulphate", "(nh4)2(so4)", "amm sulfate",
-                    "ammoium sulfate", "ammonium  sulfate", "ammonium salfate", "ammonium so4", "ammoniumsulphate",
-                    "ammoniun sulfate"]
+                    "(nh4)so4", "as", "amonium sulfate", "nh4 sulfate", "ammomium sulfate", "ammonium-sulfate",
+                    "am2so4", "ammounium sulfate", "(nh4)2 so4", "ammonium_sulfate", "ammso4", "(nh4)2s04",
+                    "ammonium suflate", "ammonium sulf", "ammonuim sulfate", "amsulfate", "nh4 sulphate", "(nh4)2(so4)",
+                    "amm sulfate", "ammoium sulfate", "ammonium  sulfate", "ammonium salfate", "ammonium so4",
+                    "ammoniumsulphate", "ammoniun sulfate", "ammonia sulfate", "ammonium sufate"]
+# FIX THE LAST ONE IN A FILTER AT SOME POINT
 
 # MAIN BODY
 
@@ -98,9 +105,9 @@ def store_in_chemicals_table(local_base):
     ANALYZE.store_results(connection, "crystallization_chemicals", final_reference_list)
     # Display the frequency of each chemical name stored in the child table
     ANALYZE.display_column_frequency(connection, "crystallization_chemicals", "chemical_name")
-    # ANALYZE.crystallized_with_single_chemical(connection, "crystallization_chemicals", "parent_entry_id",
-    #                                           ammonium_sulfate)
-    # ANALYZE.crystallized_with_single_chemical(connection, "crystallization_chemicals", "parent_entry_id", non_ionic)
+    amm_sulfate_matches = ANALYZE.search_for_chemical(connection, ammonium_sulfate, 1)
+    non_ionic_matches = ANALYZE.search_for_chemical(connection, non_ionic, 50)
 
+    ANALYZE.export_plot_data(connection, amm_sulfate_matches, "ammonium-sulfate")
 
 store_in_chemicals_table(BASE_DB)

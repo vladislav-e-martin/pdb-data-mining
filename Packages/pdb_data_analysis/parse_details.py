@@ -78,7 +78,8 @@ def create_chemical_golden_reference_list(connection, table, column):
                                 continue
 
                             concentration_delimited_names = re.split('(\d+\s*m{1,2}\s+|\d+[.]\d+\s*m{1,2}\s+|'
-                                                                     '\d+\s*[%]|\d+[.]\d+\s*[%])',
+                                                                     '\d+\s*[%]|\d+[.]\d+\s*[%]|'
+                                                                     '[(]*v/v[)]*|[(]*w/v[)]*|[(]*w/w[)]*\s*)',
                                                                      period_delimited_name)
                             # pprint("Concentration Names: {0}".format(concentration_delimited_names))
                             for concentration_delimited_name in concentration_delimited_names:
@@ -118,11 +119,16 @@ def create_chemical_golden_reference_list(connection, table, column):
 
                                     grammar_filtered = False
                                     while True:
-                                        grammar = re.search('\s+(with|at|in|of|was|were|for|against|buffer)\s+',
+                                        grammar = re.search('\s+(with|at|in|of|was|were|for|against|to)\s+',
                                                             paren_filter)
-                                        if grammar is not None:
-                                            grammar_filter = re.sub('\s+(with.*|at.*|in.*|of.*|was.*|were.*|for.*|'
-                                                                    'against.*|buffer.*)\s+', '', paren_filter)
+                                        words = re.search('buffer|inhibitor|compound|protein|reservoir|saturated|'
+                                                          'solution',
+                                                          paren_filter)
+                                        if grammar is not None or words is not None:
+                                            grammar_filter = re.sub('\s*(with.*|at.*|in.*|of.*|was.*|were.*|for.*|'
+                                                                    'against.*|to.*|buffer.*|inhibitor.*|compound.*|'
+                                                                    'protein.*|reservoir.*|saturated.*|solution.*)\s*',
+                                                                    '', paren_filter)
                                             paren_filter = grammar_filter
                                             grammar_filtered = True
                                         else:
@@ -138,7 +144,8 @@ def create_chemical_golden_reference_list(connection, table, column):
                                 # The final chemical name is equivalent to the results of the last filter applied
                                 concentration_check = re.search('((\d+|\d+[.]\d+)\s*m{1,2}\s+)', grammar_filter)
                                 percent_check = re.search('((\d+|\d+[.]\d+)\s*[%])', grammar_filter)
-                                if concentration_check is not None or percent_check is not None:
+                                w_or_v_check = re.search('([(]*v/v[)]*|[(]*w/v[)]*|[(]*w/w[)]*)', grammar_filter)
+                                if concentration_check is not None or percent_check is not None or w_or_v_check is not None:
                                     chemical_concentration = grammar_filter.strip()
                                     # pprint("{0} is a concentration! Storing the string.".format(chemical_concentration))
                                     chemical_concentrations.append(chemical_concentration)
@@ -146,99 +153,99 @@ def create_chemical_golden_reference_list(connection, table, column):
                                     continue
                                 if concentration_index == (name_index + 1):
                                     chemical_name = grammar_filter.strip()
-                                    # pprint("The Entry ID of the below chemical: {0}".format(entry_id))
+                                    if "2-methylpentane-2" in chemical_name or "2-methyl-2" in chemical_name:
+                                        # pprint("Changing name to 2-methylpentane-2,4-diol...")
+                                        chemical_name = "2-methylpentane-2,4-diol"
+                                    if chemical_name == "eg":
+                                        pprint("Changing name to ethylene glycol")
+                                        chemical_name = "ethylene glycol"
                                     # pprint("{0} is a name! Storing the string and it's ID.".format(chemical_name))
                                     chemical_names.append(chemical_name)
                                     chemical_ids.append(entry_id)
                                     name_index += 1
             entry_index += 1
+
+    # Write out the raw chemical names to a separate text file for further analysis
     file = open("/home/vlad/Documents/Code/pdb-data-mining/chemical-names-test.txt", 'w')
     for index, name in enumerate(chemical_names):
         file.write("{0}. \n".format(index))
         file.write("{0} \n".format(chemical_ids[index]))
         file.write("Concentration: ${0}$    Name: ${1}$ \n\n".format(chemical_concentrations[index], name))
+
     return chemical_concentrations, chemical_names, chemical_ids
 
 
+def is_name_short(name):
+    if len(name) < 2:
+        return True
+    else:
+        return False
+
+
+def is_name_not_feasible(name):
+    if "=" in name:
+        return True
+    else:
+        return False
+
+
+def is_name_numeric(name):
+    only_numeric = re.search('^(\d*)$', name)
+
+    if only_numeric is not None:
+        return True
+    else:
+        return False
+
+
 def finalize_chemical_golden_reference_list(chemical_concentrations, chemical_names, chemical_ids):
-    pprint("Original length of golden list of chemical names: {0}".format(len(chemical_concentrations)))
+    # First set of refinements (removing false names)
+    refined_chemical_names = []
+    refined_chemical_concentrations = []
+    refined_chemical_ids = []
+
+    pprint("Original length of golden list of chemical names: {0}".format(len(chemical_names)))
+
     for index, chemical_name in enumerate(chemical_names):
-        only_numeric = re.search('(^\d*$)', chemical_name)
-        if chemical_name == "" or "=" in chemical_name or only_numeric is not None:
-            if only_numeric is not None:
-                pprint("Only Numeric search returned... {0}".format(only_numeric.group(0)))
-            pprint("Removing {0} from the golden list of valid chemical names.".format(chemical_name))
+        # Remove any items that CANNOT be chemical names (i.e., spaces, only numbers, anything with an equal sign in it)
+        if is_name_short(chemical_name) or is_name_numeric(chemical_name) or is_name_not_feasible(chemical_name):
+            pprint("Removing ${0}$ from the golden list of valid chemical names.".format(chemical_name))
             # Remove all information related to that chemical entry
-            del chemical_names[index]
-            del chemical_concentrations[index]
-            del chemical_ids[index]
-    pprint("Refined length of golden list of chemical names: {0}".format(len(chemical_concentrations)))
-    rows = len(chemical_concentrations)
+        else:
+            refined_chemical_names.append(chemical_name)
+            refined_chemical_concentrations.append(chemical_concentrations[index])
+            refined_chemical_ids.append(chemical_ids[index])
+
+    pprint("Length of refined golden list of chemical names: {0}".format(len(refined_chemical_names)))
+
+    rows = len(refined_chemical_concentrations)
     chemical_data_components = [[0 for x in range(5)] for x in range(rows)]
     data_index = 0
-    for index, chemical_concentration in enumerate(chemical_concentrations):
-        concentration_search = re.findall('(\d+|\d+[.]\d+)\s*(m{1,2}|[%])\s*', chemical_concentration)
-        try:
-            for concentration in concentration_search:
-                value = concentration[0]
-                unit = concentration[1]
-                # pprint("Concentration: {0}, Unit: {1}".format(value, unit))
-                chemical_data_components[data_index][0] = str(uuid.uuid4())
-                chemical_data_components[data_index][1] = chemical_ids[index]
-                chemical_data_components[data_index][2] = value
-                chemical_data_components[data_index][3] = unit
-                chemical_data_components[data_index][4] = chemical_names[index]
-                data_index += 1
-        except AttributeError:
-            pprint("Chemical: {0}".format(chemical_names[index]))
-            pprint("The above is not a useful chemical. No concentration is provided.")
+
+    for index, full_concentration in enumerate(refined_chemical_concentrations):
+        concentration_search = re.findall('(\d+|\d+[.]\d+)\s*(m{1,2}|[%])\s*', full_concentration)
+        w_v_search = re.findall('((v/v)|(w/v)|(w/w))\s*', full_concentration)
+        # try:
+        for concentration in concentration_search:
+            value = concentration[0]
+            unit = concentration[1]
+            chemical_data_components[data_index][0] = str(uuid.uuid4())
+            chemical_data_components[data_index][1] = refined_chemical_ids[index]
+            chemical_data_components[data_index][2] = value
+            chemical_data_components[data_index][3] = unit
+            chemical_data_components[data_index][4] = refined_chemical_names[index]
+            data_index += 1
+        for w_v in w_v_search:
+            value = 0
+            unit = w_v[0]
+            chemical_data_components[data_index][0] = str(uuid.uuid4())
+            chemical_data_components[data_index][1] = refined_chemical_ids[index]
+            chemical_data_components[data_index][2] = value
+            chemical_data_components[data_index][3] = unit
+            chemical_data_components[data_index][4] = refined_chemical_names[index]
+            data_index += 1
+    # pprint("Length of chemical_data_components: {0}".format(len(chemical_data_components)))
     return chemical_data_components
-
-
-def crystallized_with_single_chemical(connection, table, column, chemicals_list):
-    cursor = connection.cursor()
-
-    count_command = "SELECT COUNT(*), {1} FROM {0} GROUP BY {1} ORDER BY 1 DESC".format(table, column)
-    sort_command = "SELECT * FROM {0} ORDER BY {1}".format(table, column)
-
-    print_command = "SELECT * FROM information ORDER BY id".format(column)
-
-    entry_ids = []
-    for index, row in enumerate(cursor.execute(count_command)):
-        chemical_count = row[0]
-        if chemical_count == 1:
-            entry_ids.append(row[1])
-    pprint("There is a total of {0} entries of that were crystallized with only one chemical.".format(len(entry_ids)))
-
-    found_match = []
-    current_index = 0
-    match_count = 0
-    for index, row in enumerate(cursor.execute(sort_command)):
-        entry_id = row[1]
-        if entry_id == entry_ids[current_index]:
-            chemical_name = row[4]
-            escaped_list = map(re.escape, chemicals_list)
-            joined_string = '|'.join(escaped_list)
-            regex_command = '(?:{0})'.format(joined_string)
-            chemical_search = re.search(regex_command, chemical_name)
-            if chemical_search is not None:
-                found_match.append(entry_id)
-                match_count += 1
-            current_index += 1
-    pprint("There were a total of {0} matches to {1}.".format(match_count, chemicals_list[0]))
-
-    id_index = 0
-    file = open("/home/vlad/Documents/Code/pdb-data-mining/ammonium-sulfate.txt", 'w')
-    file.write("Ammonium Sulfate Matches \n\n")
-    for index, row in enumerate(cursor.execute(print_command)):
-        try:
-            if row[0] == found_match[id_index]:
-                file.write("A match was found in {0}. The details are shown below. \n".format(found_match[id_index]))
-                file.write("{0} \n\n".format(row[6]))
-                id_index += 1
-        except IndexError:
-            pprint("We've reached the last element in the found_match list!")
-            break
 
 
 def store_results(connection, table, chemical_data):
@@ -248,15 +255,189 @@ def store_results(connection, table, chemical_data):
 
 
 def display_column_frequency(connection, table, column):
-    pprint("Entered this function!")
     cursor = connection.cursor()
 
-    frequency_command = "SELECT COUNT(*), {1} FROM {0} GROUP BY {1} HAVING COUNT(*) > 9 ORDER BY 1 DESC".format(table,
-                                                                                                                column)
+    frequency_command = "SELECT COUNT(*), {1} FROM {0} GROUP BY {1} HAVING COUNT(*) > 9" \
+                        " ORDER BY 1 DESC".format(table, column)
+
+    # Write out the frequency of each finalized chemical name to a separate text file for further analysis
     file = open("/home/vlad/Documents/Code/pdb-data-mining/"
                 "most-common-crystallization-chemicals.txt", 'w')
-    pprint("Writing things into the text file!")
     for index, row in enumerate(cursor.execute(frequency_command)):
         file.write("{0}. \n".format(index))
-        file.write("{1} occurred {0} times \n\n".format(row[0], row[1]))
+        file.write("${1}$ occurred ${0}$ times \n\n".format(row[0], row[1]))
     file.close()
+
+
+def chemical_golden_reference_list(connection):
+    cursor = connection.cursor()
+
+    create_list_command = "SELECT COUNT(*), chemical_name FROM crystallization_chemicals GROUP BY chemical_name" \
+                          " HAVING COUNT(*) > 9 ORDER BY 1 DESC".format()
+
+    golden_list = []
+
+    for row in cursor.execute(create_list_command):
+        chemical_name = row[1]
+        golden_list.append(chemical_name)
+
+    # Add special names
+    special_names = ["k-po4", "amm po4", "nh4 formate", "gycine", "mg(oac)", "tric-cl", "ammonium sufate", "cdcl",
+                     "phoshate", "pbs", "k2so4", "mg nitrate", "mgatp", "magnisium sulphate", "rbcl"]
+
+    for name in special_names:
+        golden_list.append(name)
+
+    return golden_list
+
+
+def search_for_chemical(connection, search_list, max_chemical_total):
+    cursor = connection.cursor()
+
+    count_command = "SELECT COUNT(*), parent_entry_id FROM crystallization_chemicals GROUP BY parent_entry_id" \
+                    " ORDER BY 1 DESC"
+    sort_command = "SELECT * FROM crystallization_chemicals ORDER BY parent_entry_id"
+
+    print_command = "SELECT * FROM information ORDER BY id"
+
+    entry_ids = []
+
+    golden_list = chemical_golden_reference_list(connection)
+    other_chemicals = []
+
+    matching_entry_ids = []
+
+    good_matches = []
+
+    # Populate a list of chemicals that are NOT the chemical we are searching for
+    for golden_name in golden_list:
+        # Escape any potential meta-characters so as to not confuse the regex with it's operators
+        escaped_list = map(re.escape, search_list)
+        # Join all chemical names contained in the search list into one large search
+        joined_string = '|'.join(escaped_list)
+        # Search for only exact matches to the entire string, not sub-strings within the string
+        regex_command = '({0})'.format(joined_string)
+        in_search_list = re.search(regex_command, golden_name)
+        if in_search_list is not None:
+            pass
+        else:
+            # pprint("Adding {0} to the other_chemicals list".format(golden_name))
+            other_chemicals.append(golden_name)
+
+    # First, check if it is already known that there are multiple chemicals associated with this entry
+    for index, row in enumerate(cursor.execute(count_command)):
+        chemical_count = row[0]
+        entry_id = row[1]
+
+        if chemical_count <= max_chemical_total:
+            entry_ids.append(entry_id)
+
+    pprint("Original length of entry_ids: {0}".format(len(entry_ids)))
+
+    # Second, check if any of the chemical names that are NOT the queried chemical are mentioned in this entry
+    for index, row in enumerate(cursor.execute(print_command)):
+        entry_id = row[0]
+        try:
+            # Does this entry's details section have the correct number of chemicals?
+            if entry_id in entry_ids:
+                details = row[6].lower()
+
+                # Escape any potential meta-characters so as to not confuse the regex with it's operators
+                escaped_list = map(re.escape, other_chemicals)
+                # Join all chemical names contained in the search list into one large search
+                joined_string = '|'.join(escaped_list)
+                # Search for only exact matches to the entire string, not sub-strings within the string
+                regex_command = '({0})'.format(joined_string)
+                other_chemicals_search = re.search(regex_command, details)
+
+                # This entry contains no other chemical names (i.e., only contains the queried chemical)
+                if other_chemicals_search is not None:
+                    pass
+                    # pprint("Entry ID: {0}".format(entry_id))
+                    # pprint("We found ${0}$ in the details section!".format(other_chemicals_search.group(0)))
+                else:
+                    matching_entry_ids.append(entry_id)
+        except IndexError:
+            pprint("We've reached the end of the entry_ids list!")
+            break
+
+    # Third, ensure that all the chemical names are versions of the queried chemical
+    match_count = 0
+    for index, row in enumerate(cursor.execute(sort_command)):
+        entry_id = row[1]
+        try:
+            if entry_id in matching_entry_ids:
+                # The 5th element in each row of the "crystallization_chemicals" table contains the chemical name
+                chemical_name = row[4]
+
+                # Escape any potential meta-characters so as to not confuse the regex with it's operators
+                escaped_list = map(re.escape, search_list)
+                # Join all chemical names contained in the search list into one large search
+                joined_string = '|'.join(escaped_list)
+                # Search for only exact matches to the entire string, not sub-strings within the string
+                regex_command = '^(?:{0})$'.format(joined_string)
+                chemical_search = re.search(regex_command, chemical_name)
+
+                if chemical_search is not None:
+                    good_matches.append(entry_id)
+                    match_count += 1
+        except IndexError:
+            pprint("We've reached the end of the matching_entry_ids list!")
+            break
+
+    pprint("There were a total of {0} matches to {1}.".format(len(good_matches), search_list[0]))
+
+    file = open("/home/vlad/Documents/Code/pdb-data-mining/{0}.txt".format(search_list[0]), 'w')
+    file.write("{0} MATCHES \n\n".format(search_list[0].upper()))
+    current_index = 1
+    for index, row in enumerate(cursor.execute(print_command)):
+        entry_id = row[0]
+        details = row[6]
+        try:
+            if entry_id in good_matches:
+                file.write("{0}. \n".format(current_index))
+                file.write("A match was found in {0}. The details are shown below. \n".format(entry_id))
+                file.write("{0} \n\n".format(details))
+                current_index += 1
+        except IndexError:
+            pprint("We've reached the last element in the found_match list!")
+            break
+
+    return good_matches
+
+
+def export_plot_data(connection, matches, name):
+    cursor = connection.cursor()
+
+    command = "SELECT * FROM crystallization_chemicals ORDER BY parent_entry_id"
+
+    file = open("/home/vlad/Documents/Code/pdb-data-mining/{0}-plot-data.txt".format(name), 'w')
+    file.write("ENTRY ID\tVALUE\t\tUNIT\n")
+    for index, row in enumerate(cursor.execute(command)):
+        entry_id = row[1]
+        concentration = row[2]
+        converted_concentration = 0
+        unit = row[3]
+        conversion_occurred = False
+
+        if unit == "%":
+            converted_concentration = 4 * (concentration / 100)
+            conversion_occurred = True
+        if unit == "mm":
+            converted_concentration = concentration / 1000
+            conversion_occurred = True
+        # There is only case of this, manually correct it (30.0%(v/v) in the PDBX_DETAILS section)
+        if unit == "v/v":
+            converted_concentration = 4 * (30.0 / 100)
+            conversion_occurred = True
+
+        if conversion_occurred:
+            concentration = converted_concentration
+            unit = "m"
+
+        try:
+            if entry_id in matches:
+                file.write("{0}\t\t{1}\t\t{2}\n".format(entry_id, concentration, unit))
+        except IndexError:
+            pprint("We've reached the last element in the found_match list!")
+            break
