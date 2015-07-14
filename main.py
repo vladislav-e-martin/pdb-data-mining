@@ -108,6 +108,6 @@ def store_in_chemicals_table(local_base):
     amm_sulfate_matches = ANALYZE.search_for_chemical(connection, ammonium_sulfate, 1)
     non_ionic_matches = ANALYZE.search_for_chemical(connection, non_ionic, 50)
 
-    ANALYZE.export_plot_data(connection, amm_sulfate_matches, "ammonium-sulfate")
+    ANALYZE.export_plot_data(connection, amm_sulfate_matches, "ammonium-sulfate-concentrations")
 
 store_in_chemicals_table(BASE_DB)
