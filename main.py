@@ -2,12 +2,13 @@ __author__ = 'Vladislav Martin'
 
 # LIBRARIES AND PACKAGES
 
+from pprint import pprint
+
 from Packages.pdb_data_mining import download_ftp as FTP
 from Packages.pdb_data_mining import parse_xml as XML
 from Packages.pdb_data_mining import manage_sql as SQL
-from Packages.pdb_data_analysis import parse_details as ANALYZE
+from Packages.pdb_data_analysis import create_golden_list as CREATE
 
-from pprint import pprint
 
 # CONSTANTS
 
@@ -16,12 +17,10 @@ L_BASE_DB = "E:/Code/Python Projects/pdb-data-mining/Database/information.db"
 L_BASE_XML = "E:/Code/Python Projects/Storage/PDB/XML-no-atom/"
 
 # For FTP connection
-BASE_TEXT = "/storage2/vlad/PDB/text/"
 BASE_XML_FULL = "/storage2/vlad/PDB/XML/"
 BASE_XML_NO_ATOM = "/storage2/vlad/PDB/XML-no-atom/"
 XML_FULL = "/pub/pdb/data/structures/divided/XML/"
 XML_NO_ATOM = "/pub/pdb/data/structures/divided/XML-noatom/"
-TEXT = "/pub/pdb/data/structures/divided/pdb/"
 
 # For parsing contents of files
 RAW_COLUMNS = 9
@@ -80,34 +79,59 @@ def parse_raw_data(local_base, raw_columns, sorted_columns) -> object:
     return sorted_data
 
 
+# REMEMBER TO DELETE THE "information" TABLE (NOT DONE YET)
 # Store the important structures in the database for further analysis
-def store_in_information_table(local_base, sorted_data):
+def store_in_entry_table(local_base, sorted_data):
     connection = SQL.connect_database(local_base)
     # Add a new table to the database
-    SQL.add_table(connection, "information", True, False)
+    SQL.add_table(connection, "entry_data", True, False)
     # Insert each row of values from sorted_data
-    SQL.add_parent_row(connection, "information", sorted_data)
+    SQL.add_parent_row(connection, "entry_data", sorted_data)
     # Print the contents of the database as confirmation
-    SQL.print_database(connection, "information", "id")
+    # SQL.print_database(connection, "entry_data", "id")
     # Commit changes and disconnect from the database
     SQL.commit_changes(connection)
 
 
-def store_in_chemicals_table(local_base):
+def create_reference_list(local_base):
     connection = SQL.connect_database(local_base)
-    # Find all of the chemicals stored in the crystallization information of the structures
-    raw_reference_list = ANALYZE.create_chemical_golden_reference_list(connection, "information", "id")
-    # Split the chemicals into their concentrations, the units used to measure concentration,
-    # and the name of the chemical itself
-    final_reference_list = ANALYZE.finalize_chemical_golden_reference_list(raw_reference_list[0], raw_reference_list[1],
-                                                                           raw_reference_list[2])
-    # Store the results of the finalize_chemical_golden_reference_list() function into a child table in the database
-    ANALYZE.store_results(connection, "crystallization_chemicals", final_reference_list)
-    # Display the frequency of each chemical name stored in the child table
-    ANALYZE.display_column_frequency(connection, "crystallization_chemicals", "chemical_name")
-    amm_sulfate_matches = ANALYZE.search_for_chemical(connection, ammonium_sulfate, 1)
-    non_ionic_matches = ANALYZE.search_for_chemical(connection, non_ionic, 50)
 
-    ANALYZE.export_plot_data(connection, amm_sulfate_matches, "ammonium-sulfate-concentrations")
+    # Find all of the chemical names stored in the crystallization information of the structures
+    delimited = CREATE.discover_common_delimited_entries(connection)
+    raw_list = CREATE.create_golden_reference_list(connection, delimited)
+    refined_list = CREATE.refine_golden_reference_list(raw_list)
+    final_list = CREATE.finalize_golden_reference_list(refined_list)
 
-store_in_chemicals_table(BASE_DB)
+    return final_list
+
+
+def store_reference_list(local_base, data):
+    connection = SQL.connect_database(local_base)
+
+    # Store the final reference list into the crystallization_chemicals table
+    SQL.delete_all_rows(connection, "crystallization_chemicals")
+    SQL.delete_table(connection, "information")
+    SQL.create_crystallization_chemicals_table(connection)
+    SQL.add_crystallization_chemicals_row(connection, data)
+    SQL.commit_changes(connection)
+
+    test = "SELECT id, details FROM information, crystallization_chemicals WHERE " \
+           "crystallization_chemicals.chemical_name = 'ammonium sulfate' AND " \
+           "entry_data.id = crystallization_chemicals.parent_entry_id"
+
+    cursor = connection.cursor()
+
+    results = cursor.execute(test).fetchall()
+
+    for result in results:
+        entry_id = result[1]
+        name = result[4]
+        pprint("Entry ID: {0}       Chemical Name: {1}".format(entry_id, name))
+    pprint("There were a total of {0} matches.".format(len(results)))
+
+
+data_to_store = parse_raw_data(BASE_XML_NO_ATOM, RAW_COLUMNS, SORTED_COLUMNS)
+store_in_entry_table(BASE_DB)
+
+reference_list = create_reference_list(BASE_DB)
+store_reference_list(BASE_DB, reference_list)

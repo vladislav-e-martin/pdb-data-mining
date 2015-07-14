@@ -13,71 +13,136 @@ def connect_database(folder):
     return connection
 
 
-# Manage existing database
-def add_table(connection, table, parent, child):
+# Create the entry_data parent table
+def create_entry_data_table(connection):
     cursor = connection.cursor()
 
-    # Create a table of the provided name
-    create_parent_command = "CREATE TABLE {0} " \
-                            "(id text primary key, " \
-                            "resolution real, " \
-                            "matthews real, " \
-                            "percent_solvent real, " \
-                            "pH real, " \
-                            "temp real, " \
-                            "details text)".format(table)
-    if parent:
-        try:
-            pprint("Creating parent table {0}.".format(table))
-            cursor.execute(create_parent_command)
-        except SQL.OperationalError:
-            pprint("The parent table {0} already exists!".format(table))
-        # Ensure that each row can be identified uniquely from every other row
-        unique_command = "CREATE UNIQUE INDEX entry_id ON {0}(id)".format(table)
-        try:
-            pprint("Creating a unique index.")
-            cursor.execute(unique_command)
-        except SQL.OperationalError:
-            pprint("This table already has a unique index.")
+    # Create a parent table with the provided name
+    create_table = "CREATE TABLE entry_data " \
+                   "(id text primary key, " \
+                   "resolution real, " \
+                   "matthews real, " \
+                   "percent_solvent real, " \
+                   "pH real, " \
+                   "temp real, " \
+                   "details text)"
 
-    create_child_command = "CREATE TABLE {0} " \
-                           "(row_id int, " \
-                           "parent_entry_id text, " \
-                           "concentration real, " \
-                           "unit real, " \
-                           "chemical_name text)".format(table)
-    if child:
-        try:
-            pprint("Creating child table {0}.".format(table))
-            cursor.execute(create_child_command)
-        except SQL.OperationalError:
-            pprint("The child table {0} already exists!".format(table))
+    try:
+        pprint("Creating table entry_data.")
+        cursor.execute(create_table)
+    except SQL.OperationalError:
+        pprint("The table entry_data already exists!")
+
+    # Ensure that each row can be identified uniquely from every other row
+    unique_index = "CREATE UNIQUE INDEX unique_id ON entry_data(id)"
+    try:
+        pprint("Creating a unique index for entry_data.")
+        cursor.execute(unique_index)
+    except SQL.OperationalError:
+        pprint("The table entry_data already has a unique index.")
+
+
+# Create the crystallization_chemicals child table (child to entry_data)
+def create_crystallization_chemicals_table(connection):
+    cursor = connection.cursor()
+
+    # Create a child table with the provided name
+    create_table = "CREATE TABLE crystallization_chemicals " \
+                   "(id int, " \
+                   "parent_entry_id text, " \
+                   "concentration real, " \
+                   "unit real, " \
+                   "name text)"
+
+    try:
+        pprint("Creating table crystallization_chemicals.")
+        cursor.execute(create_table)
+    except SQL.OperationalError:
+        pprint("The table crystallization_chemicals already exists!")
+
+    unique_index = "CREATE UNIQUE INDEX unique_id ON crystallization_chemicals(id)"
+    try:
+        pprint("Creating a unique index for crystallization_chemicals.")
+        cursor.execute(unique_index)
+    except SQL.OperationalError:
+        pprint("The table crystallization_chemicals already has a unique index.")
+
+
+# Create the golden_chemical_reference child table (child to crystallization_chemicals)
+def create_golden_chemical_reference_table(connection):
+    cursor = connection.cursor()
+
+    # Create a child table with the provided name
+    create_table = "CREATE TABLE golden_chemical_reference " \
+                   "(id int, " \
+                   "parent_id int, " \
+                   "name text, " \
+                   "frequency int)"
+
+    try:
+        pprint("Creating table golden_chemical_reference.")
+        cursor.execute(create_table)
+    except SQL.OperationalError:
+        pprint("The table golden_chemical_reference already exists!")
+
+    unique_index = "CREATE UNIQUE INDEX unique_id ON golden_chemical_reference(id)"
+    try:
+        pprint("Creating a unique index for golden_chemical_reference.")
+        cursor.execute(unique_index)
+    except SQL.OperationalError:
+        pprint("The table golden_chemical_reference already has a unique index.")
 
 
 # Add a row of new values to the table
-def add_parent_row(connection, name, values):
+def add_entry_data_row(connection, values):
     cursor = connection.cursor()
-    command = "INSERT OR REPLACE INTO {0} VALUES (?,?,?,?,?,?,?)".format(name)
+    command = "INSERT OR REPLACE INTO entry_data VALUES (?,?,?,?,?,?,?)"
     cursor.executemany(command, values)
 
 
 # Add a row of new values to the table
-def add_child_row(connection, name, values):
+def add_crystallization_chemicals_row(connection, values):
     cursor = connection.cursor()
-    command = "INSERT OR REPLACE INTO {0} VALUES (?,?,?,?,?)".format(name)
+    command = "INSERT OR REPLACE INTO crystallization_chemicals VALUES (?,?,?,?,?)"
     cursor.executemany(command, values)
 
 
-def delete_all_rows(connection, name):
-	cursor = connection.cursor()
-	command = "DELETE FROM {0}".format(name)
-	cursor.execute(command)
+# Add a row of new values to the table
+def add_golden_chemical_reference_row(connection, values):
+    cursor = connection.cursor()
+    command = "INSERT OR REPLACE INTO golden_chemical_reference VALUES (?,?,?,?)"
+    cursor.executemany(command, values)
+
+
+def delete_all_rows(connection, table):
+    cursor = connection.cursor()
+
+    delete_rows = "DELETE FROM {0}".format(table)
+
+    try:
+        cursor.execute(delete_rows)
+    except SQL.OperationalError:
+        pprint("The table {0} has no rows to delete.".format(table))
+
+
+def delete_table(connection, table):
+    cursor = connection.cursor()
+
+    delete = "DELETE {0}".format(table)
+
+    try:
+        cursor.execute(delete)
+    except SQL.OperationalError:
+        pprint("The table {0} does not exist and cannot be deleted.".format(table))
 
 # Commit changes to existing database
 def commit_changes(connection):
     pprint("Committing changes...")
     connection.commit()
     pprint("Changes have been committed. Disconnecting from the database.")
+
+
+def close_database(connection):
     connection.close()
 
 
@@ -87,8 +152,10 @@ def print_database(connection, table, column):
 
     total_count = 0
 
-    sort_command = "SELECT * FROM {0} ORDER BY {1}".format(table, column)
-    for row in cursor.execute(sort_command):
+    print_db = "SELECT * FROM {0} ORDER BY unique_id".format(table)
+
+    for row in cursor.execute(print_db):
         pprint(row)
         total_count += 1
+
     pprint("Total count: {0}".format(total_count))
