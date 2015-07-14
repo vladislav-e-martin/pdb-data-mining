@@ -5,6 +5,7 @@ __author__ = 'Vladislav Martin'
 from Packages.pdb_data_mining import manage_sql as SQL
 import re
 import uuid
+import os
 from pprint import pprint
 
 # CONSTANTS
@@ -168,7 +169,7 @@ def create_chemical_golden_reference_list(connection, table, column):
 			entry_index += 1
 
 	# Write out the raw chemical names to a separate text file for further analysis
-	# filename = BASE.join("raw-chemical-names.txt")
+	# filename = os.path.join(BASE, "raw-chemical-names.txt")
 	# file = open(filename, 'w')
 	# for index, name in enumerate(chemical_names):
 	# 	file.write("{0}. \n".format(index))
@@ -264,8 +265,8 @@ def display_column_frequency(connection, table, column):
 	                    " ORDER BY 1 DESC".format(table, column)
 
 	# Write out the frequency of each finalized chemical name to a separate text file for further analysis
-	filename = BASE.join("most-common-chemicals.txt")
-	file = open(filename, 'w')
+	filename = os.path.join(BASE, "most-common-chemicals.txt")
+	file = open(filename, 'w') 
 	for index, row in enumerate(cursor.execute(frequency_command)):
 		file.write("{0}. \n".format(index))
 		file.write("${1}$ occurred ${0}$ times \n\n".format(row[0], row[1]))
@@ -392,8 +393,7 @@ def search_for_chemical(connection, search_list, max_chemical_total):
 
 	pprint("There were a total of {0} matches to {1}.".format(len(good_matches), queried_chemical_name))
 
-	filename_no_ext = BASE.join(queried_chemical_name)
-	filename = filename_no_ext.join(".txt")
+	filename = os.path.join(BASE, "ammonium-sulfate-matches.txt")
 	file = open(filename, 'w')
 	file.write("{0} MATCHES \n\n".format(queried_chemical_name.upper()))
 	current_index = 1
@@ -418,8 +418,8 @@ def export_plot_data(connection, matches, name):
 
 	command = "SELECT * FROM crystallization_chemicals ORDER BY parent_entry_id"
 
-	filename_no_ext = BASE.join(name)
-	filename = filename_no_ext.join(".txt")
+	filename_no_ext = os.path.join(BASE, name)
+	filename = filename_no_ext + ".txt"
 	file = open(filename, 'w')
 	for index, row in enumerate(cursor.execute(command)):
 		entry_id = row[1]
@@ -430,7 +430,6 @@ def export_plot_data(connection, matches, name):
 
 		try:
 			if entry_id in matches:
-
 				if unit == "%":
 					converted_concentration = 4 * (concentration / 100)
 					conversion_occurred = True
@@ -444,8 +443,9 @@ def export_plot_data(connection, matches, name):
 
 				if conversion_occurred:
 					concentration = converted_concentration
-
-			file.write("{0}\n".format(concentration))
+				
+				file.write("{0}\n".format(concentration))
+		
 		except IndexError:
 			pprint("We've reached the last element in the found_match list!")
 			break
