@@ -12,32 +12,24 @@ BASE = "/home/vlad/Documents/Code/pdb-data-mining/Output/"
 
 # FUNCTION DECLARATIONS
 
-def name_frequency(connection, table, column):
+def create_serviceable_list(connection):
     cursor = connection.cursor()
 
-    frequency_command = "SELECT COUNT(*), {1} FROM {0} GROUP BY {1} HAVING COUNT(*) > 9" \
-                        " ORDER BY 1 DESC".format(table, column)
+    frequency_command = "SELECT COUNT(*), name FROM crystallization_chemicals GROUP BY name HAVING COUNT(*) > 9" \
+                        " ORDER BY 1 DESC"
+
+    golden_list = []
 
     # Write out the frequency of each finalized chemical name to a separate text file for further analysis
     filename = os.path.join(BASE, "most-common-chemicals.txt")
     file = open(filename, 'w')
     for index, row in enumerate(cursor.execute(frequency_command)):
+        chemical_name = row[1]
+        golden_list.append(chemical_name)
+
         file.write("{0}. \n".format(index))
         file.write("${1}$ occurred ${0}$ times \n\n".format(row[0], row[1]))
     file.close()
-
-
-def create_serviceable_list(connection):
-    cursor = connection.cursor()
-
-    create_list_command = "SELECT COUNT(*), chemical_name FROM crystallization_chemicals GROUP BY chemical_name" \
-                          " HAVING COUNT(*) > 9 ORDER BY 1 DESC".format()
-
-    golden_list = []
-
-    for row in cursor.execute(create_list_command):
-        chemical_name = row[1]
-        golden_list.append(chemical_name)
 
     # Add special names
     special_names = ["k-po4", "amm po4", "nh4 formate", "gycine", "mg(oac)", "tric-cl", "ammonium sufate", "cdcl",
@@ -52,11 +44,10 @@ def create_serviceable_list(connection):
 def search_for_chemical(connection, search_list, max_chemical_total):
     cursor = connection.cursor()
 
-    count_command = "SELECT COUNT(*), parent_entry_id FROM crystallization_chemicals GROUP BY parent_entry_id" \
+    count_command = "SELECT COUNT(*), parent_id FROM crystallization_chemicals GROUP BY parent_id" \
                     " ORDER BY 1 DESC"
-    sort_command = "SELECT * FROM crystallization_chemicals ORDER BY parent_entry_id"
-
-    print_command = "SELECT * FROM information ORDER BY id"
+    sort_command = "SELECT * FROM crystallization_chemicals ORDER BY parent_id"
+    print_command = "SELECT * FROM entry_data ORDER BY id"
 
     entry_ids = []
 
@@ -161,7 +152,7 @@ def search_for_chemical(connection, search_list, max_chemical_total):
                 file.write("{0} \n\n".format(details))
                 current_index += 1
         except IndexError:
-            pprint("We've reached the last element in the found_match list!")
+            pprint("We've reached the last element in the good_matches list!")
             break
 
     return good_matches
@@ -170,7 +161,7 @@ def search_for_chemical(connection, search_list, max_chemical_total):
 def export_plot_data(connection, matches, name):
     cursor = connection.cursor()
 
-    command = "SELECT * FROM crystallization_chemicals ORDER BY parent_entry_id"
+    command = "SELECT * FROM crystallization_chemicals ORDER BY parent_id"
 
     filename_no_ext = os.path.join(BASE, name)
     filename = filename_no_ext + ".txt"
@@ -190,7 +181,7 @@ def export_plot_data(connection, matches, name):
                 if unit == "mm":
                     converted_concentration = concentration / 1000
                     conversion_occurred = True
-                # There is only case of this, manually correct it (30.0%(v/v) in the PDBX_DETAILS section)
+                # There is only one case of this, manually correct it (30.0%(v/v) in the PDBX_DETAILS section)
                 if unit == "v/v":
                     converted_concentration = 4 * (30.0 / 100)
                     conversion_occurred = True

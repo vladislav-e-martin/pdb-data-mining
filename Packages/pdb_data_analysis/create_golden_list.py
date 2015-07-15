@@ -5,6 +5,7 @@ __author__ = 'Vladislav Martin'
 import re
 import uuid
 from pprint import pprint
+from Packages.pdb_data_mining import manage_sql as sql
 
 # CONSTANTS
 
@@ -109,7 +110,6 @@ def create_golden_reference_list(connection, good_entries):
                                         new_name = ph_filter
                                         ph_filtered = True
                                     else:
-                                        ph_filter = new_name
                                         break
 
                                 paren_filtered = False
@@ -123,8 +123,6 @@ def create_golden_reference_list(connection, good_entries):
                                         new_name = paren_filter
                                         paren_filtered = True
                                     else:
-                                        # If this is not the case, make sure the name remains consistent regardless
-                                        paren_filter = new_name
                                         break
 
                                 grammar_filtered = False
@@ -143,10 +141,7 @@ def create_golden_reference_list(connection, good_entries):
                                         new_name = grammar_filter
                                         grammar_filtered = True
                                     else:
-                                        grammar_filter = new_name
                                         break
-
-                                new_name = grammar_filter
 
                                 # Filters have been applied completely by this point, break the loop
                                 if not ph_filtered and not paren_filtered and not grammar_filtered:
@@ -170,7 +165,7 @@ def create_golden_reference_list(connection, good_entries):
                                 if "2-methylpentane-2" in chemical_name or "2-methyl-2" in chemical_name:
                                     chemical_name = "2-methylpentane-2,4-diol"
 
-                                if chemical_name == "eg":
+                                if chemical_name == "eg" or chemical_name == "etgly":
                                     chemical_name = "ethylene glycol"
 
                                 chemical_names.append(chemical_name)
@@ -181,6 +176,16 @@ def create_golden_reference_list(connection, good_entries):
 
     return chemical_names, chemical_concentrations, chemical_ids
 
+
+def add_to_aliases(connection, standard_name, aliases):
+    sql.create_aliases_table(connection)
+
+    for alias in aliases:
+        values_to_add = [standard_name, alias]
+        pprint(values_to_add)
+        pprint("Adding {0} under {1} to the table aliases!".format(alias, standard_name))
+        # For some reason this reads values_to_add with 16 binds (i.e., 16 characters not two strings)
+        sql.add_aliases_row(connection, values_to_add)
 
 def is_name_short(name):
     if len(name) < 2:

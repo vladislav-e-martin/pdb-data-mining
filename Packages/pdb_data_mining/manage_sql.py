@@ -49,7 +49,7 @@ def create_crystallization_chemicals_table(connection):
     # Create a child table with the provided name
     create_table = "CREATE TABLE crystallization_chemicals " \
                    "(id int, " \
-                   "parent_entry_id text, " \
+                   "parent_id text, " \
                    "concentration real, " \
                    "unit real, " \
                    "name text)"
@@ -66,6 +66,27 @@ def create_crystallization_chemicals_table(connection):
         cursor.execute(unique_index)
     except SQL.OperationalError:
         pprint("The table crystallization_chemicals already has a unique index.")
+
+
+def create_aliases_table(connection):
+    cursor = connection.cursor()
+
+    create_table = "CREATE TABLE aliases " \
+                   "(name text, " \
+                   "name_alias text)"
+
+    try:
+        pprint("Creating table aliases.")
+        cursor.execute(create_table)
+    except SQL.OperationalError:
+        pprint("The table aliases already exists!")
+
+    unique_index = "CREATE UNIQUE INDEX unique_id ON aliases(name, name_alias)"
+    try:
+        pprint("Creating a unique index for aliases.")
+        cursor.execute(unique_index)
+    except SQL.OperationalError:
+        pprint("The table aliases already has a unique index.")
 
 
 # Create the golden_chemical_reference child table (child to crystallization_chemicals)
@@ -104,6 +125,12 @@ def add_entry_data_row(connection, values):
 def add_crystallization_chemicals_row(connection, values):
     cursor = connection.cursor()
     command = "INSERT OR REPLACE INTO crystallization_chemicals VALUES (?,?,?,?,?)"
+    cursor.executemany(command, values)
+
+
+def add_aliases_row(connection, values):
+    cursor = connection.cursor()
+    command = "INSERT OR REPLACE INTO aliases VALUES (?,?)"
     cursor.executemany(command, values)
 
 
@@ -147,12 +174,12 @@ def close_database(connection):
 
 
 # Print out the contents of a database, ordered by a specified column
-def print_database(connection, table, column):
+def print_table(connection, table):
     cursor = connection.cursor()
 
     total_count = 0
 
-    print_db = "SELECT * FROM {0} ORDER BY unique_id".format(table)
+    print_db = "SELECT * FROM {0} ORDER BY id".format(table)
 
     for row in cursor.execute(print_db):
         pprint(row)

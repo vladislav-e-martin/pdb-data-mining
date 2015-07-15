@@ -1,6 +1,6 @@
 # LIBRARIES AND PACKAGES
 
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as et
 import os
 from pprint import pprint
 
@@ -44,7 +44,7 @@ def fill_raw(files, columns) -> object:
     for source_index, file in enumerate(files):
         try:
             pprint("The current index: {0}".format(source_index))
-            tree = ET.parse(file)
+            tree = et.parse(file)
 
             root = tree.getroot()
             # Make XPATHs simpler
@@ -65,7 +65,7 @@ def fill_raw(files, columns) -> object:
             for element in root.findall(queries[0], namespace):
                 # Remove the last seven letters from this string (i.e., the "-noatom" part)
                 entry_id = element.get('datablockName')[:-7]
-                pprint("The entry ID of this structure: {0}".format(entry_id))
+                # pprint("The entry ID of this structure: {0}".format(entry_id))
                 data[source_index][current_col] = entry_id
                 current_col += 1
 
@@ -118,8 +118,8 @@ def fill_raw(files, columns) -> object:
                 found = True
             else:
                 pass
-        except ET.ParseError:
-            pprint("This file could not be parsed. Deleting the file so it may be downloaded again...")
+        except et.ParseError:
+            # pprint("This file could not be parsed. Deleting the file so it may be downloaded again...")
             os.remove(file)
             pass
     return data
@@ -147,9 +147,10 @@ def filter_indices(raw) -> object:
                 pprint("The source_index {0} is worth noting!".format(source_index))
             # Ignore the rows if they do not meet the criteria
             else:
-                pprint("This structure does not meet the criteria.")
+                # pprint("This structure does not meet the criteria.")
+                pass
         except TypeError:
-            pprint("One of the criteria was not provided with the structure. This structure will be ignored.")
+            # pprint("One of the criteria was not provided with the structure. This structure will be ignored.")
             pass
     pprint("There were {0} indices worth noting!".format(len(indices_to_keep)))
     return indices_to_keep
