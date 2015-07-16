@@ -4,11 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebdf545b-6912-42f8-ab83-75fffc3743fc" name="Default" comment="July 15th, 2015&#10;- Fixed a whole ton of code&#10;- Currently testing SQL queries that may replace cumbersome searching code in query_entries.py&#10;- Still in the works of testing the download of full XML files that contain the atom coordinates for those structures that were crystallized with those chemicals that we are interested in&#10;- Still in the works of organizing tables within the database and joining rows that have some relationship to each other across tables&#10;- Entry_data table seems to have been filled properly with the expect 50,000+ values">
+    <list default="true" id="ebdf545b-6912-42f8-ab83-75fffc3743fc" name="Default" comment="July 16th, 2015&#10;- Possibly close to finishing query_entries.py">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database/information.db" afterPath="$PROJECT_DIR$/Database/information.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packages/pdb_data_analysis/create_golden_list.py" afterPath="$PROJECT_DIR$/Packages/pdb_data_analysis/create_golden_list.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packages/pdb_data_mining/manage_sql.py" afterPath="$PROJECT_DIR$/Packages/pdb_data_mining/manage_sql.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packages/pdb_data_analysis/query_entries.py" afterPath="$PROJECT_DIR$/Packages/pdb_data_analysis/query_entries.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -31,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="127" column="61" selection-start-line="127" selection-start-column="61" selection-end-line="127" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.25113463">
+              <caret line="138" column="46" selection-start-line="138" selection-start-column="46" selection-end-line="138" selection-end-column="46" />
               <folding>
                 <element signature="e#59#84#0" expanded="true" />
               </folding>
@@ -47,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/Packages/pdb_data_analysis/create_golden_list.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="182" column="25" selection-start-line="182" selection-start-column="25" selection-end-line="182" selection-end-column="25" />
+              <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
               <folding>
                 <element signature="e#59#68#0" expanded="true" />
               </folding>
@@ -67,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="query_entries.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="query_entries.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Packages/pdb_data_analysis/query_entries.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5431165">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -111,10 +110,10 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Packages/pdb_data_mining/parse_xml.py" />
         <option value="$PROJECT_DIR$/Packages/pdb_data_mining/download_ftp.py" />
-        <option value="$PROJECT_DIR$/Packages/pdb_data_analysis/create_golden_list.py" />
         <option value="$PROJECT_DIR$/Packages/pdb_data_mining/manage_sql.py" />
-        <option value="$PROJECT_DIR$/Packages/pdb_data_analysis/query_entries.py" />
+        <option value="$PROJECT_DIR$/Packages/pdb_data_analysis/create_golden_list.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/Packages/pdb_data_analysis/query_entries.py" />
       </list>
     </option>
   </component>
@@ -565,13 +564,20 @@
       <option name="project" value="LOCAL" />
       <updated>1437000276333</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="July 16th, 2015&#10;- Possibly close to finishing query_entries.py">
+      <created>1437073404267</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1437073404267</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1678" y="-3" width="1684" height="1022" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24954791" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -587,7 +593,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39933628" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -639,7 +644,8 @@
     <MESSAGE value="July 8th, 2015&#10;- Tons of changes, the logic behind the project has changed in a big way &#10;- Things are much better now, the golden reference is now a complete, untainted list of chemical names to work with from here on out&#10;- All language filters are applied in the one function that creates the golden reference list through a series of for loops, while loops, if/else statements&#10;- Need to comment regex and key functions in parse_details.py... rather unreadable right now (especially the regex commands)" />
     <MESSAGE value="July 14th, 2015&#10;- Cleaned up pdb_data_analysis directory&#10;- Cleaned up manage_sql.py&#10;- Added a third table, &quot;golden_chemical_reference&quot; to store only serviceable chemical names&#10;- Updated code flow in main.py&#10;- TO-DO: Create entry_data successfully, must rerun main.py as it is right now" />
     <MESSAGE value="July 15th, 2015&#10;- Fixed a whole ton of code&#10;- Currently testing SQL queries that may replace cumbersome searching code in query_entries.py&#10;- Still in the works of testing the download of full XML files that contain the atom coordinates for those structures that were crystallized with those chemicals that we are interested in&#10;- Still in the works of organizing tables within the database and joining rows that have some relationship to each other across tables&#10;- Entry_data table seems to have been filled properly with the expect 50,000+ values" />
-    <option name="LAST_COMMIT_MESSAGE" value="July 15th, 2015&#10;- Fixed a whole ton of code&#10;- Currently testing SQL queries that may replace cumbersome searching code in query_entries.py&#10;- Still in the works of testing the download of full XML files that contain the atom coordinates for those structures that were crystallized with those chemicals that we are interested in&#10;- Still in the works of organizing tables within the database and joining rows that have some relationship to each other across tables&#10;- Entry_data table seems to have been filled properly with the expect 50,000+ values" />
+    <MESSAGE value="July 16th, 2015&#10;- Possibly close to finishing query_entries.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="July 16th, 2015&#10;- Possibly close to finishing query_entries.py" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1039,7 +1045,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="63" column="22" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
           <folding>
-            <element signature="e#26#60#0" expanded="true" />
+            <element signature="e#26#60#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1062,7 +1068,7 @@
     <entry file="file://$PROJECT_DIR$/Packages/pdb_data_analysis/create_golden_list.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="182" column="25" selection-start-line="182" selection-start-column="25" selection-end-line="182" selection-end-column="25" />
+          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
           <folding>
             <element signature="e#59#68#0" expanded="true" />
           </folding>
@@ -1079,21 +1085,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/Packages/pdb_data_analysis/query_entries.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="61" selection-start-line="127" selection-start-column="61" selection-end-line="127" selection-end-column="61" />
-          <folding>
-            <element signature="e#59#84#0" expanded="true" />
-          </folding>
+          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Packages/pdb_data_analysis/query_entries.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5431165">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.25113463">
+          <caret line="138" column="46" selection-start-line="138" selection-start-column="46" selection-end-line="138" selection-end-column="46" />
+          <folding>
+            <element signature="e#59#84#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

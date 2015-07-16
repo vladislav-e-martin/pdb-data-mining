@@ -182,7 +182,6 @@ def add_to_aliases(connection, standard_name, aliases):
 
     for alias in aliases:
         values_to_add = [standard_name, alias]
-        # pprint("Adding {0} under {1} to the table aliases!".format(alias, standard_name))
         sql.add_aliases_row(connection, values_to_add)
 
 

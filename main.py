@@ -138,9 +138,11 @@ def search_table_for_chemicals(local_database):
 
     sql.delete_all_rows(connection, "aliases")
     create.add_to_aliases(connection, "ammonium sulfate", ammonium_sulfate_aliases)
-    # create.add_to_aliases(connection, "ethylene glycol", ethylene_glycol_aliases)
+    create.add_to_aliases(connection, "ethylene glycol", ethylene_glycol_aliases)
 
-    query.query_for_chemical(connection)
+    query.standardize_chemical_names(connection)
+
+    # sql.print_table(connection, "crystallization_chemicals", "parent_id")
 
     # ammonium_sulfate_matches = query.search_for_chemical(connection, ammonium_sulfate_aliases, 1)
     # non_ionic_matches = query.search_for_chemical(connection, non_ionic, 50)

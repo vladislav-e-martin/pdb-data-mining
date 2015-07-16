@@ -41,20 +41,25 @@ def create_serviceable_list(connection):
     return golden_list
 
 
-def query_for_chemical(connection):
+def standardize_chemical_names(connection):
     cursor = connection.cursor()
 
-    select_names = "SELECT chemical_name, aliases.name_alias FROM crystallization_chemicals " \
-                   "INNER JOIN aliases ON crystallization_chemicals.chemical_name = aliases.name_alias " \
-                   "WHERE chemical_name = aliases.name_alias"
+    select_names = "SELECT crystallization_chemicals.id, aliases.standard_name " \
+                   "FROM crystallization_chemicals, aliases " \
+                   "WHERE crystallization_chemicals.chemical_name = aliases.name_alias"
 
-    for row in cursor.execute(select_names):
-        pprint(row)
+    for index, row in enumerate(cursor.execute(select_names)):
+        pprint("Current Index : {0}".format(index))
 
-        # find_alias_command = cursor.execute(find_alias, (name,)).fetchall()
-        # pprint(find_alias_command)
+        row_id = row[0]
+        standard_name = row[1]
 
-
+        replace_names = "UPDATE crystallization_chemicals " \
+                        "SET chemical_name = ? " \
+                        "WHERE crystallization_chemicals.id = ?"
+        # pprint(replace_names)
+        name_replaced = cursor.execute(replace_names, (standard_name, row_id)).fetchall()
+        pprint(name_replaced)
 
 
 def search_for_chemical(connection, search_list, max_chemical_total):
