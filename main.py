@@ -96,15 +96,17 @@ def parse_raw_data(local_filebase, raw_columns, sorted_columns) -> object:
 # Store the important structures in the database for further analysis
 def store_in_entry_table(local_database, data):
     connection = sql.connect_database(local_database)
+
     # Add a new table to the database
     sql.create_entry_data_table(connection)
 
     # Insert each row of values from sorted_data
     sql.add_entry_data_row(connection, data)
-    # Print the contents of the database as confirmation
-    # SQL.print_table(connection, "entry_data", "id")
+
     # Commit changes and disconnect from the database
     sql.commit_changes(connection)
+
+    sql.close_database(connection)
 
 
 def create_reference_list(local_database):
@@ -122,71 +124,40 @@ def create_reference_list(local_database):
 def store_reference_list(local_database, data):
     connection = sql.connect_database(local_database)
 
-    # Store the final reference list into the crystallization_chemicals table
     sql.delete_all_rows(connection, "crystallization_chemicals")
-    sql.delete_table(connection, "information")
+    sql.delete_table(connection, "crystallization_chemicals")
     sql.create_crystallization_chemicals_table(connection)
     sql.add_crystallization_chemicals_row(connection, data)
     sql.commit_changes(connection)
 
+    sql.close_database(connection)
 
-def do_stuff(local_database):
+
+def search_table_for_chemicals(local_database):
     connection = sql.connect_database(local_database)
 
-    test = "SELECT id, details FROM entry_data, crystallization_chemicals WHERE " \
-           "crystallization_chemicals.name IN ("
-    for alias in ammonium_sulfate_aliases:
-        test += "\"" + alias + "\", "
-    test += ")"
-
+    sql.delete_all_rows(connection, "aliases")
     create.add_to_aliases(connection, "ammonium sulfate", ammonium_sulfate_aliases)
-    create.add_to_aliases(connection, "ethylene glycol", ethylene_glycol_aliases)
-    sql.print_table(connection, "aliases")
+    # create.add_to_aliases(connection, "ethylene glycol", ethylene_glycol_aliases)
 
-    test_two = "UPDATE crystallization_chemicals SET name_alias = name FROM aliases INNER JOIN " \
-               "crystallization_chemicals ON crystallization_chemicals.name = aliases.name"
+    query.query_for_chemical(connection)
 
-    test_two_easy_now = "SELECT id, details FROM entry_data, crystallization_chemicals WHERE " \
-                        "crystallization_chemicals.name = 'ammonium sulfate'"
-
-    cursor = connection.cursor()
-
-    cursor.execute(test_two)
-
-    alias_results = cursor.execute(test_two_easy_now).fetchall()
-
-    for result in alias_results:
-        entry_id = result[1]
-        name = result[4]
-        pprint("Entry ID: {0}       Chemical Name: {1}".format(entry_id, name))
-    pprint("There were a total of {0} matches with test_two.".format(len(alias_results)))
-
-    results = cursor.execute(test).fetchall()
-
-    for result in results:
-        entry_id = result[1]
-        name = result[4]
-        pprint("Entry ID: {0}       Chemical Name: {1}".format(entry_id, name))
-    pprint("There were a total of {0} matches with test.".format(len(results)))
-
-    ammonium_sulfate_matches = query.search_for_chemical(connection, ammonium_sulfate_aliases, 1)
-    non_ionic_matches = query.search_for_chemical(connection, non_ionic, 50)
-
-    pprint("Length of ammonium sulfate matches: {0}".format(len(ammonium_sulfate_matches)))
-    pprint("Length of non-ionic matches: {0}".format(len(non_ionic_matches)))
+    # ammonium_sulfate_matches = query.search_for_chemical(connection, ammonium_sulfate_aliases, 1)
+    # non_ionic_matches = query.search_for_chemical(connection, non_ionic, 50)
+    #
+    # pprint("Length of ammonium sulfate matches: {0}".format(len(ammonium_sulfate_matches)))
+    # pprint("Length of non-ionic matches: {0}".format(len(non_ionic_matches)))
 
     # ftp_download_full(XML_FULL, BASE_XML_FULL, ammonium_sulfate_matches.lower())
     # ftp_download_full(XML_FULL, BASE_XML_FULL, non_ionic_matches.lower())
 
     sql.close_database(connection)
 
-# connection = sql.connect_database(BASE_DB)
-# sql.print_table(connection, "entry_data")
-
-do_stuff(BASE_DB)
 # data_to_store = parse_raw_data(BASE_XML_NO_ATOM, RAW_COLUMNS, SORTED_COLUMNS)
 
 # store_in_entry_table(BASE_DB, data_to_store)
 
 reference_list = create_reference_list(BASE_DB)
 store_reference_list(BASE_DB, reference_list)
+
+search_table_for_chemicals(BASE_DB)

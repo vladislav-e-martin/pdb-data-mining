@@ -41,6 +41,22 @@ def create_serviceable_list(connection):
     return golden_list
 
 
+def query_for_chemical(connection):
+    cursor = connection.cursor()
+
+    select_names = "SELECT chemical_name, aliases.name_alias FROM crystallization_chemicals " \
+                   "INNER JOIN aliases ON crystallization_chemicals.chemical_name = aliases.name_alias " \
+                   "WHERE chemical_name = aliases.name_alias"
+
+    for row in cursor.execute(select_names):
+        pprint(row)
+
+        # find_alias_command = cursor.execute(find_alias, (name,)).fetchall()
+        # pprint(find_alias_command)
+
+
+
+
 def search_for_chemical(connection, search_list, max_chemical_total):
     cursor = connection.cursor()
 

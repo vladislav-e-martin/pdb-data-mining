@@ -52,7 +52,7 @@ def create_crystallization_chemicals_table(connection):
                    "parent_id text, " \
                    "concentration real, " \
                    "unit real, " \
-                   "name text)"
+                   "chemical_name text)"
 
     try:
         pprint("Creating table crystallization_chemicals.")
@@ -72,7 +72,7 @@ def create_aliases_table(connection):
     cursor = connection.cursor()
 
     create_table = "CREATE TABLE aliases " \
-                   "(name text, " \
+                   "(standard_name text, " \
                    "name_alias text)"
 
     try:
@@ -81,7 +81,7 @@ def create_aliases_table(connection):
     except SQL.OperationalError:
         pprint("The table aliases already exists!")
 
-    unique_index = "CREATE UNIQUE INDEX unique_id ON aliases(name, name_alias)"
+    unique_index = "CREATE UNIQUE INDEX unique_id ON aliases(standard_name, name_alias)"
     try:
         pprint("Creating a unique index for aliases.")
         cursor.execute(unique_index)
@@ -97,7 +97,7 @@ def create_golden_chemical_reference_table(connection):
     create_table = "CREATE TABLE golden_chemical_reference " \
                    "(id int, " \
                    "parent_id int, " \
-                   "name text, " \
+                   "golden_name text, " \
                    "frequency int)"
 
     try:
@@ -131,7 +131,7 @@ def add_crystallization_chemicals_row(connection, values):
 def add_aliases_row(connection, values):
     cursor = connection.cursor()
     command = "INSERT OR REPLACE INTO aliases VALUES (?,?)"
-    cursor.executemany(command, values)
+    cursor.executemany(command, (values,))
 
 
 # Add a row of new values to the table
@@ -155,9 +155,10 @@ def delete_all_rows(connection, table):
 def delete_table(connection, table):
     cursor = connection.cursor()
 
-    delete = "DELETE {0}".format(table)
+    delete = "DROP TABLE {0}".format(table)
 
     try:
+        pprint("Deleting table {0}.".format(table))
         cursor.execute(delete)
     except SQL.OperationalError:
         pprint("The table {0} does not exist and cannot be deleted.".format(table))
@@ -174,14 +175,14 @@ def close_database(connection):
 
 
 # Print out the contents of a database, ordered by a specified column
-def print_table(connection, table):
+def print_table(connection, table, column):
     cursor = connection.cursor()
 
     total_count = 0
 
-    print_db = "SELECT * FROM {0} ORDER BY id".format(table)
+    print_table = "SELECT * FROM {0} ORDER BY {1}".format(table, column)
 
-    for row in cursor.execute(print_db):
+    for row in cursor.execute(print_table):
         pprint(row)
         total_count += 1
 

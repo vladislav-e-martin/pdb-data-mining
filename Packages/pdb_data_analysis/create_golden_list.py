@@ -114,8 +114,8 @@ def create_golden_reference_list(connection, good_entries):
 
                                 paren_filtered = False
                                 while True:
-                                    open_parentheses = re.search('([(])', ph_filter)
-                                    close_parentheses = re.search('([)])', ph_filter)
+                                    open_parentheses = re.search('([(])', new_name)
+                                    close_parentheses = re.search('([)])', new_name)
                                     # Check if only one parentheses is contained in the chemical's name
                                     if open_parentheses is not None and close_parentheses is None or \
                                                             close_parentheses is not None and open_parentheses is None:
@@ -128,10 +128,10 @@ def create_golden_reference_list(connection, good_entries):
                                 grammar_filtered = False
                                 while True:
                                     grammar = re.search('\s+(with|at|in|of|was|were|for|against|to)\s+',
-                                                        paren_filter)
+                                                        new_name)
                                     words = re.search('(buffer|inhibitor|compound|protein|reservoir|saturated|'
                                                       'solution)',
-                                                      paren_filter)
+                                                      new_name)
                                     # Check if an English word is contained in the chemical's name
                                     if grammar is not None or words is not None:
                                         grammar_filter = re.sub('\s*(with.*|at.*|in.*|of.*|was.*|were.*|for.*|'
@@ -182,10 +182,9 @@ def add_to_aliases(connection, standard_name, aliases):
 
     for alias in aliases:
         values_to_add = [standard_name, alias]
-        pprint(values_to_add)
-        pprint("Adding {0} under {1} to the table aliases!".format(alias, standard_name))
-        # For some reason this reads values_to_add with 16 binds (i.e., 16 characters not two strings)
+        # pprint("Adding {0} under {1} to the table aliases!".format(alias, standard_name))
         sql.add_aliases_row(connection, values_to_add)
+
 
 def is_name_short(name):
     if len(name) < 2:
