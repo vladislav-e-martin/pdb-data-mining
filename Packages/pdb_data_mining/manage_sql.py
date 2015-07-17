@@ -1,9 +1,12 @@
 # LIBRARIES AND PACKAGES
 
 import sqlite3 as SQL
+import os
 from pprint import pprint
 
 # CONSTANTS
+
+BASE = "/home/vlad/Documents/Code/pdb-data-mining/Output/"
 
 # FUNCTION DECLARATIONS
 
@@ -155,13 +158,12 @@ def delete_all_rows(connection, table):
 def delete_table(connection, table):
     cursor = connection.cursor()
 
-    delete = "DROP TABLE {0}".format(table)
+    delete = "DROP TABLE IF EXISTS {0};".format(table)
 
-    try:
-        pprint("Deleting table {0}.".format(table))
-        cursor.execute(delete)
-    except SQL.OperationalError:
-        pprint("The table {0} does not exist and cannot be deleted.".format(table))
+    pprint("Deleting table {0}.".format(table))
+    cursor.executescript(delete)
+    # except SQL.OperationalError:
+    #     pprint("The table {0} does not exist and cannot be deleted.".format(table))
 
 # Commit changes to existing database
 def commit_changes(connection):
@@ -180,10 +182,13 @@ def print_table(connection, table, column):
 
     total_count = 0
 
-    print_table = "SELECT * FROM {0} ORDER BY {1}".format(table, column)
+    print_rows = "SELECT * FROM {0} ORDER BY {1}".format(table, column)
 
-    for row in cursor.execute(print_table):
-        pprint(row)
+    filename = os.path.join(BASE, "{0}_contents.txt".format(table))
+    file = open(filename, 'w')
+    for row in cursor.execute(print_rows):
         total_count += 1
+        file.write("Entry ID associated with the below information: \n".format(row[1]))
+        file.write("{0}, {1}, {2} \n\n".format(row[2], row[3], row[4]))
 
     pprint("Total count: {0}".format(total_count))

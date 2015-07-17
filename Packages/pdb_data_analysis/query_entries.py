@@ -15,8 +15,11 @@ BASE = "/home/vlad/Documents/Code/pdb-data-mining/Output/"
 def create_serviceable_list(connection):
     cursor = connection.cursor()
 
-    frequency_command = "SELECT COUNT(*), name FROM crystallization_chemicals GROUP BY name HAVING COUNT(*) > 9" \
-                        " ORDER BY 1 DESC"
+    frequency_command = "SELECT COUNT(*), chemical_name " \
+                        "FROM crystallization_chemicals " \
+                        "GROUP BY chemical_name " \
+                        "HAVING COUNT(*) > 9 " \
+                        "ORDER BY 1 DESC"
 
     golden_list = []
 
@@ -48,18 +51,43 @@ def standardize_chemical_names(connection):
                    "FROM crystallization_chemicals, aliases " \
                    "WHERE crystallization_chemicals.chemical_name = aliases.name_alias"
 
-    for index, row in enumerate(cursor.execute(select_names)):
-        pprint("Current Index : {0}".format(index))
+    select_rows = cursor.execute(select_names).fetchall()
 
+    for index, row in enumerate(select_rows):
+        pprint("Current Index: {0}".format(index))
         row_id = row[0]
         standard_name = row[1]
 
         replace_names = "UPDATE crystallization_chemicals " \
                         "SET chemical_name = ? " \
                         "WHERE crystallization_chemicals.id = ?"
-        # pprint(replace_names)
-        name_replaced = cursor.execute(replace_names, (standard_name, row_id)).fetchall()
-        pprint(name_replaced)
+
+        cursor.execute(replace_names, (standard_name, row_id))
+
+
+def query_for_match(connection, name):
+    cursor = connection.cursor()
+
+    select_unique_ids = "SELECT crystallization_chemicals.parent_id " \
+                        "FROM crystallization_chemicals " \
+                        "GROUP BY crystallization_chemicals.parent_id " \
+                        "HAVING COUNT(*) = 1 ORDER BY 1 DESC"
+
+    select_rows = cursor.execute(select_unique_ids).fetchall()
+
+    pprint("Length: {0}".format(len(select_rows)))
+
+    for index, row in enumerate(select_rows):
+        pprint("Current Index: {0}".format(index))
+        distinct_id = row[0]
+
+        name_matches = "SELECT entry_data.id, entry_data.details FROM entry_data, crystallization_chemicals WHERE " \
+                       "? LIKE crystallization_chemicals.chemical_name AND " \
+                       "entry_data.id = crystallization_chemicals.parent_id AND " \
+                       "entry_data.id = ?"
+
+        matches = cursor.execute(name_matches, (name, distinct_id)).fetchall()
+        pprint(matches)
 
 
 def search_for_chemical(connection, search_list, max_chemical_total):
@@ -71,7 +99,6 @@ def search_for_chemical(connection, search_list, max_chemical_total):
     print_command = "SELECT * FROM entry_data ORDER BY id"
 
     entry_ids = []
-
     golden_list = create_serviceable_list(connection)
     other_chemicals = []
 
@@ -102,7 +129,7 @@ def search_for_chemical(connection, search_list, max_chemical_total):
         if chemical_count <= max_chemical_total:
             entry_ids.append(entry_id)
 
-    pprint("Original length of entry_ids: {0}".format(len(entry_ids)))
+    # pprint("Length of entry_ids: {0}".format(len(entry_ids)))
 
     # Second, check if any of the chemical names that are NOT the queried chemical are mentioned in this entry
     for index, row in enumerate(cursor.execute(print_command)):
@@ -123,13 +150,15 @@ def search_for_chemical(connection, search_list, max_chemical_total):
                 # This entry contains no other chemical names (i.e., only contains the queried chemical)
                 if other_chemicals_search is not None:
                     pass
-                # pprint("Entry ID: {0}".format(entry_id))
-                # pprint("We found ${0}$ in the details section!".format(other_chemicals_search.group(0)))
+                    # pprint("Entry ID: {0}".format(entry_id))
+                    # pprint("We found ${0}$ in the details section!".format(other_chemicals_search.group(0)))
                 else:
                     matching_entry_ids.append(entry_id)
         except IndexError:
             pprint("We've reached the end of the entry_ids list!")
             break
+
+    # pprint("Length of matching_entry_ids: {0}".format(len(matching_entry_ids)))
 
     # Third, ensure that all the chemical names are versions of the queried chemical
     match_count = 0
@@ -159,7 +188,7 @@ def search_for_chemical(connection, search_list, max_chemical_total):
 
     pprint("There were a total of {0} matches to {1}.".format(len(good_matches), queried_chemical_name))
 
-    filename = os.path.join(BASE, "ammonium-sulfate-matches.txt")
+    filename = os.path.join(BASE, "{0}-matches.txt".format(queried_chemical_name))
     file = open(filename, 'w')
     file.write("{0} MATCHES \n\n".format(queried_chemical_name.upper()))
     current_index = 1

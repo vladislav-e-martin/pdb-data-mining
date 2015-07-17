@@ -44,9 +44,9 @@ ammonium_sulfate_aliases = ["ammonium sulfate", "ammonium sulphate", "amonium su
                             "ammomium sulfate", "ammonium-sulfate", "ammonium suflate", "ammonium sulf",
                             "ammonuim sulfate", "ammounium sulfate", "ammonium_sulfate", "amm sulfate",
                             "ammoium sulfate", "ammonium  sulfate", "ammonium salfate", "ammoniun sulfate",
-                            "ammonium sufate",
+                            "ammonium sufate", "ammonuim sulphate",
                             "ams", "as", "amsulfate", "ammoniumsulfate", "ammoniumsulphate", "amoniumsulfate",
-                            "ammomiumsulfate", "ammoniumsuflate",
+                            "ammomiumsulfate", "ammoniumsuflate", "ammonuimsulphate",
                             "amso4", "am so4", "nh4 sulfate", "nh4sulfate", "ammso4", "amm so4", "am2so4", "am2 so4",
                             "nh4 sulphate", "nh4sulphate", "ammonium so4", "ammoniumso4",
                             "(nh4)2so4", "(nh4)2 so4", "nh4so4", "nh4 so4", "(nh4)so4", "(nh4) so4",
@@ -125,7 +125,6 @@ def store_reference_list(local_database, data):
     connection = sql.connect_database(local_database)
 
     sql.delete_all_rows(connection, "crystallization_chemicals")
-    sql.delete_table(connection, "crystallization_chemicals")
     sql.create_crystallization_chemicals_table(connection)
     sql.add_crystallization_chemicals_row(connection, data)
     sql.commit_changes(connection)
@@ -136,22 +135,35 @@ def store_reference_list(local_database, data):
 def search_table_for_chemicals(local_database):
     connection = sql.connect_database(local_database)
 
-    sql.delete_all_rows(connection, "aliases")
-    create.add_to_aliases(connection, "ammonium sulfate", ammonium_sulfate_aliases)
-    create.add_to_aliases(connection, "ethylene glycol", ethylene_glycol_aliases)
-
-    query.standardize_chemical_names(connection)
-
+    # sql.delete_all_rows(connection, "aliases")
+    # create.add_to_aliases(connection, "ammonium sulfate", ammonium_sulfate_aliases)
+    # create.add_to_aliases(connection, "ethylene glycol", ethylene_glycol_aliases)
+    #
+    # query.standardize_chemical_names(connection)
+    #
+    # query.query_for_match(connection, "ammonium sulfate")
+    #
+    # sql.commit_changes(connection)
+    #
     # sql.print_table(connection, "crystallization_chemicals", "parent_id")
 
-    # ammonium_sulfate_matches = query.search_for_chemical(connection, ammonium_sulfate_aliases, 1)
-    # non_ionic_matches = query.search_for_chemical(connection, non_ionic, 50)
-    #
+    ammonium_sulfate_matches = query.search_for_chemical(connection, ammonium_sulfate_aliases, 1)
+    non_ionic_matches = query.search_for_chemical(connection, non_ionic, 50)
+
     # pprint("Length of ammonium sulfate matches: {0}".format(len(ammonium_sulfate_matches)))
     # pprint("Length of non-ionic matches: {0}".format(len(non_ionic_matches)))
 
-    # ftp_download_full(XML_FULL, BASE_XML_FULL, ammonium_sulfate_matches.lower())
-    # ftp_download_full(XML_FULL, BASE_XML_FULL, non_ionic_matches.lower())
+    for index, match in enumerate(ammonium_sulfate_matches):
+        ammonium_sulfate_matches[index] = match.lower()
+
+    for index, match in enumerate(non_ionic_matches):
+        non_ionic_matches[index] = match.lower()
+
+    pprint(ammonium_sulfate_matches)
+    pprint(non_ionic_matches)
+
+    ftp_download_full(XML_FULL, BASE_XML_FULL, ammonium_sulfate_matches)
+    ftp_download_full(XML_FULL, BASE_XML_FULL, non_ionic_matches)
 
     sql.close_database(connection)
 
@@ -159,7 +171,8 @@ def search_table_for_chemicals(local_database):
 
 # store_in_entry_table(BASE_DB, data_to_store)
 
-reference_list = create_reference_list(BASE_DB)
-store_reference_list(BASE_DB, reference_list)
+# reference_list = create_reference_list(BASE_DB)
+# pprint(len(reference_list))
+# store_reference_list(BASE_DB, reference_list)
 
 search_table_for_chemicals(BASE_DB)

@@ -89,7 +89,8 @@ def create_golden_reference_list(connection, good_entries):
                         # Split concentration values and units from their associated chemical names
                         concentration_delimited_names = re.split('(\d+\s*m{1,2}\s+|\d+[.]\d+\s*m{1,2}\s+|'
                                                                  '\d+\s*[%]|\d+[.]\d+\s*[%]|'
-                                                                 '[(]*v/v[)]*|[(]*w/v[)]*|[(]*w/w[)]*\s*)',
+                                                                 '[(]*vol/vol[)]*|[(]*v/v[)]*|[(]*wt/vol[)]*|'
+                                                                 '[(]*w/v[)]*|[(]*wt/wt[)]*|[(]*w/w[)]*)',
                                                                  period_delimited_name)
 
                         for concentration_delimited_name in concentration_delimited_names:
@@ -125,32 +126,45 @@ def create_golden_reference_list(connection, good_entries):
                                     else:
                                         break
 
+                                bracket_filtered = False
+                                while True:
+                                    open_bracket = re.search('([\[])', new_name)
+                                    close_bracket = re.search('([\]])', new_name)
+                                    # Check if only one parentheses is contained in the chemical's name
+                                    if open_bracket is not None and close_bracket is None or \
+                                                            close_bracket is not None and open_bracket is None:
+                                        bracket_filter = re.sub('([\[].*|[\]].*)', '', new_name)
+                                        new_name = bracket_filter
+                                        bracket_filtered = True
+                                    else:
+                                        break
+
                                 grammar_filtered = False
                                 while True:
-                                    grammar = re.search('\s+(with|at|in|of|was|were|for|against|to)\s+',
-                                                        new_name)
+                                    grammar = re.search('\s+(with|at|in|of|was|were|for|against|to)\s+', new_name)
                                     words = re.search('(buffer|inhibitor|compound|protein|reservoir|saturated|'
-                                                      'solution)',
-                                                      new_name)
+                                                      'solution|prior)', new_name)
                                     # Check if an English word is contained in the chemical's name
                                     if grammar is not None or words is not None:
                                         grammar_filter = re.sub('\s*(with.*|at.*|in.*|of.*|was.*|were.*|for.*|'
                                                                 'against.*|to.*|buffer.*|inhibitor.*|compound.*|'
-                                                                'protein.*|reservoir.*|saturated.*|solution.*)\s*',
-                                                                '', new_name)
+                                                                'protein.*|reservoir.*|saturated.*|solution.*|'
+                                                                'prior.*)\s*', '', new_name)
                                         new_name = grammar_filter
                                         grammar_filtered = True
                                     else:
                                         break
 
                                 # Filters have been applied completely by this point, break the loop
-                                if not ph_filtered and not paren_filtered and not grammar_filtered:
+                                if not ph_filtered and not paren_filtered and not grammar_filtered and not \
+                                        bracket_filtered:
                                     break
 
                             # The final chemical name is equivalent to the results of the last filter applied
                             concentration_check = re.search('((\d+|\d+[.]\d+)\s*m{1,2}\s+)', new_name)
                             percent_check = re.search('((\d+|\d+[.]\d+)\s*[%])', new_name)
-                            w_or_v_check = re.search('([(]*v/v[)]*|[(]*w/v[)]*|[(]*w/w[)]*)', new_name)
+                            w_or_v_check = re.search('([(]*vol/vol[)]*|[(]*v/v[)]*|[(]*wt/vol[)]*|[(]*w/v[)]*|'
+                                                     '[(]*wt/wt[)]*|[(]*w/w[)]*)', new_name)
 
                             if concentration_check is not None or percent_check is not None or w_or_v_check is not None:
                                 chemical_concentration = new_name.strip()
@@ -165,7 +179,8 @@ def create_golden_reference_list(connection, good_entries):
                                 if "2-methylpentane-2" in chemical_name or "2-methyl-2" in chemical_name:
                                     chemical_name = "2-methylpentane-2,4-diol"
 
-                                if chemical_name == "eg" or chemical_name == "etgly":
+                                if "eg" == chemical_name or "etgly" == chemical_name or \
+                                                "ethyleneglycol" == chemical_name:
                                     chemical_name = "ethylene glycol"
 
                                 chemical_names.append(chemical_name)
@@ -220,7 +235,8 @@ def refine_golden_reference_list(data):
     for index, name in enumerate(names):
         # Remove any items that CANNOT be chemical names (i.e., spaces, only numbers, anything with an equal sign in it)
         if is_name_short(name) or is_name_numeric(name) or is_name_not_feasible(name):
-            pprint("Removing ${0}$ from the golden list of valid chemical names.".format(name))
+            continue
+            # pprint("Removing ${0}$ from the golden list of valid chemical names.".format(name))
         # Remove all information related to that chemical entry
         else:
             refined_names.append(name)

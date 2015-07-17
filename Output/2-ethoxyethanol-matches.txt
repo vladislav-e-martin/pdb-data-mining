@@ -1,0 +1,722 @@
+2-ETHOXYETHANOL MATCHES 
+
+1. 
+A match was found in 1CZG. The details are shown below. 
+20% PEG4000, 10% propanol, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 298.0K 
+
+2. 
+A match was found in 1D4V. The details are shown below. 
+25% ETHYLENE GLYCOL, 0.1% N-OCTYL-BETA-GLUCOSIDE, pH 8, VAPOR DIFFUSION, SITTING DROP, temperature 20K 
+
+3. 
+A match was found in 1EH6. The details are shown below. 
+18 MG/ML PROTEIN, 1.5 M SUCROSE, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 298.0K 
+
+4. 
+A match was found in 1EH7. The details are shown below. 
+18 MG/ML PROTEIN, 1.5 M SUCROSE, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+5. 
+A match was found in 1EH8. The details are shown below. 
+18 MG/ML PROTEIN, 1.5 M SUCROSE, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+6. 
+A match was found in 1EJG. The details are shown below. 
+The protein (40 mg/ml in 80% ethanol) is equilibrated against 60% ethanol. Not buffered., pH 7, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+7. 
+A match was found in 1IS0. The details are shown below. 
+53% MPD, pH 8.0, VAPOR DIFFUSION, HANGING DROP, temperature 295K 
+
+8. 
+A match was found in 1KV1. The details are shown below. 
+30% PEG1500, 5 mM DTT, pH 7.4, VAPOR DIFFUSION, HANGING DROP, temperature 300K 
+
+9. 
+A match was found in 1OOT. The details are shown below. 
+70% MPD, pH 7.5, VAPOR DIFFUSION, temperature 295K 
+
+10. 
+A match was found in 1SZ9. The details are shown below. 
+25 % (v/v) ethylene glycol, 5 % (v/v) PEG 550, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 298.0K, pH 7.50 
+
+11. 
+A match was found in 1V93. The details are shown below. 
+26-30% Dioxane, pH 8.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+12. 
+A match was found in 1WDE. The details are shown below. 
+30% MPD, pH 8.0, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+13. 
+A match was found in 1YOJ. The details are shown below. 
+20% ethylene glycol, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 297K 
+
+14. 
+A match was found in 1YOL. The details are shown below. 
+20% ethylene glycol, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 297K 
+
+15. 
+A match was found in 1ZL9. The details are shown below. 
+65% MPD, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 298.0K 
+
+16. 
+A match was found in 1ZVP. The details are shown below. 
+45% glycerol, pH 8.0, VAPOR DIFFUSION, SITTING DROP, temperature 298K 
+
+17. 
+A match was found in 2A8X. The details are shown below. 
+50% MPD, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 279K 
+
+18. 
+A match was found in 2DEP. The details are shown below. 
+24% PEG 1500, 20% glycerol, pH 6.5, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+19. 
+A match was found in 2DT3. The details are shown below. 
+Precipitant 19% Ethanol, pH 7.8, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+20. 
+A match was found in 2EWK. The details are shown below. 
+70% MPD, VAPOR DIFFUSION, temperature 277K 
+
+21. 
+A match was found in 2EWU. The details are shown below. 
+40% MPD, pH 7.4, VAPOR DIFFUSION, temperature 277K 
+
+22. 
+A match was found in 2FJI. The details are shown below. 
+1%-4% PEG 6000, 10% glycerol, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+23. 
+A match was found in 2GME. The details are shown below. 
+10% PEG 6000, 20% MPD, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 373K 
+
+24. 
+A match was found in 2GMM. The details are shown below. 
+10% PEG 6000, 20% MPD, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 373K 
+
+25. 
+A match was found in 2GMP. The details are shown below. 
+10% PEG6000, 20% MPD, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 373K, temperature 277K 
+
+26. 
+A match was found in 2GN3. The details are shown below. 
+10% PEG6000, 20% MPD, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+27. 
+A match was found in 2H2F. The details are shown below. 
+20% PEG, pH 9.6, VAPOR DIFFUSION, HANGING DROP, temperature 298K, pH 9.60 
+
+28. 
+A match was found in 2H2G. The details are shown below. 
+20% PEG, pH 9.6, VAPOR DIFFUSION, HANGING DROP, pH 7.5, temperature 293.15K 
+
+29. 
+A match was found in 2H2H. The details are shown below. 
+20 % PEG, VAPOR DIFFUSION, HANGING DROP, temperature 293.15K, pH 9.5 
+
+30. 
+A match was found in 2IML. The details are shown below. 
+15% MPD, pH 7, VAPOR DIFFUSION, temperature 294K 
+
+31. 
+A match was found in 2NR5. The details are shown below. 
+40% MPD, pH 6.0, VAPOR DIFFUSION, SITTING DROP, temperature 291K 
+
+32. 
+A match was found in 2OVS. The details are shown below. 
+25% ethylene Glycol, 4% Tertiary Butanol, 4% triflouroethanol, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+33. 
+A match was found in 2P31. The details are shown below. 
+25% PEG 3350, 200 mM Ammoniun sulfate, 17% Glycerol, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+34. 
+A match was found in 2PMR. The details are shown below. 
+55% MPD, pH 7.0, VAPOR DIFFUSION, temperature 294K 
+
+35. 
+A match was found in 2Q8V. The details are shown below. 
+25% elthelene glycol, 2M Urea, pH 8.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+36. 
+A match was found in 2QDO. The details are shown below. 
+25% ethylene glycol, pH 8.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+37. 
+A match was found in 2QI8. The details are shown below. 
+19% Ethylene glycol, pH 8, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+38. 
+A match was found in 2QLQ. The details are shown below. 
+16% Ethylene glycol, pH 8.0, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+39. 
+A match was found in 2QQ7. The details are shown below. 
+16% ethylene glycol, pH 8.0, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+40. 
+A match was found in 2Z47. The details are shown below. 
+70% MPD, pH 6.0, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+41. 
+A match was found in 2ZJW. The details are shown below. 
+25% ethylene glycol, pH 8.5, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+42. 
+A match was found in 3ACB. The details are shown below. 
+15% Glycerol, 38% Dioxane, pH 8.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+43. 
+A match was found in 3AMY. The details are shown below. 
+25% ethylene glycol, pH 8.5, VAPOR DIFFUSION, SITTING DROP, temperature 295K 
+
+44. 
+A match was found in 3AT2. The details are shown below. 
+25% ethyleneglycol, pH 8, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+45. 
+A match was found in 3AT4. The details are shown below. 
+25% ethyleneglycol, pH 8, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+46. 
+A match was found in 3AXW. The details are shown below. 
+25% ethylene glycol, pH 8.0, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+47. 
+A match was found in 3B6K. The details are shown below. 
+15-35 % Polyethylene Glycol, pH 7.8, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+48. 
+A match was found in 3B6M. The details are shown below. 
+15-30 % Polyethylene Glycol, pH 7.8, VAPOR DIFFUSION, SITTING DROP, temperature 100K, temperature 293K 
+
+49. 
+A match was found in 3BC8. The details are shown below. 
+11 % (v/v) Ethylene glycol, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+50. 
+A match was found in 3BMY. The details are shown below. 
+24% PEG 1500, 20% glycerol, pH 7.5, temperature 277K; 
+frozen by 1-step transfer to 18% PEG 1500, 40% glycerol;
+VAPOR DIFFUSION, HANGING DROP 
+
+51. 
+A match was found in 3C0G. The details are shown below. 
+12.5%(v/v) ethylene glycol, pH 7.2, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+52. 
+A match was found in 3C0H. The details are shown below. 
+12.5%(v/v) ethylene glycol, pH 7.2, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+53. 
+A match was found in 3C0I. The details are shown below. 
+12.5%(v/v) ethylene glycol, pH 7.2, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+54. 
+A match was found in 3CS5. The details are shown below. 
+25% ethylene glycol, pH8.0, VAPOR DIFFUSION, HANGING DROP, temperature 293.0K 
+
+55. 
+A match was found in 3D57. The details are shown below. 
+25% ethylene glycol, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+56. 
+A match was found in 3DUI. The details are shown below. 
+30% (v/v) PEG 8000, 1% beta-mercaptoethanol, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+57. 
+A match was found in 3E3C. The details are shown below. 
+25% ethylene Glycol, 4% Tertiary Butanol, 4% triflouroethanol, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+58. 
+A match was found in 3EDH. The details are shown below. 
+5% DMSO, pH 7.5, vapor diffusion, temperature 277K 
+
+59. 
+A match was found in 3EHE. The details are shown below. 
+25% Ethylene Glycol, pH 7.4, VAPOR DIFFUSION, SITTING DROP, temperature 298K 
+
+60. 
+A match was found in 3EPV. The details are shown below. 
+20% PEG 2000 MME, 10% Glycerol, pH 7.5, vapor diffusion, hanging drop, temperature 293K 
+
+61. 
+A match was found in 3ERV. The details are shown below. 
+10% ethylene glycol, pH 7.0, Vapor diffusion, temperature 294K 
+
+62. 
+A match was found in 3F6C. The details are shown below. 
+10% PEG1000, PH 7.5, 10% PEG8000, 10% GLYCEROL, VAPOR DIFFUSION, SITTING DROP, TEMPERATURE 294K, pH 7.50 
+
+63. 
+A match was found in 3FJT. The details are shown below. 
+15% PEG 6000, 5% MPD, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+64. 
+A match was found in 3FRO. The details are shown below. 
+26-30% MPD, pH 4.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+65. 
+A match was found in 3G5W. The details are shown below. 
+40% MPD, 4% Glycerol, pH 7.5, vapor diffusion, temperature 277K 
+
+66. 
+A match was found in 3HB3. The details are shown below. 
+25% glycerol, pH 5.5, VAPOR DIFFUSION, temperature 277K 
+
+67. 
+A match was found in 3HKS. The details are shown below. 
+25% ethylene glycol, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 289K 
+
+68. 
+A match was found in 3HQG. The details are shown below. 
+26% PEG1500, 25% glycerol, pH 8.0, VAPOR DIFFUSION, SITTING DROP, temperature 291K 
+
+69. 
+A match was found in 3HRY. The details are shown below. 
+10% PEG 8000, 8% Ethylene glycol, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+70. 
+A match was found in 3JXO. The details are shown below. 
+25% (v/v) ethylene glycol , pH 7, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+71. 
+A match was found in 3K92. The details are shown below. 
+20% Peg 3350, 20% glycerol, pH 7, VAPOR DIFFUSION, HANGING DROP, temperature 290K 
+
+72. 
+A match was found in 3KMR. The details are shown below. 
+15% (w/v) PEG 6000, 5% (w/v) glycerol, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+73. 
+A match was found in 3LIY. The details are shown below. 
+17% PEG8000, 16% PEG300 and 10mM DTT, pH 5.2, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+74. 
+A match was found in 3LOK. The details are shown below. 
+18% ethylene glycol, pH 8.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+75. 
+A match was found in 3M7F. The details are shown below. 
+crystallization in 35% MPD, pH 6.5, EVAPORATION, temperature 295K 
+
+76. 
+A match was found in 3M9L. The details are shown below. 
+10% PEG1000, 10% PEG8000, 10% GLYCEROL, VAPOR DIFFUSION, SITTING DROP, TEMPERATURE 294K, pH 7.5 
+
+77. 
+A match was found in 3MFR. The details are shown below. 
+12.5 % (v/v) ethylene glycol, pH 7.2, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+78. 
+A match was found in 3MFS. The details are shown below. 
+12.5 % (v/v) ethylene glycol, pH 7.2, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+79. 
+A match was found in 3MFT. The details are shown below. 
+12.5 % (v/v) ethylene glycol, pH 7.2, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+80. 
+A match was found in 3MFU. The details are shown below. 
+12.5 % (v/v) ethylene glycol, pH 7.2, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+81. 
+A match was found in 3MTE. The details are shown below. 
+14% PEG 6000, 4% MPD, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+82. 
+A match was found in 3MYB. The details are shown below. 
+EBS JCSG+ SCREEN D1: 24% PEG 1500, 20% GLYCEROL; MYSMA.00358.J AT MG/ML, PH N/A, VAPOR DIFFUSION, SITTING DROP, TEMPERATURE 290K 
+
+83. 
+A match was found in 3O9J. The details are shown below. 
+50% MPD, pH 7, VAPOR DIFFUSION, HANGING DROP, temperature 300K 
+
+84. 
+A match was found in 3O9K. The details are shown below. 
+50% MPD, pH 7, VAPOR DIFFUSION, HANGING DROP, temperature 300K 
+
+85. 
+A match was found in 3OUF. The details are shown below. 
+65% MPD, pH 6.0, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+86. 
+A match was found in 3P7P. The details are shown below. 
+40% DMSO, pH 5.0, vapor diffusion, temperature 298K 
+
+87. 
+A match was found in 3P7Q. The details are shown below. 
+40% DMSO, pH 5.0, vapor diffusion, temperature 298K 
+
+88. 
+A match was found in 3P7R. The details are shown below. 
+40% DMSO, pH 5.0, vapor diffusion, temperature 298K 
+
+89. 
+A match was found in 3P7S. The details are shown below. 
+40% DMSO, pH 5.0, vapor diffusion, temperature 298K 
+
+90. 
+A match was found in 3P7T. The details are shown below. 
+40% DMSO, pH 5.0, vapor diffusion, temperature 298K 
+
+91. 
+A match was found in 3P7U. The details are shown below. 
+40% DMSO, pH 5.0, vapor diffusion, temperature 298K 
+
+92. 
+A match was found in 3P7V. The details are shown below. 
+40% DMSO, pH 5.0, vapor diffusion, temperature 298K 
+
+93. 
+A match was found in 3P7W. The details are shown below. 
+40% DMSO, pH 5.0, vapor diffusion, temperature 298K 
+
+94. 
+A match was found in 3PZG. The details are shown below. 
+36% ethanol, 5% PEG1000, 10% glycerol, pH 4.2, VAPOR DIFFUSION, temperature 291K 
+
+95. 
+A match was found in 3Q2F. The details are shown below. 
+24% PEG 1K 
+20% glycerol, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+96. 
+A match was found in 3QCP. The details are shown below. 
+14-18% w/v polyethylene glycol (PEG) 2K monomethyl ether (MME), 10% ethylene glycol, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+97. 
+A match was found in 3QHT. The details are shown below. 
+14% PEG8000, 16% glycerol, pH 8.0, VAPOR DIFFUSION, temperature 292K 
+
+98. 
+A match was found in 3R66. The details are shown below. 
+15% PEG3350, 
+1% dioxane, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+99. 
+A match was found in 3RI6. The details are shown below. 
+25-30% (w/v) ethylene glycol and 5% (v/v) N-dodecyl-N, N-dimethylamine-N-oxide, pH 8, vapor diffusion, hanging drop, temperature 295K 
+
+100. 
+A match was found in 3RY1. The details are shown below. 
+52% MPD, pH 4.5, VAPOR DIFFUSION, SITTING DROP, temperature 298K 
+
+101. 
+A match was found in 3S2X. The details are shown below. 
+15% ethanol, pH 5.5, EVAPORATION, temperature 298K 
+
+102. 
+A match was found in 3SB1. The details are shown below. 
+15% PEG6000, 5% Glycerol, pH 8.3, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+103. 
+A match was found in 3SDL. The details are shown below. 
+15% PEG3350, 1% dioxane, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K, EVAPORATION 
+
+104. 
+A match was found in 3SLJ. The details are shown below. 
+20% w/v PEG8000, 20% v/v glycerol, pH 7.5, HANGING DROP, temperature 294K 
+
+105. 
+A match was found in 3T2M. The details are shown below. 
+70% MPD, pH 8.5, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+106. 
+A match was found in 3TEV. The details are shown below. 
+24% PEG1500, 20% glycerol, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 286K 
+
+107. 
+A match was found in 3UFZ. The details are shown below. 
+15% PEG 6000, 5% Glycerol, pH 8.5, vapor diffusion, sitting drop, temperature 293K 
+
+108. 
+A match was found in 3UGS. The details are shown below. 
+45% MPD, pH 7.0, VAPOR DIFFUSION, SITTING DROP, temperature 279K 
+
+109. 
+A match was found in 3UML. The details are shown below. 
+20% glycerol, 6% PEG3350, pH 7.8, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+110. 
+A match was found in 3USX. The details are shown below. 
+20% glycerol, 6% PEG3350, pH 7.8, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+111. 
+A match was found in 3V8J. The details are shown below. 
+10% PEG 8000, 10% glycerol, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+112. 
+A match was found in 3WAR. The details are shown below. 
+25% ethylene glycol, pH 8, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+113. 
+A match was found in 3WB8. The details are shown below. 
+20-30%(w/v) ethylene glycol, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 289K 
+
+114. 
+A match was found in 3WIK. The details are shown below. 
+25% ethyleneglycol, pH 8, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+115. 
+A match was found in 3WOW. The details are shown below. 
+25% ethylene glycol, pH 8, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+116. 
+A match was found in 4D8S. The details are shown below. 
+50% MPD, pH 7, VAPOR DIFFUSION, HANGING DROP, temperature 300K 
+
+117. 
+A match was found in 4E9F. The details are shown below. 
+25% ethylene glycol, pH 8, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+118. 
+A match was found in 4EN4. The details are shown below. 
+ginkgotoxin, MgATP, 48-50% MPD, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+119. 
+A match was found in 4EOH. The details are shown below. 
+48-50% MPD, pH 7.2, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+120. 
+A match was found in 4F4U. The details are shown below. 
+16% PEG 4000, 6% Glycerol, pH 8.5, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+121. 
+A match was found in 4F99. The details are shown below. 
+25% PEG-1500, 15% glycerol, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+122. 
+A match was found in 4F9A. The details are shown below. 
+25% PEG-1500, 15% glycerol, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+123. 
+A match was found in 4F9B. The details are shown below. 
+25% PEG-1500, 15% glycerol, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+124. 
+A match was found in 4F9C. The details are shown below. 
+25% PEG-1500, 15% glycerol, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+125. 
+A match was found in 4FIC. The details are shown below. 
+11% ethylene glycol, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+126. 
+A match was found in 4FNN. The details are shown below. 
+20% glycerol, 6% PEG3350, pH 7.8, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+127. 
+A match was found in 4G42. The details are shown below. 
+5% MPD, 20% PEG 6000, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+128. 
+A match was found in 4G43. The details are shown below. 
+5% MPD, 20% PEG 6000, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 291K 
+
+129. 
+A match was found in 4GEQ. The details are shown below. 
+15% PEG6000, 5% glycerol; Drop volume: 0.2ul; Protein proportion: 50%; Protein concentration: 6 mg/ml, pH 7.6, VAPOR DIFFUSION, SITTING DROP, temperature 293.15K 
+
+130. 
+A match was found in 4GSD. The details are shown below. 
+24% PEG 1500 and 20% glycerol, 21 mg/mL protein, pH 7.5, VAPOR DIFFUSION, temperature 298K 
+
+131. 
+A match was found in 4GY0. The details are shown below. 
+30% MPD, 2% PEG 8K, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 277.15K 
+
+132. 
+A match was found in 4GY1. The details are shown below. 
+30% MPD, 2% PEG 8K, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 277.15K 
+
+133. 
+A match was found in 4H5Y. The details are shown below. 
+200 mM trimethylamine N-oxide, pH 8.0, 20% w/v PEG2000 MME, 1% glycerol, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+134. 
+A match was found in 4H7N. The details are shown below. 
+24% PEG 1500, 20% Glycerol, pH 8, VAPOR DIFFUSION, SITTING DROP, temperature 297K 
+
+135. 
+A match was found in 4HRV. The details are shown below. 
+25% ethylene glycol, pH 8.0, VAPOR DIFFUSION, SITTING DROP, temperature 277K 
+
+136. 
+A match was found in 4I02. The details are shown below. 
+7-10% PEG3350, 15-20% MPD, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+137. 
+A match was found in 4I09. The details are shown below. 
+7-10% Peg3350, 15-20% MPD, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+138. 
+A match was found in 4I0A. The details are shown below. 
+7-10% Peg3350, 15-20% MPD, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+139. 
+A match was found in 4I0B. The details are shown below. 
+7-10% Peg3350, 15-20% MPD, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+140. 
+A match was found in 4I2N. The details are shown below. 
+5% PEG6000, 8% MPD, pH 5.0, VAPOR DIFFUSION, temperature 293K 
+
+141. 
+A match was found in 4I46. The details are shown below. 
+5% PEG6000, 10% MPD, pH 5.0, VAPOR DIFFUSION, temperature 298K 
+
+142. 
+A match was found in 4IOO. The details are shown below. 
+16% PEG 3350, 20% ethylene glycol, pH 7.5, vapor diffusion, temperature 277K 
+
+143. 
+A match was found in 4IOQ. The details are shown below. 
+16% PEG 3350, 20% ethylene glycol , pH 7.5, VAPOR DIFFUSION, temperature 277K 
+
+144. 
+A match was found in 4IOR. The details are shown below. 
+16% PEG 3350, 20% ethylene glycol, pH 7.5, vapor diffusion, temperature 277K 
+
+145. 
+A match was found in 4IR1. The details are shown below. 
+15% MPD  , pH 4.6, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+146. 
+A match was found in 4IR9. The details are shown below. 
+20% MPD  , pH 4.6, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+147. 
+A match was found in 4IRD. The details are shown below. 
+15% MPD , pH 4.6, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+148. 
+A match was found in 4IRK. The details are shown below. 
+15% MPD, VAPOR DIFFUSION, HANGING DROP, temperature 298K, pH 4.6 
+
+149. 
+A match was found in 4JCO. The details are shown below. 
+58% MPD, pH 7.00, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+150. 
+A match was found in 4JQ5. The details are shown below. 
+10% glycerol, 28% dioxane, pH 8.0, VAPOR DIFFUSION, HANGING DROP, temperature 294.0K 
+
+151. 
+A match was found in 4KD6. The details are shown below. 
+35% Dioxane, pH 7.0, VAPOR DIFFUSION, SITTING DROP, temperature 298K 
+
+152. 
+A match was found in 4KXU. The details are shown below. 
+Reservoir mixture of 13.5-15 % PEG 6000 (w/v), 4% PEG 400 (v/v), 2 % glycerol (v/v)  , pH 7.9, VAPOR DIFFUSION, HANGING DROP, temperature 279.0K 
+
+153. 
+A match was found in 4KXV. The details are shown below. 
+Reservoir mixture of 13.5-15 % PEG 6000 (w/v), 4% PEG 400 (v/v), 2 % glycerol (v/v)  , pH 7.9, VAPOR DIFFUSION, HANGING DROP, temperature 279.0K 
+
+154. 
+A match was found in 4KXW. The details are shown below. 
+Reservoir mixture of 13.5-15 % PEG 6000 (w/v), 4% PEG 400 (v/v), 2 % glycerol (v/v)  , pH 7.9, VAPOR DIFFUSION, HANGING DROP, temperature 279.0K 
+
+155. 
+A match was found in 4KXX. The details are shown below. 
+Reservoir mixture of 13.5-15 % PEG 6000 (W/V), 4% PEG 400 (V/V), 2 % glycerol (v/v), pH 7.9, VAPOR DIFFUSION, HANGING DROP, temperature 279.0K 
+
+156. 
+A match was found in 4KXY. The details are shown below. 
+Reservoir mixture of 13.5-15 % PEG 6000 (W/V), 4% PEG 400 (v/v), 2 % glycerol (v/v), pH 7.9, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+157. 
+A match was found in 4LEY. The details are shown below. 
+24-36% MPD, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+158. 
+A match was found in 4LEZ. The details are shown below. 
+24-36% MPD, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+159. 
+A match was found in 4MU3. The details are shown below. 
+25% ethylene glycol, pH 8.0, VAPOR DIFFUSION, HANGING DROP, temperature 290K 
+
+160. 
+A match was found in 4NRB. The details are shown below. 
+19% PEG 1000, 15% glycerol, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 277.15K 
+
+161. 
+A match was found in 4NRC. The details are shown below. 
+19% PEG 1000, 12% glycerol, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 277.15K 
+
+162. 
+A match was found in 4O2P. The details are shown below. 
+10% ETHYLENE GLYCOL, pH 7.0, VAPOR DIFFUSION, HANGING DROP, temperature 293K 
+
+163. 
+A match was found in 4O95. The details are shown below. 
+22% ethylene glycol, co-crystallized with 3mM CPPU in DMSO, pH 8.0, VAPOR DIFFUSION, HANGING DROP, temperature 298.0K 
+
+164. 
+A match was found in 4OFA. The details are shown below. 
+33% ethylene glycol, pH 8, VAPOR DIFFUSION, HANGING DROP, temperature 295K 
+
+165. 
+A match was found in 4OFH. The details are shown below. 
+21% ethylene glycol, pH 8, VAPOR DIFFUSION, HANGING DROP, temperature 295K 
+
+166. 
+A match was found in 4OIX. The details are shown below. 
+10% PEG 8000, 8% ethylene glycol, pH 7.5, VAPOR DIFFUSION, SITTING DROP, temperature 293K 
+
+167. 
+A match was found in 4OPP. The details are shown below. 
+20% glycerol, PEG3350 6% , pH 7.8, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+168. 
+A match was found in 4ORV. The details are shown below. 
+20% glycerol, 6% PEG3350, pH 7.8, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+169. 
+A match was found in 4OUG. The details are shown below. 
+20% glycerol, 6% PEG3350, pH 7.8, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+170. 
+A match was found in 4PT7. The details are shown below. 
+15% PEG 3000, 5% PEG 400, 14 % glycerol, pH 6.5, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+171. 
+A match was found in 4Q8S. The details are shown below. 
+20% glycerol, 6% PEG3350, pH 7.8, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+172. 
+A match was found in 4Q9E. The details are shown below. 
+20% glycerol, 6% PEG3350, pH 7.8, VAPOR DIFFUSION, HANGING DROP, temperature 298K 
+
+173. 
+A match was found in 4RCY. The details are shown below. 
+70%MPD, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+174. 
+A match was found in 4RCZ. The details are shown below. 
+70% MPD, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+175. 
+A match was found in 4RD0. The details are shown below. 
+70% MPD, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 297K 
+
+176. 
+A match was found in 4RD1. The details are shown below. 
+70% MPD, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+177. 
+A match was found in 4RD2. The details are shown below. 
+60%MPD, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+
+178. 
+A match was found in 4RD3. The details are shown below. 
+60%MPD, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 297K 
+
+179. 
+A match was found in 4RD4. The details are shown below. 
+60%MPD, pH 7.5, VAPOR DIFFUSION, HANGING DROP, temperature 277K 
+

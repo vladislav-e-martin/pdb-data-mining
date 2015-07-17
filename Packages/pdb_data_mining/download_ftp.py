@@ -93,7 +93,7 @@ def download_specific_files(base, ftp, specified_ids):
     folders = ftp.nlst()
     # Iterate through each subdirectory containing all the protein structures
     for folder in folders:
-        pprint("Searching the " + folder + " directory.")
+        # pprint("Searching the " + folder + " directory.")
 
         # Open the directory
         ftp.cwd(folder)
@@ -107,13 +107,14 @@ def download_specific_files(base, ftp, specified_ids):
         files = ftp.mlsd()
         # Iterate through each file in the current subdirectory
         for file in [value for value in files if value is not None]:
-            pprint("Reading the " + file[0] + " file.")
+            # pprint("Reading the " + file[0] + " file.")
             # Store each file in the sub-directory created earlier
             dest_subdirectory = os.path.join(base, folder)
             dest_file = os.path.join(dest_subdirectory, file[0])
+            dest_filepath = os.path.basename(dest_file)
             decompressed_file = dest_file[:-3]
             # For the XML files containing ALL information (i.e., including atom coordinates)
-            entry_id = decompressed_file[:-4]
+            entry_id = dest_filepath[:-7]
 
             if entry_id in specified_ids:
                 if file[0].endswith(".gz"):
