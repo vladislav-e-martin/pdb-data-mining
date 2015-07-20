@@ -2,29 +2,32 @@
 
 import xml.etree.ElementTree as et
 import os
+import uuid
 from pprint import pprint
 
 # FUNCTION DECLARATIONS
 
 # Fill a list with the file-paths to all downloaded structures
-def fill_list(base):
+def list_files(base, entry_ids):
     xml_files = []
     for root, directories, files in os.walk(base):
         # pprint("Root: {0} Directories: {1} Files: {2}".format(root, len(directories), len(files)))
         for name in files:
             filepath = os.path.join(root, name)
+            filename = name[:-4]
+            pprint("The name of the file: {0}".format(filename))
             # Check if the compressed file still exists
             if name.endswith(".gz"):
                 pprint("The compressed " + name + " is now being removed.")
                 # Delete the compressed file to save space on the hard drive
                 os.remove(filepath)
-            else:
+            if filename in entry_ids:
                 # Add the XML file to the list of XML files
                 xml_files.append(filepath)
     return xml_files
 
 
-def extract_value(root, query: str, namespace: str, converter) -> str or float or int:
+def extract_value(root, query: str, namespace: dict, converter) -> str or float or int:
     value = 0
     found = False
     for element in root.findall(query, namespace):
@@ -124,6 +127,70 @@ def fill_raw(files, columns) -> object:
             pass
     return data
 
+
+def fill_raw_coordinates(files: list, columns: int, ionic: int) -> object:
+    relevant_residual_ids = ["ASP", "ARG", "GLU", "LYS"]
+    relevant_atom_ids = ["CA", "OD1", "OD2", "NH1", "NH2", "OE1", "OE2", "NZ"]
+
+    rows = len(files)
+    data = [[0 for x in range(columns)] for x in range(rows)]
+
+    for source_index, file in enumerate(files):
+        try:
+            filename = os.path.basename(file)
+            entry_id = filename[:-4]
+
+            pprint("The current index: {0}".format(source_index))
+            pprint("The current file: {0}".format(entry_id))
+            tree = et.parse(file)
+
+            root = tree.getroot()
+            # Make XPATHs simpler
+            queries = ["./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:auth_asym_id",
+                       "./PDBx:atom_siteCategory/PDBx:atom_site[@PDBx:auth_comp_id = 'ASP' and @auth_atom_id = 'CA' or "
+                       "@PDBx:auth_comp_id = 'ASP' and @auth_atom_id = 'OD1' or "
+                       "@PDBx:auth_comp_id = 'ASP' and @auth_atom_id = 'OD2' or "
+                       "@PDBx:auth_comp_id = 'ARG' and @auth_atom_id = 'CA' or "
+                       "@PDBx:auth_comp_id = 'ARG' and @auth_atom_id = 'NH1' or "
+                       "@PDBx:auth_comp_id = 'ARG' and @auth_atom_id = 'NH2' or "
+                       "@PDBx:auth_comp_id = 'GLU' and @auth_atom_id = 'CA' or "
+                       "@PDBx:auth_comp_id = 'GLU' and @auth_atom_id = 'OE1' or "
+                       "@PDBx:auth_comp_id = 'GLU' and @auth_atom_id = 'OE2' or "
+                       "@PDBx:auth_comp_id = 'LYS' and @auth_atom_id = 'CA' or "
+                       "@PDBx:auth_comp_id = 'LYS' and @auth_atom_id = 'NZ' or]"]
+            namespace = {'PDBx': 'http://pdbml.pdb.org/schema/pdbx-v40.xsd'}
+
+            first_chain = root.find(queries[0], namespace)
+            pprint("The first chain: {0}".format(first_chain))
+
+            for atom_site in root.findall(queries[1], namespace):
+                if atom_site.find('auth_asym_id').text == first_chain:
+                    sequence_id = atom_site.find('auth_seq_id').text
+                    residual_id = atom_site.find('auth_comp_id').text
+                    atom_id = atom_site.find('auth_atom_id').text
+                    x_coordinate = float(atom_site.find('Cartn_x').text)
+                    y_coordinate = float(atom_site.find('Cartn_y').text)
+                    z_coordinate = float(atom_site.find('Cartn_z').text)
+                    pprint("Residual Chain: {0}, Atom: {1}".format(residual_id, atom_id))
+
+                    # Fill the list
+                    data[source_index][0] = str(uuid.uuid4())
+                    data[source_index][1] = ionic
+                    data[source_index][2] = entry_id
+                    data[source_index][3] = sequence_id
+                    data[source_index][4] = residual_id
+                    data[source_index][5] = atom_id
+                    data[source_index][6] = x_coordinate
+                    data[source_index][7] = y_coordinate
+                    data[source_index][8] = z_coordinate
+            else:
+                continue
+
+        except et.ParseError:
+            pprint("This file could not be parsed. Deleting the file so it may be downloaded again...")
+            os.remove(file)
+            pass
+    return data
 
 # Sort the structures that do not meet the criteria from the list
 def filter_indices(raw) -> object:

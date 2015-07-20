@@ -117,33 +117,72 @@ def create_golden_chemical_reference_table(connection):
         pprint("The table golden_chemical_reference already has a unique index.")
 
 
-# Add a row of new values to the table
+# Create the entry_coordinate_data parent_table
+def create_entry_coordinate_data_table(connection):
+    cursor = connection.cursor()
+
+    # Create a child table with the provided name
+    create_table = "CREATE TABLE entry_coordinate_data " \
+                   "(id int, " \
+                   "ionic int, " \
+                   "parent_id int, " \
+                   "sequence_id int," \
+                   "residual_id text, " \
+                   "atom_id text," \
+                   "x real, " \
+                   "y real, " \
+                   "z real)"
+
+    try:
+        pprint("Creating table entry_coordinate_data.")
+        cursor.execute(create_table)
+    except SQL.OperationalError:
+        pprint("The table entry_coordinate_data already exists!")
+
+    unique_index = "CREATE UNIQUE INDEX unique_id ON entry_coordinate_data(id)"
+    try:
+        pprint("Creating a unique index for entry_coordinate_data.")
+        cursor.execute(unique_index)
+    except SQL.OperationalError:
+        pprint("The table entry_coordinate_data already has a unique index.")
+
+
+# Add a row of new values to the entry_data table
 def add_entry_data_row(connection, values):
     cursor = connection.cursor()
     command = "INSERT OR REPLACE INTO entry_data VALUES (?,?,?,?,?,?,?)"
     cursor.executemany(command, values)
 
 
-# Add a row of new values to the table
+# Add a row of new values to the crystallization_chemicals table
 def add_crystallization_chemicals_row(connection, values):
     cursor = connection.cursor()
     command = "INSERT OR REPLACE INTO crystallization_chemicals VALUES (?,?,?,?,?)"
     cursor.executemany(command, values)
 
 
+# Add a row of new values to the aliases table
 def add_aliases_row(connection, values):
     cursor = connection.cursor()
     command = "INSERT OR REPLACE INTO aliases VALUES (?,?)"
     cursor.executemany(command, (values,))
 
 
-# Add a row of new values to the table
+# Add a row of new values to the golden_chemical_reference table
 def add_golden_chemical_reference_row(connection, values):
     cursor = connection.cursor()
     command = "INSERT OR REPLACE INTO golden_chemical_reference VALUES (?,?,?,?)"
     cursor.executemany(command, values)
 
 
+# Add a row of new values to the entry_coordinate_data table
+def add_entry_coordinate_data_row(connection, values):
+    cursor = connection.cursor()
+    command = "INSERT OR REPLACE INTO entry_coordinate_data VALUES (?,?,?,?,?,?,?,?,?)"
+    cursor.executemany(command, values)
+
+
+# Delete all rows of data from the specified table
 def delete_all_rows(connection, table):
     cursor = connection.cursor()
 
@@ -155,6 +194,7 @@ def delete_all_rows(connection, table):
         pprint("The table {0} has no rows to delete.".format(table))
 
 
+# Drop the specified table from the specified connected database
 def delete_table(connection, table):
     cursor = connection.cursor()
 
@@ -162,8 +202,7 @@ def delete_table(connection, table):
 
     pprint("Deleting table {0}.".format(table))
     cursor.executescript(delete)
-    # except SQL.OperationalError:
-    #     pprint("The table {0} does not exist and cannot be deleted.".format(table))
+
 
 # Commit changes to existing database
 def commit_changes(connection):
@@ -172,6 +211,7 @@ def commit_changes(connection):
     pprint("Changes have been committed. Disconnecting from the database.")
 
 
+# Close the connection to the connected database
 def close_database(connection):
     connection.close()
 

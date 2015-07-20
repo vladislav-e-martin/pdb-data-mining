@@ -25,6 +25,7 @@ XML_NO_ATOM = "/pub/pdb/data/structures/divided/XML-noatom/"
 
 # For parsing contents of files
 RAW_COLUMNS = 9
+RAW_COORDINATE_COLUMNS = 9
 SORTED_COLUMNS = 7
 
 # For managing SQL database
@@ -84,7 +85,7 @@ def ftp_download_full(ftp_base, local_filebase, ids):
 
 # Parse through all of the newly downloaded structures
 def parse_raw_data(local_filebase, raw_columns, sorted_columns) -> object:
-    files = xml.fill_list(local_filebase)
+    files = xml.list_files(local_filebase, len(local_filebase))
     raw_data = xml.fill_raw(files, raw_columns)
     sorted_indices = xml.filter_indices(raw_data)
     sorted_data = xml.fill_sorted(raw_data, sorted_indices, sorted_columns)
@@ -165,6 +166,18 @@ def search_table_for_chemicals(local_database):
     ftp_download_full(XML_FULL, BASE_XML_FULL, ammonium_sulfate_matches)
     ftp_download_full(XML_FULL, BASE_XML_FULL, non_ionic_matches)
 
+    ammonium_sulfate_files = xml.list_files(BASE_XML_FULL, ammonium_sulfate_matches)
+    non_ionic_files = xml.list_files(BASE_XML_FULL, non_ionic_matches)
+
+    ammonium_sulfate_raw_data = xml.fill_raw_coordinates(ammonium_sulfate_files, RAW_COORDINATE_COLUMNS, 1)
+    non_ionic_raw_data = xml.fill_raw_coordinates(non_ionic_files, RAW_COORDINATE_COLUMNS, 0)
+
+    sql.delete_all_rows(connection, "entry_coordinate_data")
+    sql.create_entry_coordinate_data_table(connection)
+    sql.add_entry_coordinate_data_row(connection, ammonium_sulfate_raw_data)
+    sql.add_entry_coordinate_data_row(connection, non_ionic_raw_data)
+    sql.commit_changes(connection)
+
     sql.close_database(connection)
 
 # data_to_store = parse_raw_data(BASE_XML_NO_ATOM, RAW_COLUMNS, SORTED_COLUMNS)
@@ -176,3 +189,5 @@ def search_table_for_chemicals(local_database):
 # store_reference_list(BASE_DB, reference_list)
 
 search_table_for_chemicals(BASE_DB)
+connection = sql.connect_database(BASE_DB)
+sql.print_table(connection, "entry_coordinate_data", "parent_id")

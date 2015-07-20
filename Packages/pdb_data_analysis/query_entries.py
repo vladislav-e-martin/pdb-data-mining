@@ -36,7 +36,8 @@ def create_serviceable_list(connection):
 
     # Add special names
     special_names = ["k-po4", "amm po4", "nh4 formate", "gycine", "mg(oac)", "tric-cl", "ammonium sufate", "cdcl",
-                     "phoshate", "pbs", "k2so4", "mg nitrate", "mgatp", "magnisium sulphate", "rbcl"]
+                     "phoshate", "pbs", "k2so4", "mg nitrate", "mgatp", "magnisium sulphate", "rbcl",
+                     "ammoniun sulfate"]
 
     for name in special_names:
         golden_list.append(name)
@@ -81,7 +82,7 @@ def query_for_match(connection, name):
         pprint("Current Index: {0}".format(index))
         distinct_id = row[0]
 
-        name_matches = "SELECT entry_data.id, entry_data.details FROM entry_data, crystallization_chemicals WHERE " \
+        name_matches = "SELECT entry_data.id FROM entry_data, crystallization_chemicals WHERE " \
                        "? LIKE crystallization_chemicals.chemical_name AND " \
                        "entry_data.id = crystallization_chemicals.parent_id AND " \
                        "entry_data.id = ?"
@@ -93,8 +94,8 @@ def query_for_match(connection, name):
 def search_for_chemical(connection, search_list, max_chemical_total):
     cursor = connection.cursor()
 
-    count_command = "SELECT COUNT(*), parent_id FROM crystallization_chemicals GROUP BY parent_id" \
-                    " ORDER BY 1 DESC"
+    count_command = "SELECT COUNT(*), parent_id FROM crystallization_chemicals GROUP BY parent_id " \
+                    "ORDER BY 1 DESC"
     sort_command = "SELECT * FROM crystallization_chemicals ORDER BY parent_id"
     print_command = "SELECT * FROM entry_data ORDER BY id"
 
@@ -120,6 +121,7 @@ def search_for_chemical(connection, search_list, max_chemical_total):
         else:
             # pprint("Adding {0} to the other_chemicals list".format(golden_name))
             other_chemicals.append(golden_name)
+    other_chemicals.append("mgatp")
 
     # First, check if it is already known that there are multiple chemicals associated with this entry
     for index, row in enumerate(cursor.execute(count_command)):
@@ -150,8 +152,9 @@ def search_for_chemical(connection, search_list, max_chemical_total):
                 # This entry contains no other chemical names (i.e., only contains the queried chemical)
                 if other_chemicals_search is not None:
                     pass
-                    # pprint("Entry ID: {0}".format(entry_id))
-                    # pprint("We found ${0}$ in the details section!".format(other_chemicals_search.group(0)))
+                    if other_chemicals_search.group(0) == "mgatp":
+                        pprint("Entry ID: {0}".format(entry_id))
+                        pprint("We found ${0}$ in the details section!".format(other_chemicals_search.group(0)))
                 else:
                     matching_entry_ids.append(entry_id)
         except IndexError:

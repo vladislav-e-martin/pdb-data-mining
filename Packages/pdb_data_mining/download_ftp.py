@@ -110,25 +110,25 @@ def download_specific_files(base, ftp, specified_ids):
             # pprint("Reading the " + file[0] + " file.")
             # Store each file in the sub-directory created earlier
             dest_subdirectory = os.path.join(base, folder)
-            dest_file = os.path.join(dest_subdirectory, file[0])
-            dest_filepath = os.path.basename(dest_file)
-            decompressed_file = dest_file[:-3]
+            dest_filepath = os.path.join(dest_subdirectory, file[0])
+            dest_file = os.path.basename(dest_filepath)
+            decompressed_file = dest_filepath[:-3]
             # For the XML files containing ALL information (i.e., including atom coordinates)
-            entry_id = dest_filepath[:-7]
+            entry_id = dest_file[:-7]
 
             if entry_id in specified_ids:
                 if file[0].endswith(".gz"):
                     # Check if the compressed file has already been decompressed into a XML file
                     if os.path.isfile(decompressed_file):
                         pprint("The file " + file[0][:-3] + " has already been downloaded.")
-                        if os.path.isfile(dest_file):
+                        if os.path.isfile(dest_filepath):
                             pprint("The compressed " + file[0] + " is now being removed.")
                             # Delete the compressed file to save space on the hard drive
-                            os.remove(dest_file)
+                            os.remove(dest_filepath)
                     # Download and decompress the file
                     else:
                         pprint("Downloading and extracting the " + file[0] + " file.")
-                        ftp.retrbinary("RETR " + file[0], open(dest_file, 'wb').write)
+                        ftp.retrbinary("RETR " + file[0], open(dest_filepath, 'wb').write)
 
                         src_subdirectory = os.path.join(base, folder)
 
