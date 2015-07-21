@@ -9,6 +9,7 @@ from Packages.pdb_data_mining import parse_xml as xml
 from Packages.pdb_data_mining import manage_sql as sql
 from Packages.pdb_data_analysis import create_golden_list as create
 from Packages.pdb_data_analysis import query_entries as query
+from Packages.pdb_data_analysis import export_data as export
 
 
 # CONSTANTS
@@ -149,36 +150,39 @@ def search_table_for_chemicals(local_database):
     # sql.print_table(connection, "crystallization_chemicals", "parent_id")
 
     ammonium_sulfate_matches = query.search_for_chemical(connection, ammonium_sulfate_aliases, 1)
+    ammonium_sulfate_matches.remove("1T4Q")
     non_ionic_matches = query.search_for_chemical(connection, non_ionic, 50)
 
     # pprint("Length of ammonium sulfate matches: {0}".format(len(ammonium_sulfate_matches)))
     # pprint("Length of non-ionic matches: {0}".format(len(non_ionic_matches)))
 
-    for index, match in enumerate(ammonium_sulfate_matches):
-        ammonium_sulfate_matches[index] = match.lower()
+    export.export_concentration_data(connection, ammonium_sulfate_matches, "ammonium-sulfate-concentrations")
+    export.export_coordinate_data(connection, ammonium_sulfate_matches, "ionic-atom-coordinates")
+    export.export_coordinate_data(connection, non_ionic_matches, "non-ionic-atom-coordinates")
 
-    for index, match in enumerate(non_ionic_matches):
-        non_ionic_matches[index] = match.lower()
-
-    # pprint(ammonium_sulfate_matches)
-    # pprint(non_ionic_matches)
+    # for index, match in enumerate(ammonium_sulfate_matches):
+    #     ammonium_sulfate_matches[index] = match.lower()
+    #
+    # for index, match in enumerate(non_ionic_matches):
+    #     non_ionic_matches[index] = match.lower()
 
     # ftp_download_full(XML_FULL, BASE_XML_FULL, ammonium_sulfate_matches)
     # ftp_download_full(XML_FULL, BASE_XML_FULL, non_ionic_matches)
 
-    ammonium_sulfate_files = xml.list_files(BASE_XML_FULL, ammonium_sulfate_matches)
-    non_ionic_files = xml.list_files(BASE_XML_FULL, non_ionic_matches)
-
-    ammonium_sulfate_raw_data = xml.fill_raw_coordinates(ammonium_sulfate_files, RAW_COORDINATE_COLUMNS, 1)
-    non_ionic_raw_data = xml.fill_raw_coordinates(non_ionic_files, RAW_COORDINATE_COLUMNS, 0)
-
-    sql.delete_all_rows(connection, "entry_coordinate_data")
-    sql.create_entry_coordinate_data_table(connection)
-    sql.add_entry_coordinate_data_row(connection, ammonium_sulfate_raw_data)
-    sql.add_entry_coordinate_data_row(connection, non_ionic_raw_data)
-    sql.commit_changes(connection)
-
-    sql.close_database(connection)
+    # ammonium_sulfate_files = xml.list_files(BASE_XML_FULL, ammonium_sulfate_matches)
+    # non_ionic_files = xml.list_files(BASE_XML_FULL, non_ionic_matches)
+    #
+    # ammonium_sulfate_raw_data = xml.fill_raw_coordinates(ammonium_sulfate_files, RAW_COORDINATE_COLUMNS, 1)
+    # non_ionic_raw_data = xml.fill_raw_coordinates(non_ionic_files, RAW_COORDINATE_COLUMNS, 0)
+    #
+    # sql.delete_all_rows(connection, "entry_coordinate_data")
+    # sql.delete_table(connection, "entry_coordinate_data")
+    # sql.create_entry_coordinate_data_table(connection)
+    # sql.add_entry_coordinate_data_row(connection, ammonium_sulfate_raw_data)
+    # sql.add_entry_coordinate_data_row(connection, non_ionic_raw_data)
+    # sql.commit_changes(connection)
+    #
+    # sql.close_database(connection)
 
 # data_to_store = parse_raw_data(BASE_XML_NO_ATOM, RAW_COLUMNS, SORTED_COLUMNS)
 
@@ -189,5 +193,6 @@ def search_table_for_chemicals(local_database):
 # store_reference_list(BASE_DB, reference_list)
 
 search_table_for_chemicals(BASE_DB)
+
 connection = sql.connect_database(BASE_DB)
 sql.print_table(connection, "entry_coordinate_data", "parent_id")

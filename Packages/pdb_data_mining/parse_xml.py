@@ -132,8 +132,24 @@ def fill_raw_coordinates(files: list, columns: int, ionic: int) -> object:
     relevant_residual_ids = ["ASP", "ARG", "GLU", "LYS"]
     relevant_atom_ids = ["CA", "OD1", "OD2", "NH1", "NH2", "OE1", "OE2", "NZ"]
 
-    rows = len(files)
-    data = [[0 for x in range(columns)] for x in range(rows)]
+    entry_ids = []
+    first_chain_ids = []
+    chain_ids = []
+    group_ids = []
+    sequence_ids = []
+    residual_ids = []
+    atom_ids = []
+    x_coordinates = []
+    y_coordinates = []
+    z_coordinates = []
+
+    entry_ids_to_keep = []
+    sequence_ids_to_keep = []
+    residual_ids_to_keep = []
+    atom_ids_to_keep = []
+    x_coordinates_to_keep = []
+    y_coordinates_to_keep = []
+    z_coordinates_to_keep = []
 
     for source_index, file in enumerate(files):
         try:
@@ -141,50 +157,102 @@ def fill_raw_coordinates(files: list, columns: int, ionic: int) -> object:
             entry_id = filename[:-4]
 
             pprint("The current index: {0}".format(source_index))
-            pprint("The current file: {0}".format(entry_id))
+            pprint("The current entry ID: {0}".format(entry_id))
             tree = et.parse(file)
 
             root = tree.getroot()
             # Make XPATHs simpler
             queries = ["./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:auth_asym_id",
-                       "./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:auth_comp_id[contains(., 'ASP')]",
-                       "./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:auth_comp_id[text() = 'ASP' or text() = 'ARG' or text() = 'GLU' or text() = 'LYS']"]
+                       "./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:group_PDB",
+                       "./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:auth_comp_id",
+                       "./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:auth_atom_id",
+                       "./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:auth_seq_id",
+                       "./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:Cartn_x",
+                       "./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:Cartn_y",
+                       "./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:Cartn_z"]
             namespace = {'PDBx': 'http://pdbml.pdb.org/schema/pdbx-v40.xsd'}
 
             first_chain_element = root.find(queries[0], namespace)
             first_chain = first_chain_element.text
-            pprint("The first chain: {0}".format(first_chain))
 
-            for atom_site in root.findall(queries[1], namespace):
-	        pprint(atom_site.find('auth_seq_id').text
+            # Chain ID of this row of elements
+            for element in root.findall(queries[0], namespace):
+                chain_id = element.text
+                chain_ids.append(chain_id)
+                first_chain_ids.append(first_chain)
+                entry_ids.append(entry_id)
 
-            for atom_site in root.findall(queries[2], namespace):
-		if atom_site.find('auth_asym_id').text == first_chain:
-                    sequence_id = atom_site.find('auth_seq_id').text
-                    residual_id = atom_site.find('auth_comp_id').text
-                    atom_id = atom_site.find('auth_atom_id').text
-                    x_coordinate = float(atom_site.find('Cartn_x').text)
-                    y_coordinate = float(atom_site.find('Cartn_y').text)
-                    z_coordinate = float(atom_site.find('Cartn_z').text)
-                    pprint("Residual Chain: {0}, Atom: {1}".format(residual_id, atom_id))
+            # Group ID of this row of elements
+            for element in root.findall(queries[1], namespace):
+                group_id = element.text
+                group_ids.append(group_id)
 
-                    # Fill the list
-                    data[source_index][0] = str(uuid.uuid4())
-                    data[source_index][1] = ionic
-                    data[source_index][2] = entry_id
-                    data[source_index][3] = sequence_id
-                    data[source_index][4] = residual_id
-                    data[source_index][5] = atom_id
-                    data[source_index][6] = x_coordinate
-                    data[source_index][7] = y_coordinate
-                    data[source_index][8] = z_coordinate
-            else:
-                continue
+            # Residual ID of this row of elements
+            for element in root.findall(queries[2], namespace):
+                residual_id = element.text
+                residual_ids.append(residual_id)
+
+            # Atom ID of this row of elements
+            for element in root.findall(queries[3], namespace):
+                atom_id = element.text
+                atom_ids.append(atom_id)
+
+            # Sequence ID of this row of elements
+            for element in root.findall(queries[4], namespace):
+                sequence_id = element.text
+                sequence_ids.append(sequence_id)
+
+            # X-coordinate of this atom
+            for element in root.findall(queries[5], namespace):
+                x_coordinate = float(element.text)
+                x_coordinates.append(x_coordinate)
+
+            # Y-coordinate of this atom
+            for element in root.findall(queries[6], namespace):
+                y_coordinate = float(element.text)
+                y_coordinates.append(y_coordinate)
+
+            # Z-coordinate of this atom
+            for element in root.findall(queries[7], namespace):
+                z_coordinate = float(element.text)
+                z_coordinates.append(z_coordinate)
 
         except et.ParseError:
             pprint("This file could not be parsed. Deleting the file so it may be downloaded again...")
             os.remove(file)
             pass
+
+    # pprint("Number of atom elements: {0}".format(len(atom_ids)))
+
+    for index, value in enumerate(chain_ids):
+        if chain_ids[index] == first_chain_ids[index] and group_ids[index] == "ATOM" and \
+                        residual_ids[index] in relevant_residual_ids and atom_ids[index] in relevant_atom_ids:
+            entry_ids_to_keep.append(entry_ids[index])
+            sequence_ids_to_keep.append(sequence_ids[index])
+            residual_ids_to_keep.append(residual_ids[index])
+            atom_ids_to_keep.append(atom_ids[index])
+            x_coordinates_to_keep.append(x_coordinates[index])
+            y_coordinates_to_keep.append(y_coordinates[index])
+            z_coordinates_to_keep.append(z_coordinates[index])
+
+    # pprint("Number of atom elements kept: {0}".format(len(atom_ids_to_keep)))
+
+    rows = len(entry_ids_to_keep)
+    data = [[0 for x in range(columns)] for x in range(rows)]
+
+    # Fill the list
+    for index, value in enumerate(entry_ids_to_keep):
+        data[index][0] = str(uuid.uuid4())
+        data[index][1] = ionic
+        data[index][2] = entry_ids_to_keep[index].upper()
+        pprint(data[index][2])
+        data[index][3] = sequence_ids_to_keep[index]
+        data[index][4] = residual_ids_to_keep[index]
+        data[index][5] = atom_ids_to_keep[index]
+        data[index][6] = x_coordinates_to_keep[index]
+        data[index][7] = y_coordinates_to_keep[index]
+        data[index][8] = z_coordinates_to_keep[index]
+
     return data
 
 # Sort the structures that do not meet the criteria from the list

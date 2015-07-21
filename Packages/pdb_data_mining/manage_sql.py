@@ -99,7 +99,7 @@ def create_golden_chemical_reference_table(connection):
     # Create a child table with the provided name
     create_table = "CREATE TABLE golden_chemical_reference " \
                    "(id int, " \
-                   "parent_id int, " \
+                   "parent_id text, " \
                    "golden_name text, " \
                    "frequency int)"
 
@@ -125,7 +125,7 @@ def create_entry_coordinate_data_table(connection):
     create_table = "CREATE TABLE entry_coordinate_data " \
                    "(id int, " \
                    "ionic int, " \
-                   "parent_id int, " \
+                   "parent_id text, " \
                    "sequence_id int," \
                    "residual_id text, " \
                    "atom_id text," \
@@ -228,7 +228,7 @@ def print_table(connection, table, column):
     file = open(filename, 'w')
     for row in cursor.execute(print_rows):
         total_count += 1
-        file.write("Entry ID associated with the below information: \n".format(row[1]))
-        file.write("{0}, {1}, {2} \n\n".format(row[2], row[3], row[4]))
+        file.write("Entry ID associated with the below information: {0} \n".format(row[2]))
+        file.write("{0}, {1}, {2} \n\n".format(row[3], row[4], row[5]))
 
     pprint("Total count: {0}".format(total_count))
