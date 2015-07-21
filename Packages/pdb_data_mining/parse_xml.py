@@ -147,24 +147,19 @@ def fill_raw_coordinates(files: list, columns: int, ionic: int) -> object:
             root = tree.getroot()
             # Make XPATHs simpler
             queries = ["./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:auth_asym_id",
-                       "./PDBx:atom_siteCategory/PDBx:atom_site[@PDBx:auth_comp_id = 'ASP' and @auth_atom_id = 'CA' or "
-                       "@PDBx:auth_comp_id = 'ASP' and @auth_atom_id = 'OD1' or "
-                       "@PDBx:auth_comp_id = 'ASP' and @auth_atom_id = 'OD2' or "
-                       "@PDBx:auth_comp_id = 'ARG' and @auth_atom_id = 'CA' or "
-                       "@PDBx:auth_comp_id = 'ARG' and @auth_atom_id = 'NH1' or "
-                       "@PDBx:auth_comp_id = 'ARG' and @auth_atom_id = 'NH2' or "
-                       "@PDBx:auth_comp_id = 'GLU' and @auth_atom_id = 'CA' or "
-                       "@PDBx:auth_comp_id = 'GLU' and @auth_atom_id = 'OE1' or "
-                       "@PDBx:auth_comp_id = 'GLU' and @auth_atom_id = 'OE2' or "
-                       "@PDBx:auth_comp_id = 'LYS' and @auth_atom_id = 'CA' or "
-                       "@PDBx:auth_comp_id = 'LYS' and @auth_atom_id = 'NZ' or]"]
+                       "./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:auth_comp_id[contains(., 'ASP')]",
+                       "./PDBx:atom_siteCategory/PDBx:atom_site/PDBx:auth_comp_id[text() = 'ASP' or text() = 'ARG' or text() = 'GLU' or text() = 'LYS']"]
             namespace = {'PDBx': 'http://pdbml.pdb.org/schema/pdbx-v40.xsd'}
 
-            first_chain = root.find(queries[0], namespace)
+            first_chain_element = root.find(queries[0], namespace)
+            first_chain = first_chain_element.text
             pprint("The first chain: {0}".format(first_chain))
 
             for atom_site in root.findall(queries[1], namespace):
-                if atom_site.find('auth_asym_id').text == first_chain:
+	        pprint(atom_site.find('auth_seq_id').text
+
+            for atom_site in root.findall(queries[2], namespace):
+		if atom_site.find('auth_asym_id').text == first_chain:
                     sequence_id = atom_site.find('auth_seq_id').text
                     residual_id = atom_site.find('auth_comp_id').text
                     atom_id = atom_site.find('auth_atom_id').text

@@ -160,11 +160,11 @@ def search_table_for_chemicals(local_database):
     for index, match in enumerate(non_ionic_matches):
         non_ionic_matches[index] = match.lower()
 
-    pprint(ammonium_sulfate_matches)
-    pprint(non_ionic_matches)
+    # pprint(ammonium_sulfate_matches)
+    # pprint(non_ionic_matches)
 
-    ftp_download_full(XML_FULL, BASE_XML_FULL, ammonium_sulfate_matches)
-    ftp_download_full(XML_FULL, BASE_XML_FULL, non_ionic_matches)
+    # ftp_download_full(XML_FULL, BASE_XML_FULL, ammonium_sulfate_matches)
+    # ftp_download_full(XML_FULL, BASE_XML_FULL, non_ionic_matches)
 
     ammonium_sulfate_files = xml.list_files(BASE_XML_FULL, ammonium_sulfate_matches)
     non_ionic_files = xml.list_files(BASE_XML_FULL, non_ionic_matches)
