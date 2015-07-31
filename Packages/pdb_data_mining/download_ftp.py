@@ -21,7 +21,7 @@ def connect(base):
     return ftp
 
 
-def count_archives(ftp):
+def count_directories(ftp):
     folder_count = 0
     folders = ftp.nlst()
     # Iterate through each subdirectory containing all the protein structures
@@ -30,115 +30,102 @@ def count_archives(ftp):
     return folder_count
 
 
-# Download files from the wwPDB
-def download(base, ftp, start_shift, end_shift):
+# Download all files contained in each directory from the (start_shift)th directory to the (end_shift)th directory
+#  from the wwPDB
+def download_all(base, ftp):
+
+    folders = ftp.nlst()
+    # Iterate through each directory in the wwPDB
+    for folder in folders:
+        # Open the directory
+        ftp.cwd(folder)
+
+        # Store each sub-directory in it's own folder locally
+        current_directory = os.path.join(base, folder)
+        if not os.path.exists(current_directory):
+            os.mkdir(current_directory)
+
+        files = ftp.mlsd()
+        # Iterate through each file contained in the current directory
+        for file in [value for value in files if value is not None]:
+            # Store each file in the sub-directory created earlier
+            current_file_path = os.path.join(current_directory, file[0])
+            decompressed_file_path = current_file_path[:-3]
+
+            if file[0].endswith(".gz"):
+                # Check if the compressed file has already been decompressed into a XML file
+                if os.path.isfile(decompressed_file_path):
+                    # pprint("The file " + file[0][:-3] + " has already been downloaded.")
+                    if os.path.isfile(current_file_path):
+                        pprint("The compressed " + file[0] + " is now being removed.")
+                        # Delete the compressed file to save space on the hard drive
+                        os.remove(current_file_path)
+                # Download and decompress the file
+                else:
+                    pprint("Downloading and extracting the " + file[0] + " file.")
+                    ftp.retrbinary("RETR " + file[0], open(current_file_path, 'wb').write)
+
+                    for compressed_file_path in glob.glob(os.path.join(current_directory, '*.gz')):
+                        compressed_filename = os.path.basename(compressed_file_path)
+                        decompressed_filename = os.path.join(current_directory, compressed_filename[:-3])
+                        with gzip.open(compressed_file_path, 'rb') as compressed:
+                            with open(decompressed_filename, 'wb') as decompressed:
+                                for line in compressed:
+                                    decompressed.write(line)
+        ftp.cwd('../')
+
+
+# Download all files contained in each directory from the (start_shift)th directory to the (end_shift)th directory
+#  from the wwPDB
+def download_shift(base, ftp, start_shift, end_shift):
     current_shift = 0
     folders = ftp.nlst()
-    # Iterate through each subdirectory containing all the protein structures
+    # Iterate through each directory in the wwPDB
     for folder in folders:
         current_shift += 1
         pprint("Searching the " + folder + " directory.")
 
-        # Wait until it is time to start downloading from directories
-        if (current_shift < start_shift):
-            pprint("Skipping this directory...")
+        # Wait until the (start_shift)th directory is reached to download files
+        if current_shift < start_shift:
             continue
-        if (current_shift >= end_shift):
+        if current_shift >= end_shift:
             break
 
         # Open the directory
         ftp.cwd(folder)
 
         # Store each sub-directory in it's own folder locally
-        try:
-            os.mkdir(os.path.join(base, folder))
-        except:
-            pass
+        current_directory = os.path.join(base, folder)
+        if not os.path.exists(current_directory):
+            os.mkdir(current_directory)
 
         files = ftp.mlsd()
-        # Iterate through each file in the current subdirectory
+        # Iterate through each file contained in the current directory
         for file in [value for value in files if value is not None]:
-            pprint("Reading the " + file[0] + " file.")
             # Store each file in the sub-directory created earlier
-            dest_subdirectory = os.path.join(base, folder)
-            dest_file = os.path.join(dest_subdirectory, file[0])
-            decompressed_file = dest_file[:-3]
+            current_file_path = os.path.join(current_directory, file[0])
+            decompressed_file_path = current_file_path[:-3]
 
             if file[0].endswith(".gz"):
                 # Check if the compressed file has already been decompressed into a XML file
-                if os.path.isfile(decompressed_file):
-                    pprint("The file " + file[0][:-3] + " has already been downloaded.")
-                    if os.path.isfile(dest_file):
+                if os.path.isfile(decompressed_file_path):
+                    # pprint("The file " + file[0][:-3] + " has already been downloaded.")
+                    if os.path.isfile(current_file_path):
                         pprint("The compressed " + file[0] + " is now being removed.")
                         # Delete the compressed file to save space on the hard drive
-                        os.remove(dest_file)
+                        os.remove(current_file_path)
                 # Download and decompress the file
                 else:
                     pprint("Downloading and extracting the " + file[0] + " file.")
-                    ftp.retrbinary("RETR " + file[0], open(dest_file, 'wb').write)
+                    ftp.retrbinary("RETR " + file[0], open(current_file_path, 'wb').write)
 
-                    src_subdirectory = os.path.join(base, folder)
-
-                    for src_name in glob.glob(os.path.join(src_subdirectory, '*.gz')):
-                        base_name = os.path.basename(src_name)
-                        dest_name = os.path.join(dest_subdirectory, base_name[:-3])
-                        with gzip.open(src_name, 'rb') as compressed:
-                            with open(dest_name, 'wb') as decompressed:
+                    for file_path in glob.glob(os.path.join(current_directory, '*.gz')):
+                        compressed_filename = os.path.basename(file_path)
+                        decompressed_filename = os.path.join(current_directory, compressed_filename[:-3])
+                        with gzip.open(compressed_filename, 'rb') as compressed:
+                            with open(decompressed_filename, 'wb') as decompressed:
                                 for line in compressed:
                                     decompressed.write(line)
-        ftp.cwd('../')
-
-
-def download_specific_files(base, ftp, specified_ids):
-    folders = ftp.nlst()
-    # Iterate through each subdirectory containing all the protein structures
-    for folder in folders:
-        # pprint("Searching the " + folder + " directory.")
-
-        # Open the directory
-        ftp.cwd(folder)
-
-        # Store each sub-directory in it's own folder locally
-        try:
-            os.mkdir(os.path.join(base, folder))
-        except:
-            pass
-
-        files = ftp.mlsd()
-        # Iterate through each file in the current subdirectory
-        for file in [value for value in files if value is not None]:
-            # pprint("Reading the " + file[0] + " file.")
-            # Store each file in the sub-directory created earlier
-            dest_subdirectory = os.path.join(base, folder)
-            dest_filepath = os.path.join(dest_subdirectory, file[0])
-            dest_file = os.path.basename(dest_filepath)
-            decompressed_file = dest_filepath[:-3]
-            # For the XML files containing ALL information (i.e., including atom coordinates)
-            entry_id = dest_file[:-7]
-
-            if entry_id in specified_ids:
-                if file[0].endswith(".gz"):
-                    # Check if the compressed file has already been decompressed into a XML file
-                    if os.path.isfile(decompressed_file):
-                        pprint("The file " + file[0][:-3] + " has already been downloaded.")
-                        if os.path.isfile(dest_filepath):
-                            pprint("The compressed " + file[0] + " is now being removed.")
-                            # Delete the compressed file to save space on the hard drive
-                            os.remove(dest_filepath)
-                    # Download and decompress the file
-                    else:
-                        pprint("Downloading and extracting the " + file[0] + " file.")
-                        ftp.retrbinary("RETR " + file[0], open(dest_filepath, 'wb').write)
-
-                        src_subdirectory = os.path.join(base, folder)
-
-                        for src_name in glob.glob(os.path.join(src_subdirectory, '*.gz')):
-                            base_name = os.path.basename(src_name)
-                            dest_name = os.path.join(dest_subdirectory, base_name[:-3])
-                            with gzip.open(src_name, 'rb') as compressed:
-                                with open(dest_name, 'wb') as decompressed:
-                                    for line in compressed:
-                                        decompressed.write(line)
         ftp.cwd('../')
 
 

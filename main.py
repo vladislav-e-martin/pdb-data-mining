@@ -7,7 +7,7 @@ from pprint import pprint
 from Packages.pdb_data_mining import download_ftp as ftp
 from Packages.pdb_data_mining import parse_xml as xml
 from Packages.pdb_data_mining import manage_sql as sql
-from Packages.pdb_data_analysis import create_golden_list as create
+from Packages.pdb_data_analysis import identify_valid_names as identify
 from Packages.pdb_data_analysis import query_entries as query
 from Packages.pdb_data_analysis import export_data as export
 
@@ -62,65 +62,41 @@ ethylene_glycol_aliases = ["ethylene glycol", "ethyleneglycol", "etgly", "et gly
 # Download structures from the FTP site
 def ftp_download(ftp_base, local_filebase):
     ftp_conn = ftp.connect(ftp_base)
-    archive_count = ftp.count_archives(ftp_conn)
-    # Provide the user with information to split the downloading workload between several processes
-    pprint("There are a total of {0} directories in the FTP site!".format(archive_count))
-    # Specifically, 4 processes
-    pprint("To divide this into 4 separate processes: {0}".format(archive_count / 4))
-    # Ask the user at which directory the downloading process should begin
-    start = input("Where would you like to start downloading: ")
-    start_point = int(start)
-    # Ask the user at which directory the downloading process should end
-    end = input("Where would you like to end downloading: ")
-    end_point = int(end)
     # Commence the downloading process
-    ftp.download(local_filebase, ftp_conn, start_point, end_point)
+    ftp.download_all(local_filebase, ftp_conn)
+    folder_count = ftp.count_directories(ftp_conn)
     # Once all of the files have been downloaded from the specified section of the data bank, disconnect from the site
     ftp.disconnect(ftp_conn)
 
-
-def ftp_download_full(ftp_base, local_filebase, ids):
-    ftp_conn = ftp.connect(ftp_base)
-    ftp.download_specific_files(local_filebase, ftp_conn, ids)
-    ftp.disconnect(ftp_conn)
-
 # Parse through all of the newly downloaded structures
-def parse_raw_data(local_filebase, raw_columns, sorted_columns) -> object:
-    files = xml.list_files(local_filebase, len(local_filebase))
-    raw_data = xml.fill_raw(files, raw_columns)
-    sorted_indices = xml.filter_indices(raw_data)
-    sorted_data = xml.fill_sorted(raw_data, sorted_indices, sorted_columns)
-
-    return sorted_data
-
-
-# REMEMBER TO DELETE THE "information" TABLE (NOT DONE YET)
-# Store the important structures in the database for further analysis
-def store_in_entry_table(local_database, data):
+def parse_xml_files(local_filebase, local_database) -> object:
+    # Connect to the database
     connection = sql.connect_database(local_database)
 
+    # Clean the existing contents of the table
+    # sql.delete_all_rows(connection, "entry_data")
+    # Remove the existing table so that the number of columns may be adjusted
+    # sql.delete_table(connection, "entry_data")
+
     # Add a new table to the database
-    sql.create_entry_data_table(connection)
+    # sql.create_entry_data_table(connection)
 
-    # Insert each row of values from sorted_data
-    sql.add_entry_data_row(connection, data)
+    files = xml.discover_file_names(local_filebase)
+    xml.extract_data(files, connection, 2.50, "X-RAY DIFFRACTION")
 
-    # Commit changes and disconnect from the database
-    sql.commit_changes(connection)
-
+    # Disconnect from the database
     sql.close_database(connection)
 
 
-def create_reference_list(local_database):
+def identify_names(local_database):
     connection = sql.connect_database(local_database)
 
     # Find all of the chemical names stored in the crystallization information of the structures
-    delimited = create.discover_common_delimited_entries(connection)
-    raw_list = create.create_golden_reference_list(connection, delimited)
-    refined_list = create.refine_golden_reference_list(raw_list)
-    final_list = create.finalize_golden_reference_list(refined_list)
+    interpretable_entries = identify.discover_interpretable_entries(connection)
+    identify.parse_crystallization_chemicals(connection, interpretable_entries)
 
-    return final_list
+    sql.close_database(connection)
+
 
 
 def store_reference_list(local_database, data):
@@ -133,66 +109,6 @@ def store_reference_list(local_database, data):
 
     sql.close_database(connection)
 
-
-def search_table_for_chemicals(local_database):
-    connection = sql.connect_database(local_database)
-
-    # sql.delete_all_rows(connection, "aliases")
-    # create.add_to_aliases(connection, "ammonium sulfate", ammonium_sulfate_aliases)
-    # create.add_to_aliases(connection, "ethylene glycol", ethylene_glycol_aliases)
-    #
-    # query.standardize_chemical_names(connection)
-    #
-    # query.query_for_match(connection, "ammonium sulfate")
-    #
-    # sql.commit_changes(connection)
-    #
-    # sql.print_table(connection, "crystallization_chemicals", "parent_id")
-
-    ammonium_sulfate_matches = query.search_for_chemical(connection, ammonium_sulfate_aliases, 1)
-    ammonium_sulfate_matches.remove("1T4Q")
-    non_ionic_matches = query.search_for_chemical(connection, non_ionic, 50)
-
-    # pprint("Length of ammonium sulfate matches: {0}".format(len(ammonium_sulfate_matches)))
-    # pprint("Length of non-ionic matches: {0}".format(len(non_ionic_matches)))
-
-    export.export_concentration_data(connection, ammonium_sulfate_matches, "ammonium-sulfate-concentrations")
-    export.export_coordinate_data(connection, ammonium_sulfate_matches, "ionic-atom-coordinates")
-    export.export_coordinate_data(connection, non_ionic_matches, "non-ionic-atom-coordinates")
-
-    # for index, match in enumerate(ammonium_sulfate_matches):
-    #     ammonium_sulfate_matches[index] = match.lower()
-    #
-    # for index, match in enumerate(non_ionic_matches):
-    #     non_ionic_matches[index] = match.lower()
-
-    # ftp_download_full(XML_FULL, BASE_XML_FULL, ammonium_sulfate_matches)
-    # ftp_download_full(XML_FULL, BASE_XML_FULL, non_ionic_matches)
-
-    # ammonium_sulfate_files = xml.list_files(BASE_XML_FULL, ammonium_sulfate_matches)
-    # non_ionic_files = xml.list_files(BASE_XML_FULL, non_ionic_matches)
-    #
-    # ammonium_sulfate_raw_data = xml.fill_raw_coordinates(ammonium_sulfate_files, RAW_COORDINATE_COLUMNS, 1)
-    # non_ionic_raw_data = xml.fill_raw_coordinates(non_ionic_files, RAW_COORDINATE_COLUMNS, 0)
-    #
-    # sql.delete_all_rows(connection, "entry_coordinate_data")
-    # sql.delete_table(connection, "entry_coordinate_data")
-    # sql.create_entry_coordinate_data_table(connection)
-    # sql.add_entry_coordinate_data_row(connection, ammonium_sulfate_raw_data)
-    # sql.add_entry_coordinate_data_row(connection, non_ionic_raw_data)
-    # sql.commit_changes(connection)
-    #
-    # sql.close_database(connection)
-
-# data_to_store = parse_raw_data(BASE_XML_NO_ATOM, RAW_COLUMNS, SORTED_COLUMNS)
-
-# store_in_entry_table(BASE_DB, data_to_store)
-
-# reference_list = create_reference_list(BASE_DB)
-# pprint(len(reference_list))
-# store_reference_list(BASE_DB, reference_list)
-
-search_table_for_chemicals(BASE_DB)
-
-connection = sql.connect_database(BASE_DB)
-sql.print_table(connection, "entry_coordinate_data", "parent_id")
+# ftp_download(XML_NO_ATOM, BASE_XML_NO_ATOM)
+# parse_xml_files(BASE_XML_NO_ATOM, BASE_DB)
+identify_names(BASE_DB)
