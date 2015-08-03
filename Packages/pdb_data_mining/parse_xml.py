@@ -98,7 +98,7 @@ def extract_data(files, db_connection, min_resolution, exptl_method) -> object:
                 continue
 
             if protein_count > 0 and resolution <= min_resolution and method == exptl_method:
-                # Insert each row of values from sorted_data
+                # Insert each row of values from data
                 sql.add_entry_data_row(db_connection, (data,))
 
                 # Commit changes and disconnect from the database

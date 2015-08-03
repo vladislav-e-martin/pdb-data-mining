@@ -11,6 +11,7 @@ from Packages.pdb_data_analysis import identify_valid_names as identify
 from Packages.pdb_data_analysis import query_entries as query
 from Packages.pdb_data_analysis import export_data as export
 
+import os
 
 # CONSTANTS
 
@@ -31,6 +32,9 @@ SORTED_COLUMNS = 7
 
 # For managing SQL database
 BASE_DB = "/home/vlad/Documents/Code/pdb-data-mining/Database/information.db"
+
+# For managing text output
+BASE_OUTPUT = "/home/vlad/Documents/Code/pdb-data-mining/Output/"
 
 # For chemical name searches
 non_ionic = ["2-ethoxyethanol", "2-hydroxyethyldisulfide", "2-mercaptoethanol", "2-methylpentane-2,4-diol", "acetone",
@@ -64,8 +68,7 @@ def ftp_download(ftp_base, local_filebase):
     ftp_conn = ftp.connect(ftp_base)
     # Commence the downloading process
     ftp.download_all(local_filebase, ftp_conn)
-    folder_count = ftp.count_directories(ftp_conn)
-    # Once all of the files have been downloaded from the specified section of the data bank, disconnect from the site
+    # Once all of the specified files have been downloaded, disconnect from the site
     ftp.disconnect(ftp_conn)
 
 # Parse through all of the newly downloaded structures
@@ -98,6 +101,37 @@ def identify_names(local_database):
     sql.close_database(connection)
 
 
+def print_chemical_names(local_database, output_base):
+    connection = sql.connect_database(local_database)
+    cursor = connection.cursor()
+
+    command = "SELECT COUNT(*), chemical_name FROM crystallization_chemicals GROUP BY chemical_name " \
+              "HAVING COUNT(*) > 2 ORDER BY COUNT(*) DESC"
+
+    filename = os.path.join(output_base, "most-common-chemical-names.txt")
+    file = open(filename, 'w')
+    file.write("CHEMICAL NAMES, DISPLAYED BY THEIR FREQUENCY IN PDB ENTRIES \n\n")
+    for index, row in enumerate(cursor.execute(command)):
+        count = row[0]
+        chemical_name = row[1]
+        file.write("{0}. \n".format(index + 1))
+        file.write("${0}$ occurred ${1}$ times in all of the entries extracted from the PDB. \n\n".format(chemical_name,
+                                                                                                          count))
+
+    result_command = "SELECT parent_id, chemical_name, concentration, unit FROM crystallization_chemicals " \
+                     "GROUP BY parent_id HAVING COUNT(*) > 2"
+
+    new_filename = os.path.join(output_base, "results.txt")
+    file = open(new_filename, 'w')
+    file.write("RESULTS FOR DISPLAY IN THE FINAL PAPER \n\n")
+    for index, row in enumerate(cursor.execute(result_command)):
+        id = row[0]
+        chemical_name = row[1]
+        value = row[2]
+        unit = row[3]
+        file.write("{0} | {1} [{2} {3}] \n\n".format(id, chemical_name, value, unit))
+    sql.close_database(connection)
+
 
 def store_reference_list(local_database, data):
     connection = sql.connect_database(local_database)
@@ -112,3 +146,4 @@ def store_reference_list(local_database, data):
 # ftp_download(XML_NO_ATOM, BASE_XML_NO_ATOM)
 # parse_xml_files(BASE_XML_NO_ATOM, BASE_DB)
 identify_names(BASE_DB)
+print_chemical_names(BASE_DB, BASE_OUTPUT)
