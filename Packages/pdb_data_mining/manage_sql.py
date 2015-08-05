@@ -52,7 +52,7 @@ def create_crystallization_chemicals_table(connection):
                    "parent_id text, " \
                    "concentration real, " \
                    "unit real, " \
-                   "chemical_name text)"
+                   "name text)"
 
     try:
         pprint("Creating table crystallization_chemicals.")

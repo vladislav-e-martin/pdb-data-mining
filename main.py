@@ -9,7 +9,6 @@ from Packages.pdb_data_mining import parse_xml as xml
 from Packages.pdb_data_mining import manage_sql as sql
 from Packages.pdb_data_analysis import identify_valid_names as identify
 from Packages.pdb_data_analysis import query_entries as query
-from Packages.pdb_data_analysis import export_data as export
 
 import os
 
@@ -57,8 +56,6 @@ ammonium_sulfate_aliases = ["ammonium sulfate", "ammonium sulphate", "amonium su
                             "nh4 sulphate", "nh4sulphate", "ammonium so4", "ammoniumso4",
                             "(nh4)2so4", "(nh4)2 so4", "nh4so4", "nh4 so4", "(nh4)so4", "(nh4) so4",
                             "(nh4)2s04", "(nh4)2 s04", "(nh4)2(so4)", "(nh4)2 (so4)"]
-ethylene_glycol_aliases = ["ethylene glycol", "ethyleneglycol", "etgly", "et gly", "eg", "e g"]
-
 
 # MAIN BODY
 
@@ -105,7 +102,7 @@ def print_chemical_names(local_database, output_base):
     connection = sql.connect_database(local_database)
     cursor = connection.cursor()
 
-    command = "SELECT COUNT(*), chemical_name FROM crystallization_chemicals GROUP BY chemical_name " \
+    command = "SELECT COUNT(*), name FROM crystallization_chemicals GROUP BY name " \
               "HAVING COUNT(*) > 2 ORDER BY COUNT(*) DESC"
 
     filename = os.path.join(output_base, "most-common-chemical-names.txt")
@@ -115,22 +112,22 @@ def print_chemical_names(local_database, output_base):
         count = row[0]
         chemical_name = row[1]
         file.write("{0}. \n".format(index + 1))
-        file.write("${0}$ occurred ${1}$ times in all of the entries extracted from the PDB. \n\n".format(chemical_name,
-                                                                                                          count))
+        file.write("'{0}' occurred '{1}' times in all of the entries extracted from the PDB. \n\n"
+                   .format(chemical_name, count))
 
-    result_command = "SELECT parent_id, chemical_name, concentration, unit FROM crystallization_chemicals " \
-                     "GROUP BY parent_id HAVING COUNT(*) > 2"
-
-    new_filename = os.path.join(output_base, "results.txt")
-    file = open(new_filename, 'w')
-    file.write("RESULTS FOR DISPLAY IN THE FINAL PAPER \n\n")
-    for index, row in enumerate(cursor.execute(result_command)):
-        id = row[0]
-        chemical_name = row[1]
-        value = row[2]
-        unit = row[3]
-        file.write("{0} | {1} [{2} {3}] \n\n".format(id, chemical_name, value, unit))
-    sql.close_database(connection)
+        # result_command = "SELECT parent_id, name, concentration, unit FROM crystallization_chemicals " \
+        #                  "GROUP BY parent_id HAVING COUNT(*) > 2"
+        #
+        # new_filename = os.path.join(output_base, "results.txt")
+        # file = open(new_filename, 'w')
+        # file.write("RESULTS FOR DISPLAY IN THE FINAL PAPER \n\n")
+        # for index, row in enumerate(cursor.execute(result_command)):
+        #     id = row[0]
+        #     chemical_name = row[1]
+        #     value = row[2]
+        #     unit = row[3]
+        #     file.write("{0} | {1} [{2} {3}] \n\n".format(id, chemical_name, value, unit))
+        # sql.close_database(connection)
 
 
 def store_reference_list(local_database, data):
@@ -145,5 +142,12 @@ def store_reference_list(local_database, data):
 
 # ftp_download(XML_NO_ATOM, BASE_XML_NO_ATOM)
 # parse_xml_files(BASE_XML_NO_ATOM, BASE_DB)
-identify_names(BASE_DB)
-print_chemical_names(BASE_DB, BASE_OUTPUT)
+# identify_names(BASE_DB)
+
+# connection = sql.connect_database(BASE_DB)
+# query.standardize_names(connection)
+#
+# sql.commit_changes(connection)
+# sql.close_database(connection)
+
+# print_chemical_names(BASE_DB, BASE_OUTPUT)

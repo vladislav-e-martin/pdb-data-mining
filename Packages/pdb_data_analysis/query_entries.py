@@ -12,27 +12,45 @@ BASE = "/home/vlad/Documents/Code/pdb-data-mining/Output/"
 
 # FUNCTION DECLARATIONS
 
-def create_serviceable_list(connection):
+aliases = {"2-methylpentane-2": "2-methylpentane-2,4-diol",
+           "2-methyl-2": "2-methylpentane-2,4-diol",
+           "eg": "ethylene glycol",
+           "e g": "ethylene glycol",
+           "etgly": "ethylene glycol",
+           "et gly": "ethylene glycol",
+           "ethyleneglycol": "ethylene glycol"}
+
+
+def standardize_names(connection):
     cursor = connection.cursor()
 
-    frequency_command = "SELECT COUNT(*), chemical_name " \
+    select = "SELECT name FROM crystallization_chemicals"
+
+    for row in cursor.execute(select).fetchall():
+        name = row[0]
+        for alias in aliases.keys():
+            regex = '^({0})$'.format(alias)
+            alias_search = re.search(regex, name)
+            if alias_search is not None:
+                standard_name = aliases[name]
+
+                pprint("Standard name: {0}".format(standard_name))
+                pprint("Current alias: {0}".format(name))
+
+                update = "UPDATE crystallization_chemicals SET name = ? WHERE name = ?"
+                cursor.execute(update, (standard_name, name))
+
+
+def create_list(connection):
+    cursor = connection.cursor()
+
+    frequency_command = "SELECT COUNT(*), name " \
                         "FROM crystallization_chemicals " \
                         "GROUP BY chemical_name " \
                         "HAVING COUNT(*) > 9 " \
                         "ORDER BY 1 DESC"
 
     golden_list = []
-
-    # Write out the frequency of each finalized chemical name to a separate text file for further analysis
-    filename = os.path.join(BASE, "most-common-chemicals.txt")
-    file = open(filename, 'w')
-    for index, row in enumerate(cursor.execute(frequency_command)):
-        chemical_name = row[1]
-        golden_list.append(chemical_name)
-
-        file.write("{0}. \n".format(index))
-        file.write("${1}$ occurred ${0}$ times \n\n".format(row[0], row[1]))
-    file.close()
 
     # Add special names
     special_names = ["k-po4", "amm po4", "nh4 formate", "gycine", "mg(oac)", "tric-cl", "ammonium sufate", "cdcl",
@@ -45,53 +63,7 @@ def create_serviceable_list(connection):
     return golden_list
 
 
-def standardize_chemical_names(connection):
-    cursor = connection.cursor()
-
-    select_names = "SELECT crystallization_chemicals.id, aliases.standard_name " \
-                   "FROM crystallization_chemicals, aliases " \
-                   "WHERE crystallization_chemicals.chemical_name = aliases.name_alias"
-
-    select_rows = cursor.execute(select_names).fetchall()
-
-    for index, row in enumerate(select_rows):
-        pprint("Current Index: {0}".format(index))
-        row_id = row[0]
-        standard_name = row[1]
-
-        replace_names = "UPDATE crystallization_chemicals " \
-                        "SET chemical_name = ? " \
-                        "WHERE crystallization_chemicals.id = ?"
-
-        cursor.execute(replace_names, (standard_name, row_id))
-
-
-def query_for_match(connection, name):
-    cursor = connection.cursor()
-
-    select_unique_ids = "SELECT crystallization_chemicals.parent_id " \
-                        "FROM crystallization_chemicals " \
-                        "GROUP BY crystallization_chemicals.parent_id " \
-                        "HAVING COUNT(*) = 1 ORDER BY 1 DESC"
-
-    select_rows = cursor.execute(select_unique_ids).fetchall()
-
-    pprint("Length: {0}".format(len(select_rows)))
-
-    for index, row in enumerate(select_rows):
-        pprint("Current Index: {0}".format(index))
-        distinct_id = row[0]
-
-        name_matches = "SELECT entry_data.id FROM entry_data, crystallization_chemicals WHERE " \
-                       "? LIKE crystallization_chemicals.chemical_name AND " \
-                       "entry_data.id = crystallization_chemicals.parent_id AND " \
-                       "entry_data.id = ?"
-
-        matches = cursor.execute(name_matches, (name, distinct_id)).fetchall()
-        pprint(matches)
-
-
-def search_for_chemical(connection, search_list, max_chemical_total):
+def query_criteria(connection, search_list, max_chemical_total):
     cursor = connection.cursor()
 
     count_command = "SELECT COUNT(*), parent_id FROM crystallization_chemicals GROUP BY parent_id " \
@@ -100,7 +72,7 @@ def search_for_chemical(connection, search_list, max_chemical_total):
     print_command = "SELECT * FROM entry_data ORDER BY id"
 
     entry_ids = []
-    golden_list = create_serviceable_list(connection)
+    golden_list = create_list(connection)
     other_chemicals = []
 
     matching_entry_ids = []

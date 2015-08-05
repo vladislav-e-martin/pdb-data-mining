@@ -11,11 +11,6 @@ from Packages.pdb_data_mining import manage_sql as sql
 
 SELECT_ENTRY_DETAILS = "SELECT id, details FROM entry_data ORDER BY id"
 
-aliases = {"2-methylpentane-2": "2-methylpentane-2,4-diol",
-           "2-methyl-2": "2-methylpentane-2,4-diol",
-           "eg": "ethylene glycol",
-           "etgly": "ethylene glycol"}
-
 # FUNCTION DECLARATIONS
 
 # Discover those entries that are properly delimited with a comma or semicolon
@@ -33,7 +28,7 @@ def discover_interpretable_entries(connection):
 
         interpretable_concentration = re.search('(\d+\s+m{1,2}|\d+[.]\d+\s+m{1,2}|'
                                                 '\d+\s*[%]|\d+[.]\d+\s*[%])', details)
-        delimited_details = re.search('[^0-9]+[,][^0-9]+|[;]|(and)|[.][^0-9]+', details)
+        delimited_details = re.search('[,][^0-9]+|[;]|(and)|[.][^0-9]+', details)
 
         if interpretable_concentration is not None and delimited_details is not None:
             # print("A delimited set of values was discovered in the below details tag.")
@@ -77,7 +72,7 @@ def parse_crystallization_chemicals(connection, good_entries):
 
                 # Find each chemical name used in the structure's crystallization
                 for delimited_remark in delimited_remarks:
-                    english_delimited_remarks = re.split('(?:and)', delimited_remark)
+                    english_delimited_remarks = re.split('(?:\s+(and|or|in|by|with|at)\s+)', delimited_remark)
 
                     # Check if the chemical name is delimited by an english word
                     for english_delimited_remark in english_delimited_remarks:
@@ -181,21 +176,19 @@ def parse_crystallization_chemicals(connection, good_entries):
 
                                 grammar_filtered = False
                                 while True:
-                                    grammar = re.search('\s+(with|at|in|of|was|were|for|against|to)\s+', remark)
+                                    grammar = re.search('\s+(of|was|were|for|against|to|as)\s+', remark)
                                     words = re.search('(buffer|inhibitor|compound|protein|reservoir|saturated|'
                                                       'solution|prior|cryo|equilib|mixed|until|under|using|'
                                                       'well)', remark)
                                     # Check if an English word is contained in the chemical's name
                                     if grammar is not None:
-                                        grammar_filter = re.sub('\s*(with|at|in|of|was|were|for|'
-                                                                'against|to)\s*.*', '', remark)
+                                        grammar_filter = re.sub('\s*(of|was|were|for|against|to|as)\s*.*', '', remark)
                                         remark = grammar_filter
                                         grammar_filtered = True
                                     elif words is not None:
-                                        word_filter = re.sub('\s*(buffer|inhibitor|compound|'
-                                                             'protein|reservoir|saturated|solution|'
-                                                             'prior|cryo|equilib|mixed|until|under|'
-                                                             'using|well)\s*.*', '', remark)
+                                        word_filter = re.sub('\s*(buffer|inhibitor|compound|protein|reservoir|'
+                                                             'saturated|solution|prior|cryo|equilib|mixed|until|'
+                                                             'under|using|well)\s*.*', '', remark)
                                         remark = word_filter
                                         grammar_filtered = True
                                     else:
@@ -245,7 +238,7 @@ def parse_crystallization_chemicals(connection, good_entries):
 
         for full_concentration in concentration_search:
             data_to_store = []
-            if not names[index].isdigit() and names[index] and len(names[index]) > 1:
+            if not names[index].isdigit() and names[index] and len(names[index]) > 1 and "%" not in names[index]:
                 unique_id = str(uuid.uuid4())
                 value = full_concentration[0]
                 unit = full_concentration[1]
